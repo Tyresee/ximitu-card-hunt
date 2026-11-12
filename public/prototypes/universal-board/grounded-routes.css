@@ -1,0 +1,45 @@
+/* Static, theme-only surfaces; geometry and active-route animation stay in the board renderer. */
+.grounded-routes,
+.grounded-routes *,
+[data-grounded-route-defs],
+[data-grounded-route-defs] * {
+  pointer-events: none;
+}
+
+.grounded-routes path {
+  fill: none;
+  stroke-linejoin: round;
+  /* No SVG filters, bitmap loads, or continuously animated world-sized layers. */
+}
+
+.grounded-route-stone > .grounded-route-contact {
+  stroke: var(--grounded-stone-contact, #64745d);
+}
+
+.grounded-route-stone > .grounded-route-edge {
+  stroke: var(--grounded-stone-edge, #adb397);
+}
+
+.grounded-route-stone > .grounded-route-surface {
+  stroke: var(--grounded-stone-surface, #ded8bd);
+}
+
+.grounded-route-stone > .grounded-route-stepping {
+  stroke: var(--grounded-stone-stepping, #eee8d4);
+}
+
+.grounded-route-timber > .grounded-route-contact {
+  stroke: var(--grounded-timber-contact, #526354);
+}
+
+.grounded-route-timber > .grounded-route-edge {
+  stroke: var(--grounded-timber-edge, #9b9477);
+}
+
+.grounded-route-timber > .grounded-route-surface {
+  stroke: var(--grounded-timber-surface, #cdb98f);
+}
+
+.grounded-route-timber > .grounded-route-seams {
+  stroke: var(--grounded-timber-seams, #9c8c6d);
+}

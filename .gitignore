@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+data/runtime/
+test-results/**/*.png
+!test-results/screenshots/.gitkeep
+*.log
+.DS_Store
+.playwright-cli/
+dist/
+output/

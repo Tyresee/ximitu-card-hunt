@@ -1,0 +1,448 @@
+/* Asset hierarchy and tactile dice. Rules/economy/map layout stay in their owners. */
+.runtime-shell[data-player-hud] .top-hud {
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 280px) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud-stack {
+  max-width: none;
+  padding: 0;
+  gap: 8px;
+  align-items: stretch;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud {
+  width: 100%;
+  min-height: 114px;
+  grid-template-rows: auto auto;
+  justify-items: stretch;
+  align-content: space-between;
+  padding: 10px;
+  gap: 8px;
+  border: 1.5px solid color-mix(in srgb, var(--ink) 22%, white);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: 0 4px 0 rgb(13 40 87 / .12), 0 8px 18px rgb(13 40 87 / .08);
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud[data-turn-state="current"] {
+  border-color: color-mix(in srgb, var(--character-accent) 70%, var(--ink));
+  background: linear-gradient(135deg, #fff8dc, var(--paper) 65%);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--character-accent) 24%, transparent), 0 4px 0 rgb(13 40 87 / .12);
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .team-identity {
+  width: 100%;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 8px;
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .team-token-shell,
+.runtime-shell[data-player-hud] .top-hud .team-hud .team-token-preview {
+  width: 40px;
+  height: 40px;
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .team-copy strong {
+  display: block;
+  font-size: 17px;
+  line-height: 1.15;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .team-copy span {
+  display: block;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .team-copy small { display: none; }
+.runtime-shell[data-player-hud] .top-hud .team-hud .team-copy { min-width: 0; }
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .player-assets {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 6px;
+  padding: 0;
+  background: none;
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge {
+  grid-template-columns: 20px auto;
+  grid-template-rows: auto auto;
+  min-height: 46px;
+  justify-content: center;
+  gap: 0 5px;
+  padding: 5px;
+  border: 0;
+  border-radius: 11px;
+  box-shadow: none;
+  background: #f1f4f5;
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge.is-star {
+  background: linear-gradient(135deg, #fff0b6, #ffe08a);
+  box-shadow: inset 0 1px 0 #fff9e2, inset 0 -2px 0 rgb(155 99 0 / .1);
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge > strong {
+  min-width: 0;
+  font-size: 21px;
+  line-height: 1.05;
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge.is-star > strong {
+  font-size: 30px;
+  color: #725016;
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge > i {
+  width: 16px;
+  height: 16px;
+  grid-row: 1 / 3;
+}
+
+.runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge.is-star > i::before {
+  inset: -5px;
+  font-size: 26px;
+  line-height: 26px;
+  -webkit-text-stroke: .6px #9b6300;
+}
+
+.player-asset-label {
+  color: #526581;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.player-asset-badge.is-star .player-asset-label { color: #725016; }
+.player-asset-delta { font-size: 15px; padding: 3px 7px; }
+.runtime-shell[data-player-hud] .top-hud .harbor-tool-badge {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 3px;
+  padding: 2px 5px;
+  font-size: 10px;
+  line-height: 1.2;
+}
+.player-reward-detail-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.reward-receipt {
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 3px 14px;
+  min-width: 190px;
+  max-width: calc(100vw - 24px);
+  padding: 12px 16px;
+  border: 1.5px solid #c79b46;
+  border-radius: 16px;
+  background: #fff9e6;
+  box-shadow: 0 8px 24px rgb(13 40 87 / .2);
+  color: var(--ink);
+  text-align: left;
+  pointer-events: none;
+}
+.reward-receipt > span { font-size: 14px; font-weight: 850; }
+.reward-receipt > strong { grid-column: 2; grid-row: 1 / 3; align-self: center; color: #91600b; font-size: 32px; line-height: 1; }
+.reward-receipt > small { font-size: 12px; color: #526581; }
+.reward-receipt.is-star { background: #fff0b6; border-color: #b68a28; }
+.reward-receipt.is-star > strong { font-size: 40px; }
+.collection-token.is-star { font-size: 30px; color: #956004; background: #fff1b0; box-shadow: 0 0 0 4px rgb(255 245 205 / .7), 0 5px 14px rgb(124 78 0 / .18); }
+
+/* Closed, chamfered body: six face planes + twenty bevel facets. */
+.physical-die-cube { --die-body: #eeeaff; }
+.physical-die-cube[data-dice-family="starter"] { --die-body: #ffe995; }
+.physical-die-cube[data-dice-family="brave"],
+.physical-die-cube[data-dice-family="sprint"] { --die-body: #ffb29f; }
+.physical-die-cube[data-dice-family="support"] { --die-body: #b8efd1; }
+.physical-die-cube[data-dice-family="steady"] { --die-body: #bfeeff; }
+.physical-die-bevel {
+  position: absolute;
+  inset: 0;
+  width: var(--die-size);
+  height: var(--die-size);
+  backface-visibility: hidden;
+  /* Static shading, without twenty filtered surfaces during every throw. */
+  background: color-mix(in srgb, var(--die-body) calc(var(--facet-light) * 100%), black);
+  pointer-events: none;
+}
+.physical-die-viewport .physical-die-face {
+  border: 0;
+  border-radius: 0;
+  clip-path: inset(8%);
+  background: linear-gradient(145deg, #fffef8 5%, var(--die-face) 60%, var(--die-inset));
+  box-shadow: none;
+  gap: 5px;
+}
+.physical-die-viewport .physical-die-face::before { display: none; }
+.physical-die-face .dice-face-number,
+.physical-die-face.is-special .dice-face-number {
+  font-size: calc(var(--die-size) * .34);
+  font-weight: 900;
+  text-shadow: 0 1px 0 white;
+}
+.physical-die-face .dice-face-bonus-label { font-size: calc(var(--die-size) * .078); line-height: 1.25; }
+.physical-die-face .dice-face-bonus-icon { font-size: calc(var(--die-size) * .15); }
+
+/* The die is compositor-driven, but the covered SVG map used to repaint on
+   every frame underneath a full-screen backdrop blur. Freeze only decorative
+   underlay CSS motion; gameplay/WAAPI and the on-stage die keep their owners. */
+.runtime-shell[data-dice-overlay="true"] :is(.board-viewport, .top-hud, .dice-dock),
+.runtime-shell[data-dice-overlay="true"] :is(.board-viewport, .top-hud, .dice-dock) *,
+.runtime-shell[data-dice-overlay="true"] :is(.board-viewport, .top-hud, .dice-dock) *::before,
+.runtime-shell[data-dice-overlay="true"] :is(.board-viewport, .top-hud, .dice-dock) *::after {
+  animation-play-state: paused !important;
+}
+.runtime-shell[data-dice-overlay="true"] :is(.dice-roll-stage, .dice-choice-stage) {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: rgb(13 40 87 / .48);
+}
+
+/* Full-screen theatre: decorative layers are static gradients; only transform
+   and opacity animate. The real six-faced die remains the same DOM instance. */
+.runtime-shell .dice-roll-stage {
+  position: fixed;
+  z-index: 160;
+  inset: 0;
+  overflow: hidden;
+  padding: 0;
+  isolation: isolate;
+}
+.runtime-shell[data-dice-overlay="true"] .dice-roll-stage {
+  padding: 0;
+  background: radial-gradient(ellipse at 50% 45%, rgb(34 48 106 / .96), rgb(6 13 35 / .98) 76%);
+}
+.dice-stage-scenery { position: absolute; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; }
+.dice-stage-beam {
+  position: absolute;
+  top: -12vh;
+  width: clamp(240px, 42vw, 700px);
+  height: 105vh;
+  transform-origin: 50% 0;
+  clip-path: polygon(47% 0, 53% 0, 100% 100%, 0 100%);
+  background: linear-gradient(180deg, rgb(255 250 213 / .9), rgb(255 240 190 / .23) 45%, transparent 95%);
+  opacity: .62;
+}
+.dice-stage-beam.is-left { left: 12%; transform: translateX(-50%) rotate(-28deg); }
+.dice-stage-beam.is-right {
+  left: 88%;
+  transform: translateX(-50%) rotate(28deg);
+  background: linear-gradient(180deg, rgb(216 251 255 / .9), rgb(173 229 255 / .24) 45%, transparent 95%);
+}
+.dice-stage-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(780px, 95vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgb(210 198 255 / .17), rgb(179 177 255 / .06) 38%, transparent 65%);
+}
+.dice-stage-floor {
+  position: absolute;
+  top: calc(50% + 142px);
+  left: 50%;
+  width: min(520px, 80vw);
+  height: 96px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(223 220 255 / .4);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgb(161 162 244 / .38), rgb(110 126 214 / .12) 65%, transparent 70%);
+  box-shadow: 0 0 0 12px rgb(199 196 255 / .025), 0 0 0 36px rgb(199 196 255 / .02);
+}
+.dice-stage-stars {
+  position: absolute;
+  inset: 0;
+  opacity: .75;
+  background:
+    radial-gradient(circle at 21% 26%, #fff5ce 0 1.5px, transparent 2px),
+    radial-gradient(circle at 76% 20%, #b9e8ff 0 2px, transparent 2.5px),
+    radial-gradient(circle at 33% 64%, #fff5ce 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 69%, #fff5ce 0 1.5px, transparent 2px),
+    radial-gradient(circle at 84% 48%, #c6d9ff 0 1px, transparent 2px),
+    radial-gradient(circle at 14% 58%, #b9e8ff 0 1px, transparent 2px);
+}
+.runtime-shell .dice-roll-card,
+.runtime-shell[data-dice-overlay="true"] .dice-roll-card {
+  position: relative;
+  width: min(900px, 100vw);
+  min-height: min(650px, 100dvh);
+  align-content: center;
+  gap: 12px;
+  padding: 28px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #fff8e8;
+  animation: none;
+}
+.dice-roll-heading { display: grid; justify-items: center; justify-content: center; gap: 10px; text-align: center; }
+.dice-roll-heading .stage-kicker { color: #ebd296; font-size: 12px; letter-spacing: .24em; }
+.dice-roll-heading h2 { margin-top: 7px; color: #fff9ed; font-size: clamp(24px, 3vw, 34px); letter-spacing: .06em; }
+.runtime-shell .dice-roll-card .dice-roll-status {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #d3def9;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .12em;
+}
+.dice-roll-cube-slot { position: relative; min-height: 330px; width: 100%; }
+.dice-roll-cube-slot::before,
+.dice-roll-cube-slot::after { display: none; }
+.dice-roll-cube-slot .physical-die-viewport { --die-size: 184px; position: relative; perspective: 1100px; }
+.dice-roll-cube-slot .physical-die-viewport::before,
+.dice-roll-cube-slot .physical-die-viewport::after { display: none; }
+.dice-roll-face-reference { order: 4; width: 100%; text-align: center; }
+.dice-roll-face-reference summary { min-height: 32px; padding: 7px; color: #c2cdec; font-size: 11px; cursor: pointer; }
+.dice-roll-face-reference .dice-face-tray { margin-top: 8px; }
+.dice-roll-face-reference[open] { position: absolute; bottom: 0; background: #152447; border-radius: 16px; padding: 10px; }
+.runtime-shell .dice-roll-result {
+  min-height: 50px;
+  margin: 0;
+  padding: 8px 20px;
+  border: 0;
+  color: #d3def9;
+  font-size: clamp(18px, 2.2vw, 27px);
+  letter-spacing: .025em;
+}
+.runtime-shell .dice-roll-result.is-visible { color: #fff4c7; background: transparent; }
+.dice-roll-card[data-phase="settle"] .physical-die-face.is-result {
+  background: linear-gradient(145deg, #fffef8, #fff0b6 65%, #ffe08a);
+}
+.dice-roll-card[data-phase="settle"] .physical-die-face:not(.is-result) .dice-face-number,
+.dice-roll-card[data-phase="settle"] .physical-die-face:not(.is-result) .dice-face-bonus-label { opacity: .48; }
+.dice-roll-face-reference summary:focus-visible { outline: 3px solid #ffe49d; outline-offset: 2px; }
+.dice-board-result {
+  position: fixed;
+  z-index: 145;
+  left: 50%;
+  bottom: max(34px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  max-width: calc(100vw - 28px);
+  padding: 12px 25px 12px 14px;
+  transform: translateX(-50%);
+  border: 1px solid #e0ba71;
+  border-radius: 24px;
+  background: #fff9e9;
+  color: #3c3266;
+  box-shadow: 0 8px 32px rgb(24 35 74 / .25);
+  pointer-events: none;
+}
+.dice-board-result[hidden] { display: none; }
+.dice-board-result-number {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fff4cf, #f6d787);
+  color: #65421d;
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1;
+}
+.dice-board-result-copy { display: grid; gap: 4px; white-space: nowrap; }
+.dice-board-result-copy strong { font-size: 24px; }
+.dice-board-result-copy small { font-size: 14px; color: #756344; }
+@media (prefers-reduced-motion: no-preference) {
+  .dice-roll-stage:not([hidden])[data-phase="enter"] .dice-stage-scenery { animation: dice-theatre-enter 280ms ease-out both; }
+  .dice-roll-stage:not([hidden]) .dice-stage-beam.is-left { animation: dice-spotlight-left 2400ms ease-out both; }
+  .dice-roll-stage:not([hidden]) .dice-stage-beam.is-right { animation: dice-spotlight-right 2400ms ease-out both; }
+  .dice-board-result:not([hidden]) { animation: dice-board-result-enter 200ms cubic-bezier(.22, 1, .36, 1) both; }
+}
+@keyframes dice-theatre-enter { from { opacity: 0; } to { opacity: 1; } }
+@keyframes dice-spotlight-left {
+  from { opacity: .15; transform: translateX(-50%) rotate(-40deg); }
+  to { opacity: .62; transform: translateX(-50%) rotate(-28deg); }
+}
+@keyframes dice-spotlight-right {
+  from { opacity: .15; transform: translateX(-50%) rotate(40deg); }
+  to { opacity: .62; transform: translateX(-50%) rotate(28deg); }
+}
+@keyframes dice-board-result-enter {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (min-width: 901px) {
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud { min-height: 102px; padding: 7px; gap: 5px; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .team-identity { grid-template-columns: 30px minmax(0, 1fr); gap: 4px; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .team-token-shell,
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .team-token-preview { width: 30px; height: 30px; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .team-copy strong { font-size: 13px; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .team-copy span { display: none; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .player-assets { grid-template-columns: 1fr; gap: 2px; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .player-asset-badge { grid-template-columns: 16px auto auto; grid-template-rows: auto; min-height: 22px; padding: 2px 4px; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .player-asset-badge > i { grid-row: auto; width: 12px; height: 12px; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .player-asset-badge.is-star > i::before { inset: -3px; font-size: 18px; line-height: 18px; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .player-asset-badge > strong { font-size: 15px; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .player-asset-badge.is-star > strong { font-size: 23px; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .harbor-tool-badge { font-size: 9px; }
+}
+@media (min-width: 901px) and (max-width: 1199px) {
+  .runtime-shell[data-player-hud] .top-hud { grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr); gap: 8px; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud-stack { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: minmax(0, 1fr); }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .team-identity { grid-template-columns: 1fr; justify-items: center; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .team-copy strong { text-align: center; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .player-asset-label { display: none; }
+  .runtime-shell[data-player-hud="compact"] .top-hud .team-hud .player-asset-badge { grid-template-columns: 14px auto; }
+}
+@media (max-width: 900px) {
+  .runtime-shell[data-player-hud] .top-hud { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .runtime-shell[data-player-hud] .top-hud .team-hud-stack { gap: 5px; }
+  .runtime-shell[data-player-hud] .top-hud .team-hud { padding: 6px; min-height: 86px; gap: 5px; border-radius: 12px; }
+  .runtime-shell[data-player-hud] .top-hud .team-hud .team-identity { grid-template-columns: 26px minmax(0, 1fr); gap: 4px; }
+  .runtime-shell[data-player-hud] .top-hud .team-hud .team-token-shell,
+  .runtime-shell[data-player-hud] .top-hud .team-hud .team-token-preview { width: 26px; height: 26px; }
+  .runtime-shell[data-player-hud] .top-hud .team-hud .team-copy strong { font-size: 12px; }
+  .runtime-shell[data-player-hud] .top-hud .team-hud .team-copy span { font-size: 8px; }
+  .runtime-shell[data-player-hud] .top-hud .team-hud .player-assets { gap: 3px; }
+  .runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge { grid-template-columns: auto; min-height: 35px; padding: 3px; }
+  .runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge > i { display: none; }
+  .runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge > strong { font-size: 17px; }
+  .runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge.is-star > strong { font-size: 24px; }
+  .player-asset-label { font-size: 9px; }
+  .runtime-shell[data-player-hud] .top-hud .harbor-tool-badge { font-size: 8px; }
+  .runtime-shell[data-dice-overlay="true"] .dice-roll-card { width: 100vw; padding: 18px; }
+  .dice-roll-heading h2 { font-size: 22px; }
+  .dice-roll-cube-slot { min-height: 280px; }
+  .dice-roll-cube-slot .physical-die-viewport { --die-size: 156px; }
+  .dice-roll-result { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dice-roll-card, .player-asset-delta, .dice-roll-result { animation: none !important; transition: none !important; }
+  .dice-roll-cube-slot::before { transition: none; }
+}
+@media (max-width: 600px) {
+  .runtime-shell[data-player-hud] .top-hud .team-hud .team-copy span { display: none; }
+}
+
+@media (max-height: 620px) {
+  .runtime-shell[data-dice-overlay="true"] .dice-roll-card { min-height: 100dvh; gap: 5px; padding: 10px; }
+  .dice-roll-heading { gap: 3px; }
+  .dice-roll-heading .stage-kicker { display: none; }
+  .dice-roll-heading h2 { font-size: 22px; margin: 0; }
+  .dice-roll-cube-slot { min-height: 220px; }
+  .dice-roll-cube-slot .physical-die-viewport { --die-size: 124px; }
+  .dice-stage-floor { top: calc(50% + 100px); height: 64px; }
+  .dice-roll-face-reference summary { min-height: 24px; padding: 3px; }
+}

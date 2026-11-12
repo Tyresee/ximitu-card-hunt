@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "imagegen-board-master.v1",
+  "worldRef": "world.ximitu.beyond-cloud@1.0.0",
+  "boardTemplateRef": "ximitu-card-hunt-world-02.v1@1.0.0",
+  "generatedAt": "2026-07-30",
+  "generator": "built-in image_gen",
+  "selectedVersion": 2,
+  "source": {
+    "rawFile": "world-02-master-v2-imagegen-raw.png",
+    "rawSize": [1836, 856],
+    "normalizedFile": "world-02-master-v2-source.png",
+    "normalizedSize": [2400, 1120],
+    "rawSha256": "174229ec9c33df00837dc6552d1f8c4f2e7a8d6e5e462c8155f22006fc09d733",
+    "normalizedSha256": "e153cb9776ace770212c43e90b86b4aa80eca8fa6b3280263912c745000bdf94"
+  },
+  "runtimeCrops": [
+    {
+      "zoneId": "zone-05",
+      "layoutContractRef": "board.ximitu-card-hunt.world-02.zone-05-layout.v1",
+      "topologySha256": "d98bdd6ff4225e52744c2e8414cb831ab5b5be17cd9251db5a2e622a12decede",
+      "artBox": [0, 0, 1200, 620],
+      "file": "../../../public/assets/board-themes/beyond-cloud/regions/zone-05-v2.jpg",
+      "sha256": "9c3809f97bc86beb3aa0b3e03f95a6c6c528fbda8dd7cab06534d21173be8617"
+    },
+    {
+      "zoneId": "zone-06",
+      "layoutContractRef": "board.ximitu-card-hunt.world-02.zone-06-layout.v1",
+      "topologySha256": "a912a634d91f6216c38574383cf4ba061aac4166d041540148f6e9a3fe82d2d2",
+      "artBox": [1200, 0, 1200, 560],
+      "file": "../../../public/assets/board-themes/beyond-cloud/regions/zone-06-v2.jpg",
+      "sha256": "6835fc2f3de402deb4a7da3e9a179d7368b5fc848cab5b381704129c5c3e7776"
+    },
+    {
+      "zoneId": "zone-07",
+      "layoutContractRef": "board.ximitu-card-hunt.world-02.zone-07-layout.v1",
+      "topologySha256": "89ad1a8e5f5003b449f937a77ea2871111c7e628eb6bc98f28de8f24d006f66b",
+      "artBox": [1200, 560, 1200, 560],
+      "file": "../../../public/assets/board-themes/beyond-cloud/regions/zone-07-v2.jpg",
+      "sha256": "a750a0bfe4ace0d25ff3cbf35b61e8a53d39650225ad4524ac79b9946e7184e6"
+    },
+    {
+      "zoneId": "zone-08",
+      "layoutContractRef": "board.ximitu-card-hunt.world-02.zone-08-layout.v1",
+      "topologySha256": "fe14dcd3c7dd7fa8dba8b9722282adfb3a9a751549ec291eacbf9aed28ed6848",
+      "artBox": [0, 560, 1200, 560],
+      "file": "../../../public/assets/board-themes/beyond-cloud/regions/zone-08-v2.jpg",
+      "sha256": "6d905b8c96615f923adda45d960d859c1b9894b1c63b126f824c383f8bdf5f22"
+    }
+  ],
+  "prompts": {
+    "initial": "Create one seamless premium hand-painted 2D children's adventure world at about 15:7, using the master layout guide only for spatial clearance and the Cloud Harbor image only for aesthetic reference. Four continuous biomes: star-gate islands, cloud-whale route, aurora crystal grove, and moon-wheel ruins. Keep the winding route corridor calm and free of tall scenery. No baked nodes, routes, text, UI, borders, panels, characters, or watermark.",
+    "selectedEdit": "Edit only gameplay readability: preserve the complete world and exact framing, but clear every guide node ring and route-safe corridor by replacing intrusive tall or high-contrast objects with low calm terrain. Keep landmarks outside clearance zones. Never reproduce guide marks, routes, nodes, text, panels, borders, UI, characters, or watermark."
+  }
+}

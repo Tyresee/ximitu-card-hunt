@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wordattack.timclass.cn/schemas/assessment-policy-catalog.v2.schema.json",
+  "title": "Voice Board Assessment Policy Catalog v2",
+  "description": "Codex 与教师页提交的规范化语音高权重知识点目录。该 Schema 严格描述受控字段和局部约束；权重求和、跨策略唯一性、跨对比组歧义及服务端题目绑定仍由服务端语义预检。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "catalogId",
+    "displayName",
+    "policies"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "assessment-policy-catalog.v2"
+    },
+    "catalogId": {
+      "$ref": "#/$defs/policyText"
+    },
+    "displayName": {
+      "$ref": "#/$defs/displayName"
+    },
+    "policies": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "items": {
+        "$ref": "#/$defs/policy"
+      }
+    }
+  },
+  "$defs": {
+    "policyText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "englishPhrase": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^[a-z]+(?:['-][a-z]+)*(?: [a-z]+(?:['-][a-z]+)*)*$"
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policyId",
+        "displayName",
+        "bindings",
+        "requiredGate",
+        "evaluatorRef",
+        "evaluatorConfig",
+        "onWrong",
+        "onUncertain",
+        "providerProfileRef",
+        "weights"
+      ],
+      "properties": {
+        "policyId": {
+          "$ref": "#/$defs/policyText"
+        },
+        "displayName": {
+          "$ref": "#/$defs/displayName"
+        },
+        "bindings": {
+          "$ref": "#/$defs/bindings"
+        },
+        "requiredGate": {
+          "const": true,
+          "description": "为兼容既有策略保留的高权重主考点标记；明确错误按 onWrong 结算。"
+        },
+        "evaluatorRef": {
+          "const": "reference-choice.v1"
+        },
+        "evaluatorConfig": {
+          "$ref": "#/$defs/evaluatorConfig"
+        },
+        "onWrong": {
+          "type": "string",
+          "enum": [
+            "score_low",
+            "retry"
+          ],
+          "default": "score_low",
+          "examples": [
+            "score_low"
+          ],
+          "description": "新策略使用 score_low：明确错误固定 45 分并继续游戏，高供应商总分不能抬高。retry 仅用于读取和原样保存旧策略。"
+        },
+        "onUncertain": {
+          "const": "teacher_review"
+        },
+        "providerProfileRef": {
+          "const": "aliyun.extended-choice.v1"
+        },
+        "weights": {
+          "$ref": "#/$defs/weights"
+        }
+      }
+    },
+    "bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "objectiveIds"
+      ],
+      "properties": {
+        "objectiveIds": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/policyText"
+          }
+        }
+      }
+    },
+    "evaluatorConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "choiceSets"
+      ],
+      "properties": {
+        "choiceSets": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "items": {
+            "$ref": "#/$defs/choiceSet"
+          }
+        }
+      }
+    },
+    "choiceSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "forms"
+      ],
+      "properties": {
+        "forms": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 17,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/englishPhrase"
+          }
+        }
+      }
+    },
+    "weights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "knowledgeCorrectness",
+        "targetPronunciation",
+        "sentencePronunciation",
+        "fluency"
+      ],
+      "properties": {
+        "knowledgeCorrectness": {
+          "type": "number",
+          "minimum": 50,
+          "maximum": 100
+        },
+        "targetPronunciation": {
+          "$ref": "#/$defs/weight"
+        },
+        "sentencePronunciation": {
+          "$ref": "#/$defs/weight"
+        },
+        "fluency": {
+          "$ref": "#/$defs/weight"
+        }
+      }
+    },
+    "weight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    }
+  }
+}

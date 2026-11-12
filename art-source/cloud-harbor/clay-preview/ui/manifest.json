@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-10",
+  "tool": "built-in ImageGen",
+  "role": "ui",
+  "reference": "/Users/tiantianci/.codex/generated_images/01a1c3c0-4b0e-7341-965a-ff4db722a701/exec-a0b6db9e-3c5d-4db1-938c-e94f41dea189.png",
+  "source": {
+    "file": "enamel-panel-v1-source.png",
+    "size": [
+      2172,
+      724
+    ],
+    "sha256": "29f65149a714e4121c5728cbde9cc7d46ff6f38c992d5b42cb74319dea51216c"
+  },
+  "runtime": {
+    "file": "public/assets/board-themes/cloud-harbor/clay-preview/ui/enamel-panel-v1.webp",
+    "size": [
+      1536,
+      262
+    ],
+    "sha256": "883e4351486f9c4df47f88a1301b9b00e4dfedf083ea5111bc3ddb0325c660e5",
+    "crop": [
+      13,
+      175,
+      2161,
+      542
+    ],
+    "nineSlice": 64,
+    "displayBorderPixels": 18
+  },
+  "prompt": "Generate ONE empty warm-cream enamel plaque shell matching the selected clay-game reference: long horizontal rounded rectangle, fine handmade grain, convex beveled ivory rim, buttery upper highlight, pale-beige lower lip, four tiny honey-brass studs in corners, straight front elevation, transparent alpha background, no portraits, words, numbers, colored score chips, buttons, icons, or surrounding mockup. Preserve a clean low-contrast center for live dark-navy HTML content. Reusable nine-slice raster UI shell for student HUD rows and controls.",
+  "coralButton": {
+    "tool": "built-in ImageGen",
+    "source": {
+      "file": "coral-button-v1-source.png",
+      "size": [
+        2172,
+        724
+      ],
+      "sha256": "18c1ada328c34fb8cd3c444d5bad148e270c26fc3378b6666d373a2eb42ce21c"
+    },
+    "runtime": {
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/ui/coral-button-v1.webp",
+      "size": [
+        768,
+        220
+      ],
+      "sha256": "4ee88be48706e3bb4a86e2d4f7224aebd177572539bea0479e21a3e528d1650a",
+      "crop": [
+        54,
+        76,
+        2118,
+        666
+      ],
+      "nineSlice": 60,
+      "displayBorderPixels": 13
+    },
+    "prompt": "One empty coral orange-salmon enamel roll button matching selected clay reference; fine handmade grain, raised rounded glossy bevel, buttery upper highlight, darker terracotta lower lip, very thin cream rim, straight front elevation, true transparent alpha; no words, numbers, dice, icons, screws or surrounding panels. Clean center for live HTML label."
+  }
+}

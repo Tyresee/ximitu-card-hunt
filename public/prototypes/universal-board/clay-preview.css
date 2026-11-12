@@ -1,0 +1,671 @@
+/* Local, opt-in clay study. Rules, coordinates and die presentation are owned
+   by the existing game; this file styles only the classroom HUD and controls. */
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) {
+  --clay-ink: #17354e;
+  --clay-cream: #fff5e4;
+  --clay-edge: #d3b58c;
+  --clay-shadow: #725b3f28;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud {
+  position: fixed;
+  inset: max(14px, env(safe-area-inset-top)) 16px auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+  width: auto;
+  padding: 0;
+  color: var(--clay-ink);
+  pointer-events: none;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-hud-stack {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-template-columns: none;
+  gap: 8px;
+  width: 100%;
+  max-width: 610px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-hud-stack-right {
+  justify-self: end;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-hud {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: center;
+  gap: 7px;
+  min-height: 102px;
+  padding: 9px;
+  border: 1.5px solid transparent;
+  border-radius: 17px;
+  background: none;
+  box-shadow: none;
+  color: var(--clay-ink);
+  pointer-events: auto;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-hud[data-turn-state="current"] {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-identity {
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 7px;
+  text-align: left;
+  justify-items: start;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-token-shell,
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-token-preview {
+  width: 36px;
+  height: 36px;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-token-preview {
+  border: 1.5px solid #e3c6a2;
+  border-radius: 10px;
+  background: #f9ead5;
+  box-shadow: inset 0 -2px 0 #d6bc99;
+  animation: none;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-copy :is(span, small) {
+  display: none;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-copy strong {
+  display: block;
+  max-width: 100%;
+  color: var(--clay-ink);
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: left;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-assets {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .85fr);
+  gap: 5px;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-asset-badge {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-content: center;
+  justify-items: center;
+  gap: 2px;
+  min-height: 42px;
+  padding: 5px 4px;
+  border: 1px solid #c2d5bd;
+  border-radius: 12px;
+  background: #d8ebd5;
+  box-shadow: inset 0 1px 0 #f5fff0, inset 0 -2px 0 #b7d4b1;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-asset-badge.is-actions {
+  border-color: #c8d8e7;
+  background: #dce8f2;
+  box-shadow: inset 0 1px 0 #f4faff, inset 0 -2px 0 #bfd3e3;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-asset-badge > i {
+  display: none;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-asset-badge > strong {
+  grid-column: 1;
+  min-width: 0;
+  color: var(--clay-ink);
+  font-size: clamp(18px, 1.7vw, 25px);
+  font-weight: 1000;
+  line-height: 1;
+  letter-spacing: -.025em;
+  white-space: nowrap;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-asset-label {
+  grid-column: 1;
+  color: #435a67;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+  white-space: normal;
+}
+
+/* One or two students use the small two-row plaque rail from the target. */
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud {
+  right: auto;
+  width: min(450px, calc(100vw - 32px));
+  grid-template-columns: minmax(0, 1fr);
+  gap: 7px;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .team-hud-stack {
+  grid-column: 1;
+  grid-row: auto;
+  max-width: none;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .team-hud {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+  grid-template-rows: auto;
+  gap: 10px;
+  min-height: 72px;
+  padding: 9px 14px;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .team-copy strong {
+  font-size: 20px;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .team-identity {
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 9px;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud :is(.team-token-shell, .team-token-preview) {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-token-shell::before {
+  display: none;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-assets.is-clay-inline {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 9px;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .is-clay-inline .player-asset-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 45px;
+  gap: 5px;
+  padding: 5px 6px;
+  border-radius: 15px;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .is-clay-inline .player-asset-badge > strong {
+  order: 0;
+  font-size: 25px;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .is-clay-inline .player-asset-label {
+  order: 1;
+  color: #17354e;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .is-clay-inline .player-asset-badge.is-actions .player-asset-label {
+  order: 0;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .is-clay-inline .player-asset-badge.is-actions > strong {
+  order: 1;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .clay-action-unit {
+  order: 2;
+  color: #17354e;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-play-panel:not([hidden]) {
+  left: max(16px, env(safe-area-inset-left));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  isolation: isolate;
+  gap: 12px;
+  min-width: 440px;
+  min-height: 80px;
+  max-width: min(630px, calc(100vw - 88px));
+  padding: 11px 14px;
+  border: 1.5px solid transparent;
+  border-radius: 19px;
+  background: none;
+  box-shadow: none;
+  color: var(--clay-ink);
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-player-options {
+  gap: 9px;
+  max-width: 380px;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-player-options button {
+  min-width: 86px;
+  min-height: 56px;
+  padding: 11px 15px;
+  border: 1.5px solid #c7ab84;
+  border-radius: 13px;
+  background: #fff9ed;
+  box-shadow: inset 0 1px 0 #fffdf7, inset 0 -3px 0 #e8d9bf;
+  color: var(--clay-ink);
+  font-size: 18px;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-player-options button[aria-pressed="true"] {
+  border-color: #b89340;
+  background: #ffda75;
+  box-shadow: inset 0 1px 0 #fff1bc, inset 0 -3px 0 #e9b94b;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-play-action > button {
+  position: relative;
+  isolation: isolate;
+  min-width: 180px;
+  min-height: 56px;
+  max-width: 200px;
+  padding: 12px 20px;
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+  background: none;
+  box-shadow: none;
+  color: #fff8ef;
+  font-size: 22px;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-play-action > button::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  pointer-events: none;
+  border: 13px solid transparent;
+  border-image: url("/assets/board-themes/cloud-harbor/clay-preview/ui/coral-button-v1.webp") 60 fill / 13px stretch;
+}
+
+/* The plaque face and its four small studs are real generated raster art.
+   Nine-slicing preserves the bevel instead of redrawing it with CSS shapes. */
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) :is(.top-hud .team-hud, .teacher-play-panel)::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  pointer-events: none;
+  border: 18px solid transparent;
+  border-image: url("/assets/board-themes/cloud-harbor/clay-preview/ui/enamel-panel-v1.webp") 64 fill / 18px stretch;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-play-panel button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-play-panel button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-play-panel button:focus-visible {
+  outline: 3px solid #287e7a;
+  outline-offset: 3px;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) #teacher-play-status:not([hidden]) {
+  max-width: 62ch;
+  padding: 7px 9px;
+  border-radius: 9px;
+  background: #fff0d4;
+  color: #793f22;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-play-panel .teacher-status-retry {
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 1px solid #b9cdbf;
+  background: #e2eee0;
+  color: var(--clay-ink);
+  font-size: 12px;
+  box-shadow: none;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .board-utility-menu > summary {
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--clay-edge);
+  border-radius: 50%;
+  background: var(--clay-cream);
+  box-shadow: inset 0 2px 0 #fffdf7, inset 0 -3px 0 #ead3b2, 0 3px 7px var(--clay-shadow);
+  color: var(--clay-ink);
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .board-utility-menu .session-utility-actions {
+  bottom: 53px;
+  width: 168px;
+  gap: 7px;
+  padding: 9px;
+  border: 1.5px solid var(--clay-edge);
+  border-radius: 16px;
+  background: var(--clay-cream);
+  box-shadow: inset 0 2px 0 #fffdf7, 0 5px 12px var(--clay-shadow);
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .board-utility-menu .session-utility-actions button {
+  min-height: 44px;
+  border: 1px solid #dbc9ad;
+  border-radius: 11px;
+  background: #f7ebd9;
+  color: var(--clay-ink);
+  font-size: 13px;
+  box-shadow: inset 0 1px 0 #fff9ec, inset 0 -2px 0 #e5d3b7;
+  transition: background-color 140ms ease;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .sc-legend {
+  border: 1.5px solid var(--clay-edge);
+  border-radius: 17px;
+  background: var(--clay-cream);
+  box-shadow: inset 0 2px 0 #fffdf7, 0 4px 8px var(--clay-shadow);
+  color: var(--clay-ink);
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .sc-legend:not(.is-collapsed) {
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(74px, calc(env(safe-area-inset-bottom) + 62px));
+  max-width: min(370px, calc(100vw - 32px));
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .sc-legend.is-collapsed {
+  right: 74px;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  width: auto;
+  max-width: 260px;
+  overflow: hidden;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .sc-legend-head {
+  height: 45px;
+  padding: 0 15px;
+  border-radius: 15px;
+  background: #fff4dc;
+  box-shadow: inset 0 -3px 0 #ead3b2;
+  color: var(--clay-ink);
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) :is(.board-utility-menu > summary, .sc-legend-head, .session-utility-actions button):focus-visible {
+  outline: 3px solid #287e7a;
+  outline-offset: 3px;
+}
+
+/* Large classes keep one row of cards per side instead of covering the map. */
+@media (min-width: 681px) {
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .is-clay-inline .player-asset-badge.is-points > strong {
+    font-size: var(--clay-value-font, 25px);
+  }
+}
+
+@media (min-width: 901px) {
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-hud="compact"] .top-hud .team-hud {
+    min-height: 105px;
+    grid-template-rows: auto auto;
+    gap: 5px;
+    padding: 7px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-hud="compact"] .top-hud .team-identity {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 5px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-hud="compact"] .top-hud :is(.team-token-shell, .team-token-preview) {
+    width: 28px;
+    height: 28px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-hud="compact"] .top-hud .team-copy strong {
+    font-size: 13px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-hud="compact"] .top-hud .player-assets {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-hud="compact"] .top-hud .player-asset-badge.is-actions {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    min-height: 21px;
+    padding: 3px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-hud="compact"] .top-hud .player-asset-badge.is-actions > strong {
+    font-size: 12px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-hud="compact"] .top-hud .is-clay-inline .player-asset-badge {
+    gap: 3px;
+    padding-inline: 3px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-hud="compact"] .top-hud .is-clay-inline .player-asset-badge.is-points > strong {
+    font-size: clamp(14px, 1.15vw, 18px);
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-hud="compact"] .top-hud .is-clay-inline :is(.player-asset-label, .clay-action-unit) {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud {
+    left: 10px;
+    right: 10px;
+    gap: 7px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-hud-stack {
+    gap: 5px;
+    grid-auto-flow: row;
+    grid-auto-columns: unset;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-hud {
+    min-height: 96px;
+    padding: 7px;
+  }
+}
+
+@media (max-width: 680px) {
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud,
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud {
+    inset: max(10px, env(safe-area-inset-top)) 10px auto;
+    width: auto;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-hud-stack {
+    display: contents;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-hud {
+    min-height: 101px;
+    gap: 5px;
+    padding: 6px;
+    border-radius: 13px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-identity {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 4px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud :is(.team-token-shell, .team-token-preview) {
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .team-copy strong {
+    font-size: 11px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-assets {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-asset-badge {
+    min-height: 37px;
+    gap: 2px;
+    padding: 3px 2px;
+    border-radius: 8px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-asset-badge > strong {
+    font-size: 16px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-asset-label {
+    font-size: 8px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-asset-badge.is-actions {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    min-height: 20px;
+    padding: 3px 2px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-asset-badge.is-actions > strong {
+    font-size: 12px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .team-hud {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    min-height: 99px;
+    padding: 7px;
+    gap: 6px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .team-identity {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 6px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud :is(.team-token-shell, .team-token-preview) {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .team-copy strong {
+    font-size: 14px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .player-assets {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, .85fr);
+    gap: 5px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .player-asset-badge > strong {
+    font-size: 19px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-count="1"] .top-hud {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(360px, calc(100vw - 20px));
+    right: auto;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-count="1"] .top-hud .team-hud {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    grid-template-rows: auto;
+    min-height: 66px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-play-panel:not([hidden]) {
+    left: max(10px, env(safe-area-inset-left));
+    bottom: max(10px, env(safe-area-inset-bottom));
+    gap: 6px;
+    min-width: 0;
+    min-height: 0;
+    max-width: calc(100vw - 76px);
+    padding: 7px;
+    border-radius: 16px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-player-options button {
+    min-width: 48px;
+    min-height: 44px;
+    max-width: 96px;
+    padding: 7px 9px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .teacher-play-action > button {
+    min-width: 112px;
+    min-height: 44px;
+    max-width: 144px;
+    padding: 8px 11px;
+    border-radius: 11px;
+    font-size: 14px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .sc-legend.is-collapsed {
+    bottom: max(80px, calc(env(safe-area-inset-bottom) + 70px));
+    max-width: calc(100vw - 92px);
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .sc-legend:not(.is-collapsed) {
+    right: max(10px, env(safe-area-inset-right));
+    bottom: max(80px, calc(env(safe-area-inset-bottom) + 70px));
+    max-width: calc(100vw - 20px);
+    max-height: calc(100dvh - 250px);
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .sc-legend-head {
+    height: 44px;
+    padding-inline: 12px;
+    font-size: 15px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .player-assets.is-clay-inline {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .is-clay-inline .player-asset-badge.is-points {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    min-height: 37px;
+    padding: 3px 2px;
+    gap: 2px;
+    border-radius: 9px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .is-clay-inline .player-asset-badge.is-actions {
+    display: flex;
+    min-height: 20px;
+    padding: 3px 2px;
+    gap: 3px;
+    border-radius: 8px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .is-clay-inline .player-asset-label,
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .clay-action-unit {
+    font-size: 9px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud .is-clay-inline .player-asset-badge.is-actions > strong {
+    font-size: 12px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"])[data-player-count]:not([data-player-count="1"]):not([data-player-count="2"]) .top-hud .team-hud .player-asset-badge.is-points > strong {
+    font-size: 14px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .player-assets.is-clay-inline {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, .85fr);
+    gap: 5px;
+  }
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]):is([data-player-count="1"], [data-player-count="2"]) .top-hud .is-clay-inline .player-asset-badge.is-points > strong {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) :is(.teacher-play-panel button, .session-utility-actions button, .sc-legend-head) {
+    transition: none;
+  }
+}

@@ -1,0 +1,117 @@
+/* The harbor sample changes presentation only; node owners and labels remain intact. */
+.world-zone[data-grounded-zone="true"] .zone-field,
+.world-zone[data-grounded-zone="true"] .zone-label,
+.grounded-landmark {
+  display: none;
+}
+
+.board-space[data-grounded-node="true"] .node-effect-badge {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease;
+}
+
+.board-space[data-grounded-node="true"].is-special:is(.is-current, .is-route-preview, .is-route-junction, .is-move-plan) .node-effect-badge,
+.board-space[data-grounded-node="true"]:focus-visible .node-effect-badge,
+.board-space[data-grounded-node="true"].is-layout-editor-selected .node-effect-badge {
+  opacity: 1;
+}
+
+.board-space[data-grounded-node="true"] .node-effect-badge rect {
+  fill: #fff9e9;
+  stroke-width: 1.2px;
+}
+
+.board-space[data-grounded-node="true"] .node-effect-badge text {
+  fill: #3e5045;
+  font-weight: 750;
+}
+
+.board-space[data-grounded-node="true"] .space-state-halo {
+  transform: translateY(3px) scale(.8, .45);
+  animation: none;
+}
+
+.board-space[data-grounded-node="true"] .space-state-halo-outer,
+.board-space[data-grounded-node="true"] .space-state-halo-inner {
+  animation: none;
+  stroke: #789a7e;
+  stroke-width: 2px;
+}
+
+.board-space[data-grounded-node="true"].is-ordinary .node-visual-token {
+  filter: none;
+}
+
+.board-space[data-grounded-node="true"] .space-nameplate rect {
+  fill: #fff9e9;
+  stroke: #a9b298;
+  stroke-width: 1px;
+}
+
+.board-space[data-grounded-node="true"] .space-nameplate text {
+  fill: #3e5045;
+  font-weight: 750;
+}
+
+.grounded-facility-layer,
+.grounded-facility-layer * {
+  pointer-events: none;
+}
+
+/* These crops share a single image, so no outlined region seams are needed. */
+[data-scene-presentation="grounded-crystal.v1"] .region-art-fallback {
+  stroke: none;
+}
+
+.grounded-facility-layer :is(.launcher-label, .map-effect-label) {
+  fill: #40584d;
+  font-size: 9px;
+  font-weight: 800;
+  stroke: #fffae9;
+  stroke-width: 2.2px;
+  paint-order: stroke fill;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .board-viewport:not(.is-panning) .board-space[data-grounded-node="true"]:hover .node-effect-badge {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .board-space[data-grounded-node="true"] .node-effect-badge {
+    transition: none;
+  }
+}
+[data-scene-presentation="grounded-crystal.v1"] .air-crossing-trail {
+  fill: none;
+  stroke: #fff4cf;
+  stroke-width: 3.5;
+  stroke-dasharray: 1 13;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+[data-scene-presentation="grounded-crystal.v1"] .air-crossing-label {
+  fill: #325b70;
+  stroke: #f1ffff;
+  stroke-width: 3;
+  paint-order: stroke fill;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+
+[data-scene-presentation="grounded-crystal.v1"] .route-active-flow[data-air-crossing="true"] {
+  stroke-width: 4;
+  stroke-dasharray: 2 13;
+  opacity: .7;
+}
+
+.step-pawn[data-travel-mode="air-crossing"]::after {
+  background: #e5faff;
+  color: #285c72;
+  border-color: #78a9b7;
+}

@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "clay-preview-tile-art.v2",
+  "generatedAt": "2026-11-10",
+  "scope": "Local opt-in visual sample; display assets only",
+  "generator": {
+    "mode": "built-in image_gen",
+    "promptFile": "prompt-v2.txt",
+    "reference": "/Users/tiantianci/.codex/generated_images/01a1c3c0-4b0e-7341-965a-ff4db722a701/exec-a0b6db9e-3c5d-4db1-938c-e94f41dea189.png",
+    "editTarget": "clay-tiles-sprite-v1-source.png"
+  },
+  "source": {
+    "file": "art-source/cloud-harbor/clay-preview/tiles/clay-tiles-sprite-v2-source.png",
+    "width": 2172,
+    "height": 724,
+    "hasAlpha": true,
+    "bytes": 1051269,
+    "sha256": "a802e925bc13f6fef20b27d128406dcf4bb27e61c859f56e8b39dacdbab364d9"
+  },
+  "processing": {
+    "library": "sharp",
+    "version": "0.35.3",
+    "operation": "mechanical crop and uniform resize only; alpha preserved",
+    "runtimeSize": {
+      "width": 320,
+      "height": 240
+    },
+    "suggestedRenderBox": {
+      "x": -37,
+      "y": -28,
+      "width": 74,
+      "height": 56
+    },
+    "notes": "The physically modeled front wall is lower in frame; number baseline should remain above the center, existing live label stays separate."
+  },
+  "outputs": [
+    {
+      "name": "yellow",
+      "points": 500,
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/yellow-v2.webp",
+      "width": 320,
+      "height": 240,
+      "hasAlpha": true,
+      "bytes": 36796,
+      "sha256": "fd33eb2e8e8db5eeca38c1779d8510b13965d2e15046c3fef8c49d8c18e03849",
+      "sourceCrop": {
+        "left": 30,
+        "top": 220,
+        "width": 400,
+        "height": 300
+      },
+      "alphaBox": {
+        "threshold": 12,
+        "left": 9,
+        "top": 11,
+        "width": 301,
+        "height": 218,
+        "edgeAlphaMax": 1
+      },
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/yellow-v2.webp"
+    },
+    {
+      "name": "green",
+      "points": 1000,
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/green-v2.webp",
+      "width": 320,
+      "height": 240,
+      "hasAlpha": true,
+      "bytes": 34880,
+      "sha256": "bf9d7ea40444c5ec825f8528aee420f39ebb206cc0489ee3d2a2765b2fd1a887",
+      "sourceCrop": {
+        "left": 458,
+        "top": 220,
+        "width": 400,
+        "height": 300
+      },
+      "alphaBox": {
+        "threshold": 12,
+        "left": 9,
+        "top": 11,
+        "width": 303,
+        "height": 219,
+        "edgeAlphaMax": 1
+      },
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/green-v2.webp"
+    },
+    {
+      "name": "blue",
+      "points": 1500,
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/blue-v2.webp",
+      "width": 320,
+      "height": 240,
+      "hasAlpha": true,
+      "bytes": 35446,
+      "sha256": "563735348fd1b3f211d88c7a3bb913ca47c2d50a8da4d8b42fa4e91eeabd9b0e",
+      "sourceCrop": {
+        "left": 886,
+        "top": 220,
+        "width": 400,
+        "height": 300
+      },
+      "alphaBox": {
+        "threshold": 12,
+        "left": 10,
+        "top": 11,
+        "width": 301,
+        "height": 218,
+        "edgeAlphaMax": 1
+      },
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/blue-v2.webp"
+    },
+    {
+      "name": "orange",
+      "points": 2500,
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/orange-v2.webp",
+      "width": 320,
+      "height": 240,
+      "hasAlpha": true,
+      "bytes": 36454,
+      "sha256": "51b915374ba5edf9f8ffc4cdfe3e9f415b3306f376b5632b207fd7aea752d818",
+      "sourceCrop": {
+        "left": 1314,
+        "top": 220,
+        "width": 400,
+        "height": 300
+      },
+      "alphaBox": {
+        "threshold": 12,
+        "left": 10,
+        "top": 11,
+        "width": 300,
+        "height": 219,
+        "edgeAlphaMax": 0
+      },
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/orange-v2.webp"
+    },
+    {
+      "name": "purple",
+      "points": 5000,
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/purple-v2.webp",
+      "width": 320,
+      "height": 240,
+      "hasAlpha": true,
+      "bytes": 33628,
+      "sha256": "4dc6057f28b2019402e3573857c6e1a1f01cca0354ffb68ba97dd5dc94fa1044",
+      "sourceCrop": {
+        "left": 1742,
+        "top": 220,
+        "width": 400,
+        "height": 300
+      },
+      "alphaBox": {
+        "threshold": 12,
+        "left": 11,
+        "top": 11,
+        "width": 301,
+        "height": 220,
+        "edgeAlphaMax": 0
+      },
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/purple-v2.webp"
+    }
+  ]
+}

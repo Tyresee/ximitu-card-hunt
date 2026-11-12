@@ -1,0 +1,717 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wordattack.timclass.cn/api/authoring/v1/schema/task-pack",
+  "title": "Tim Voice Adventure Board Task Pack v1",
+  "description": "声控冒险棋教学任务包。该结构只描述教学内容和受控游戏引用，不允许携带脚本、HTML、发布状态或租户身份。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "gameId",
+    "releaseProfileRef",
+    "boardTemplateRef",
+    "title",
+    "source",
+    "sessionPlan",
+    "learningObjectives",
+    "missionCards",
+    "scoringPolicy"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "voice-board-task-pack.v1"
+    },
+    "gameId": {
+      "const": "voice-adventure-board"
+    },
+    "releaseProfileRef": {
+      "$ref": "#/$defs/catalogRef"
+    },
+    "boardTemplateRef": {
+      "$ref": "#/$defs/catalogRef"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "source": {
+      "$ref": "#/$defs/source"
+    },
+    "sessionPlan": {
+      "$ref": "#/$defs/sessionPlan"
+    },
+    "learningObjectives": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "items": {
+        "$ref": "#/$defs/learningObjective"
+      }
+    },
+    "missionCards": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 40,
+      "items": {
+        "$ref": "#/$defs/missionCard"
+      }
+    },
+    "scoringPolicy": {
+      "$ref": "#/$defs/scoringPolicy"
+    },
+    "authoringNotes": {
+      "type": "string",
+      "maxLength": 2000
+    }
+  },
+  "$defs": {
+    "opaqueId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$"
+    },
+    "catalogRef": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_.:-]{0,127}$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "course"
+      ],
+      "properties": {
+        "course": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "level": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "unit": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "lesson": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "teacherReference": {
+          "type": "string",
+          "maxLength": 300
+        }
+      }
+    },
+    "sessionPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "durationMinutes",
+        "supportedPlayerCounts",
+        "preferredTeamMode",
+        "minimumSpeakingOpportunitiesPerLearner",
+        "reviewMissionRatio",
+        "transferMissionRatio"
+      ],
+      "properties": {
+        "durationMinutes": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 45
+        },
+        "supportedPlayerCounts": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          }
+        },
+        "preferredTeamMode": {
+          "enum": [
+            "auto",
+            "individual",
+            "teams"
+          ]
+        },
+        "minimumSpeakingOpportunitiesPerLearner": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "reviewMissionRatio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "transferMissionRatio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "bossMissionCardId": {
+          "$ref": "#/$defs/opaqueId"
+        }
+      }
+    },
+    "learningObjective": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "skillId",
+        "role",
+        "canDoStatement",
+        "masteryEvidenceThreshold",
+        "minimumPresentedOpportunities"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/opaqueId"
+        },
+        "skillId": {
+          "$ref": "#/$defs/catalogRef"
+        },
+        "role": {
+          "enum": [
+            "primary",
+            "review"
+          ]
+        },
+        "canDoStatement": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "masteryEvidenceThreshold": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "validAttempts",
+            "independentContexts"
+          ],
+          "properties": {
+            "validAttempts": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12
+            },
+            "independentContexts": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 6
+            }
+          }
+        },
+        "minimumPresentedOpportunities": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        }
+      }
+    },
+    "missionCard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "order",
+        "taskType",
+        "primaryObjectiveId",
+        "reviewObjectiveIds",
+        "outputLevel",
+        "prompt",
+        "speech",
+        "targetExamples",
+        "evaluator",
+        "rollTrigger",
+        "hints",
+        "gameEffects"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/opaqueId"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "taskType": {
+          "enum": [
+            "picture_sentence",
+            "family_relation",
+            "sentence_repair",
+            "team_chain",
+            "boss"
+          ]
+        },
+        "primaryObjectiveId": {
+          "$ref": "#/$defs/opaqueId"
+        },
+        "reviewObjectiveIds": {
+          "type": "array",
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/opaqueId"
+          }
+        },
+        "outputLevel": {
+          "enum": [
+            "repeat",
+            "slot",
+            "picture",
+            "transfer"
+          ]
+        },
+        "prompt": {
+          "$ref": "#/$defs/prompt"
+        },
+        "speech": {
+          "$ref": "#/$defs/speech"
+        },
+        "targetExamples": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 180
+          }
+        },
+        "evaluator": {
+          "$ref": "#/$defs/evaluator"
+        },
+        "rollTrigger": {
+          "$ref": "#/$defs/rollTrigger"
+        },
+        "hints": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {
+            "$ref": "#/$defs/hint"
+          }
+        },
+        "gameEffects": {
+          "$ref": "#/$defs/gameEffects"
+        }
+      }
+    },
+    "prompt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "instructionZh",
+        "sceneRef",
+        "characterRefs",
+        "assetRefs"
+      ],
+      "properties": {
+        "instructionZh": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "questionEn": {
+          "type": "string",
+          "maxLength": 180
+        },
+        "sceneRef": {
+          "$ref": "#/$defs/catalogRef"
+        },
+        "characterRefs": {
+          "type": "array",
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/catalogRef"
+          }
+        },
+        "assetRefs": {
+          "type": "array",
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/catalogRef"
+          }
+        },
+        "highlightRefs": {
+          "type": "array",
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/catalogRef"
+          }
+        }
+      }
+    },
+    "speech": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "language",
+        "hotwords",
+        "silenceMs",
+        "maximumClearAttempts",
+        "unclearPolicy"
+      ],
+      "properties": {
+        "language": {
+          "enum": [
+            "en-GB",
+            "en-US"
+          ]
+        },
+        "hotwords": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 12,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          }
+        },
+        "silenceMs": {
+          "type": "integer",
+          "minimum": 600,
+          "maximum": 1500
+        },
+        "maximumClearAttempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "unclearPolicy": {
+          "const": "free_retry"
+        }
+      }
+    },
+    "evaluator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "strategy",
+        "orderedPatterns",
+        "requiredSlots",
+        "reviewSlots",
+        "primaryFailurePrompt"
+      ],
+      "properties": {
+        "strategy": {
+          "const": "slot_rules"
+        },
+        "orderedPatterns": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 16,
+            "items": {
+              "$ref": "#/$defs/opaqueId"
+            }
+          }
+        },
+        "requiredSlots": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 12,
+          "items": {
+            "$ref": "#/$defs/slotRule"
+          }
+        },
+        "reviewSlots": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "$ref": "#/$defs/slotRule"
+          }
+        },
+        "primaryFailurePrompt": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "reviewRecast": {
+          "type": "string",
+          "maxLength": 180
+        }
+      }
+    },
+    "rollTrigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "triggerTerms",
+        "minimumMatchedTerms",
+        "requiresCompleteUtterance",
+        "action"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "primary_accepted",
+            "primary_or_keywords"
+          ]
+        },
+        "triggerTerms": {
+          "description": "Terms selected from the authoritative trigger-term allowlists for this mission's referenced knowledge points or lexicon entries. Runtime matching uses the context-provided normalizer and counts distinct configured terms.",
+          "type": "array",
+          "maxItems": 12,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          }
+        },
+        "minimumMatchedTerms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "requiresCompleteUtterance": {
+          "const": true
+        },
+        "action": {
+          "const": "auto_roll"
+        },
+        "keywordTriggerModelSentence": {
+          "description": "A correct model sentence that must exactly match one of this mission's targetExamples after the authoritative text normalization. The platform adds localized lead-in copy around it.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "primary_accepted"
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "keywordTriggerModelSentence"
+              ]
+            },
+            "properties": {
+              "triggerTerms": {
+                "maxItems": 0
+              },
+              "minimumMatchedTerms": {
+                "const": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "primary_or_keywords"
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "required": [
+              "keywordTriggerModelSentence"
+            ],
+            "properties": {
+              "triggerTerms": {
+                "minItems": 1
+              },
+              "minimumMatchedTerms": {
+                "minimum": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "slotRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "accepted",
+        "skillIds"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/opaqueId"
+        },
+        "type": {
+          "enum": [
+            "literal",
+            "pronoun",
+            "be_verb",
+            "have_verb",
+            "number",
+            "lexeme",
+            "entity",
+            "possessive_entity",
+            "family_relation"
+          ]
+        },
+        "accepted": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 12,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          }
+        },
+        "catalogRef": {
+          "$ref": "#/$defs/catalogRef"
+        },
+        "requiredForm": {
+          "enum": [
+            "base",
+            "singular",
+            "plural",
+            "mass",
+            "possessive"
+          ]
+        },
+        "skillIds": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/catalogRef"
+          }
+        }
+      }
+    },
+    "hint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level",
+        "kind",
+        "text"
+      ],
+      "properties": {
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "kind": {
+          "enum": [
+            "visual",
+            "sentence_frame",
+            "choice",
+            "model_and_repeat"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "audioAssetRef": {
+          "$ref": "#/$defs/catalogRef"
+        }
+      }
+    },
+    "gameEffects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "triggered"
+      ],
+      "properties": {
+        "triggered": {
+          "$ref": "#/$defs/gameEffect"
+        },
+        "independentBonusBadge": {
+          "description": "Optional teacher-report-only badge reference for independent evidence. It must not be shown as an individual public reward in v1.",
+          "$ref": "#/$defs/catalogRef"
+        }
+      }
+    },
+    "gameEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "autoRoll",
+        "voiceEnergy"
+      ],
+      "properties": {
+        "autoRoll": {
+          "const": true
+        },
+        "voiceEnergy": {
+          "description": "Preconfigured shared completion-effect intensity. It is not derived from volume, pronunciation, correctness quality, hints, or mastery and cannot change stars, dice, movement, or evidence.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        }
+      }
+    },
+    "scoringPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publicCompetitionTrack",
+        "sharedLearningTrack",
+        "privateMasteryTrack",
+        "diceDependsOnVolume",
+        "diceDependsOnPronunciationScore"
+      ],
+      "properties": {
+        "publicCompetitionTrack": {
+          "enum": [
+            "adventure_collectibles",
+            "stage_flags"
+          ]
+        },
+        "sharedLearningTrack": {
+          "const": "knowledge_stars"
+        },
+        "privateMasteryTrack": {
+          "const": "skill_evidence"
+        },
+        "diceDependsOnVolume": {
+          "const": false
+        },
+        "diceDependsOnPronunciationScore": {
+          "const": false
+        }
+      }
+    }
+  }
+}

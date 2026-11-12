@@ -1,0 +1,19 @@
+.platform-points-panel { margin: 18px 0; padding: 16px; border: 1px solid #cbd6db; border-radius: 16px; background: #f5f9fa; color: #31444e; text-align: left; }
+.platform-points-panel h3 { margin: 0 0 8px; font-size: 16px; }
+.platform-points-panel p { margin: 6px 0; font-size: 14px; line-height: 1.55; }
+.platform-points-panel small { display: block; color: #526875; }
+.platform-points-panel ul { margin: 10px 0; padding-left: 22px; }
+.platform-points-panel li { margin: 5px 0; font-size: 14px; }
+.platform-points-panel button { min-height: 40px; margin: 8px 10px 0 0; padding: 8px 15px; border: 1px solid #92adba; border-radius: 10px; background: #fff; color: #214960; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+.platform-points-panel button:hover:not(:disabled) { background: #e4f2f8; }
+.platform-points-panel button:disabled { opacity: .55; cursor: wait; }
+.platform-points-panel button:focus-visible { outline: 3px solid #366f9b; outline-offset: 3px; }
+.platform-points-panel a { color: #215983; text-decoration: underline; }
+.platform-points-record + .platform-points-record { border-top: 1px solid #d5dfe4; padding-top: 14px; margin-top: 14px; }
+.platform-points-record[data-status="awarded"] > p { color: #236644; }
+.platform-points-record[data-status="unregistered"] > p { color: #82531b; }
+.platform-points-note { display: block; max-width: 370px; color: #526875; font-size: 11px; line-height: 1.4; }
+.platform-points-note[hidden], .platform-points-panel[hidden] { display: none; }
+.node-platform-points { pointer-events: none; }
+.node-platform-points rect { fill: #fff5d5; stroke: #97723c; stroke-width: 1.2; }
+.node-platform-points text { fill: #66471e; font-size: 12px; font-weight: 800; font-family: inherit; }

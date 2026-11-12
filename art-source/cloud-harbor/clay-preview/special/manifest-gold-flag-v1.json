@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "cloud-harbor-clay-preview-special.v1",
+  "generatedAt": "2026-11-10T07:21:41.864Z",
+  "status": "local-preview-only",
+  "assetType": "Blank gold miniature clay flag with pole; live labels remain code-owned.",
+  "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/special/gold-flag-v1.webp",
+  "generation": {
+    "tool": "built-in image_gen.imagegen",
+    "transparentBackground": true,
+    "originalOutput": "/Users/tiantianci/.codex/generated_images/01a1c3f2-8b7b-76f2-afae-b791a2515d1a/exec-87e72826-c0a9-4db1-982e-74d5e8ae9682.png",
+    "promptFile": "art-source/cloud-harbor/clay-preview/special/prompt-gold-flag-v1.txt",
+    "promptSha256": "c4d0800179efa5c72501cba17d9597a055edb8fc72d692ec317d0026262af507",
+    "reference": "/Users/tiantianci/.codex/generated_images/01a1c3c0-4b0e-7341-965a-ff4db722a701/exec-a0b6db9e-3c5d-4db1-938c-e94f41dea189.png"
+  },
+  "source": {
+    "file": "art-source/cloud-harbor/clay-preview/special/gold-flag-v1-source.png",
+    "sha256": "994a5b0dd47eaf61c999dd17f0356e7c8d02d43a1b3d75bcba99e6b31a01b1eb",
+    "bytes": 799299,
+    "width": 1312,
+    "height": 1199,
+    "hasAlpha": true
+  },
+  "runtime": [
+    {
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/special/gold-flag-v1.webp",
+      "sha256": "e6e66cc4652040ca5a71c4b4d58690b0d07dc3b0eff686040f6da89dbfcaf9fe",
+      "bytes": 88334,
+      "width": 512,
+      "height": 512,
+      "hasAlpha": true
+    },
+    {
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/special/gold-flag-v1.png",
+      "sha256": "ffb06260a2cb82bf4b6eba7f20dc5b453df34fc2ea10658227e2ae2f28bae4df",
+      "bytes": 167889,
+      "width": 512,
+      "height": 512,
+      "hasAlpha": true
+    }
+  ],
+  "processing": {
+    "library": "sharp",
+    "version": "0.35.3",
+    "resize": {
+      "width": 512,
+      "height": 512,
+      "fit": "contain",
+      "transparentPadding": true,
+      "kernel": "lanczos3"
+    },
+    "webp": "lossless alpha preserved; no creative post-processing"
+  },
+  "anchors": {
+    "coordinateSpace": "normalized across full512square sprite",
+    "poleFoot": {
+      "x": 0.186,
+      "y": 0.889
+    },
+    "liveLabelCenter": {
+      "x": 0.59,
+      "y": 0.36
+    },
+    "liveLabelSafeBox": {
+      "x": 0.32,
+      "y": 0.25,
+      "width": 0.48,
+      "height": 0.21
+    },
+    "recommendedDisplayWorld": {
+      "width": 80,
+      "height": 72
+    },
+    "note": "Anchors visually estimated after normalization; caller should place pole foot on actual tile top. Text is intentionally absent.",
+    "displayOffsetsAt80x72": {
+      "imageOriginFromPoleFoot": {
+        "x": -14.88,
+        "y": -64.008
+      },
+      "liveTextCenterFromPoleFoot": {
+        "x": 32.32,
+        "y": -38.088
+      }
+    }
+  },
+  "validation": {
+    "inspected": "Complete single upright pole and blank broad gold flag, matte tactile grain, no text/UI/scenery baked in.",
+    "alpha": {
+      "hasAlpha": true,
+      "fullyTransparentPixelCount": 188692,
+      "fullyOpaquePixelCount": 1166,
+      "nontrivialAlphaBounds": {
+        "minX": 57,
+        "minY": 59,
+        "maxX": 462,
+        "maxY": 455
+      },
+      "alphaMin": 0,
+      "alphaMax": 255
+    },
+    "browserIntegration": "pending parent rendering review",
+    "compositeInspect": "Both runtime PNG and lossless WebP flattened onto cream and visually inspected clean: genuine alpha, no backdrop or stray marks. Alpha viewer alone showed a display artifact, absent in actual compositing.",
+    "compositeChecks": [
+      "gold-flag-v1-cream-check.png",
+      "gold-flag-v1-webp-cream-check.png"
+    ]
+  }
+}

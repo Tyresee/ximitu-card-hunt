@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "cloud-harbor-clay-preview-zone-art.v3",
+  "generatedAt": "2026-11-10T06:10:21.052Z",
+  "status": "local-preview-only pending browser review",
+  "scope": "Zone01 environment detail edit only; no app, rule, geometry or registered original asset edits.",
+  "boardTemplateRef": "ximitu-card-hunt-board.v1@2.3.0",
+  "layoutContractRef": "board.ximitu-card-hunt.zone-01-layout.v7",
+  "boardTopologyDigest": "d00f6dadcede6ffd6df0616b3d53ef78a887c307f0af5a119355e678614f27a5",
+  "artBox": {
+    "x": 0,
+    "y": 0,
+    "width": 1200,
+    "height": 620
+  },
+  "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/regions/zone-01-v3.webp",
+  "generation": {
+    "tool": "built-in image_gen.imagegen",
+    "originalOutput": "/Users/tiantianci/.codex/generated_images/01a1c3f2-8b7b-76f2-afae-b791a2515d1a/exec-a183d91a-effd-4dcd-99a2-b16e36dbeac9.png",
+    "promptFile": "art-source/cloud-harbor/clay-preview/background/zone-01-v3/prompt.txt",
+    "promptSha256": "930873f9d6e5705d476e7c2c6ff5b0ed3d56074bccd2c1eaab5efb26447d5781",
+    "references": [
+      {
+        "file": "art-source/cloud-harbor/clay-preview/background/zone-01-v2-source.png",
+        "sha256": "e7211396b8edb74ad032a7572d85142ee73956a1ca74def9f07765f91d40952e",
+        "bytes": 1715276,
+        "width": 1200,
+        "height": 620
+      },
+      {
+        "file": "/Users/tiantianci/.codex/generated_images/01a1c3c0-4b0e-7341-965a-ff4db722a701/exec-a0b6db9e-3c5d-4db1-938c-e94f41dea189.png",
+        "sha256": "e791e40b94277f6a461258bb24c1c83737fae6c04eab7aecec8cc36e2b961df4",
+        "bytes": 2746964,
+        "width": 1586,
+        "height": 992
+      },
+      {
+        "file": "art-source/cloud-harbor/clay-preview/background/zone-01-v2-alignment.png",
+        "sha256": "08ee5812b64e4a746d3c6186cf736c2b0c9a475eea2a7443876c2ff2bd54221c",
+        "bytes": 1846490,
+        "width": 1200,
+        "height": 620
+      },
+      {
+        "file": "art-source/cloud-harbor/clay-preview/background/zone-01-current-guide.png",
+        "sha256": "73ad54b423e3deaf214074c4bb01e70c6d9db8944329f1452c6b9692df55684c",
+        "bytes": 45196,
+        "width": 1200,
+        "height": 620
+      }
+    ]
+  },
+  "raw": {
+    "file": "art-source/cloud-harbor/clay-preview/background/zone-01-v3/generated-original.png",
+    "sha256": "db46b9947b839b4c9a7c6791137afe1c72b9bab4b98e1378e34f3f6c6a07799b",
+    "bytes": 3032921,
+    "width": 1744,
+    "height": 902
+  },
+  "normalized": {
+    "file": "art-source/cloud-harbor/clay-preview/background/zone-01-v3/zone-01-background-v3.png",
+    "sha256": "6f01b593413e8b9d18189562db7ece484feb0644802415e3c5b66093413d3fd1",
+    "bytes": 7500829,
+    "width": 2400,
+    "height": 1240
+  },
+  "runtime": {
+    "file": "public/assets/board-themes/cloud-harbor/clay-preview/regions/zone-01-v3.webp",
+    "sha256": "60e5bd6794a9fe2dc12e377a155251f6c64b05ffc3b2c8bf16669a78ee3174a0",
+    "bytes": 834836,
+    "width": 2400,
+    "height": 1240
+  },
+  "processing": {
+    "library": "Sharp",
+    "version": "0.35.3",
+    "resize": {
+      "width": 2400,
+      "height": 1240,
+      "fit": "fill",
+      "kernel": "lanczos3"
+    },
+    "webp": {
+      "quality": 94,
+      "effort": 6
+    },
+    "note": "Mechanical size/encoding conversion only; original raw output retained. New asset is standalone zone01; border matching to other v2 regions must be verified by parent before acceptance."
+  },
+  "validation": {
+    "routeOverlay": "art-source/cloud-harbor/clay-preview/background/zone-01-v3/current-route-alignment-v3.png",
+    "generationInspect": "Rich miniature detail verified; dock-side rock touches n01 footprint and shoreline flowers touch n14→n13b, superseded by targeted clearance v4.",
+    "browserAlignment": "pending",
+    "neighborSeams": "pending"
+  }
+}

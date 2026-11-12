@@ -1,0 +1,10 @@
+.harbor-light-device,
+.harbor-light-host {
+  pointer-events: none;
+}
+
+.harbor-terrain-glow,
+.harbor-departure-lights {
+  transform-box: fill-box;
+  transform-origin: center;
+}

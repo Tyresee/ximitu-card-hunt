@@ -1,0 +1,215 @@
+{
+  "schemaVersion": "clay-preview-numbered-tile-art.v3",
+  "generatedAt": "2026-11-10",
+  "scope": "Local visual assets only. Each baked number is eligible only for its exact amount with valueScale5. Accessible live amounts and legacy/error fallback remain owned by the game.",
+  "generator": {
+    "mode": "built-in image_gen",
+    "promptFile": "prompt-v3.txt",
+    "reference": "/Users/tiantianci/.codex/generated_images/01a1c3c0-4b0e-7341-965a-ff4db722a701/exec-a0b6db9e-3c5d-4db1-938c-e94f41dea189.png",
+    "editTarget": "clay-tiles-sprite-v2-source.png"
+  },
+  "source": {
+    "file": "art-source/cloud-harbor/clay-preview/tiles/clay-tiles-numbered-v3-source.png",
+    "width": 2172,
+    "height": 724,
+    "hasAlpha": true,
+    "bytes": 1045312,
+    "sha256": "a4239226e7d649f271838e881199b8d6f21fedb75a84f002e0d9654d6543a0fa"
+  },
+  "processing": {
+    "library": "sharp",
+    "version": "0.35.3",
+    "operation": "mechanical crop and uniform resize only; generated numeral pixels unchanged",
+    "runtimeSize": {
+      "width": 320,
+      "height": 240
+    },
+    "suggestedRenderBox": {
+      "x": -37,
+      "y": -28,
+      "width": 74,
+      "height": 56
+    },
+    "geometryNotes": "All crops use one uniform scale and maintain the v2 alpha-center near(160,120). The naturally sculpted numbered discs differ slightly from v2 silhouettes; no nonuniform warp is applied."
+  },
+  "qa": {
+    "sourceNumeralsReviewed": true,
+    "screenReviewTarget": {
+      "width": 114,
+      "height": 86
+    },
+    "runtimeReviewed": true,
+    "contactSheet": "output/playwright/clay-preview/numbered-tiles-v3-at-114x86.png",
+    "readabilityAt114x86": {
+      "500": "correct and readable",
+      "1000": "correct and readable",
+      "1500": "correct and readable",
+      "2500": "correct and readable",
+      "5000": "correct and readable"
+    },
+    "additional74x56Check": "All five exact numeral strings remain readable; physical groove shadows remain visible.",
+    "alphaEdges": "All five optimized runtime images have maximum alpha0 at the outer crop edge."
+  },
+  "outputs": [
+    {
+      "amount": 500,
+      "valueScale": 5,
+      "color": "yellow",
+      "numeralText": "500",
+      "material": "shallow debossed numeral grooves with dark muted clay infill",
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/points-500-v3.webp",
+      "width": 320,
+      "height": 240,
+      "hasAlpha": true,
+      "bytes": 32956,
+      "sha256": "3dcbd09113d7d41f5b8a6c0200d5c355d1fde897a81eb2eaf2063b01ce3616f0",
+      "sourceCrop": {
+        "left": 18,
+        "top": 220,
+        "width": 420,
+        "height": 315
+      },
+      "alphaBox": {
+        "threshold": 12,
+        "left": 14,
+        "top": 8,
+        "width": 291,
+        "height": 224,
+        "center": {
+          "x": 159,
+          "y": 119.5
+        },
+        "edgeAlphaMax": 0
+      },
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/points-500-v3.webp"
+    },
+    {
+      "amount": 1000,
+      "valueScale": 5,
+      "color": "green",
+      "numeralText": "1000",
+      "material": "shallow debossed numeral grooves with dark muted clay infill",
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/points-1000-v3.webp",
+      "width": 320,
+      "height": 240,
+      "hasAlpha": true,
+      "bytes": 31588,
+      "sha256": "8ca49e0dc39d7e0f9a1212bf1971741cc0927d13dcdd6d857d534b9767b243d0",
+      "sourceCrop": {
+        "left": 446,
+        "top": 220,
+        "width": 420,
+        "height": 315
+      },
+      "alphaBox": {
+        "threshold": 12,
+        "left": 11,
+        "top": 8,
+        "width": 297,
+        "height": 225,
+        "center": {
+          "x": 159,
+          "y": 120
+        },
+        "edgeAlphaMax": 0
+      },
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/points-1000-v3.webp"
+    },
+    {
+      "amount": 1500,
+      "valueScale": 5,
+      "color": "blue",
+      "numeralText": "1500",
+      "material": "shallow debossed numeral grooves with dark muted clay infill",
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/points-1500-v3.webp",
+      "width": 320,
+      "height": 240,
+      "hasAlpha": true,
+      "bytes": 33498,
+      "sha256": "0c2901fa0629494a4c8823414715a0df41cb5c499bcc3967a1efaf402722ea83",
+      "sourceCrop": {
+        "left": 875,
+        "top": 220,
+        "width": 420,
+        "height": 315
+      },
+      "alphaBox": {
+        "threshold": 12,
+        "left": 11,
+        "top": 8,
+        "width": 299,
+        "height": 224,
+        "center": {
+          "x": 160,
+          "y": 119.5
+        },
+        "edgeAlphaMax": 0
+      },
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/points-1500-v3.webp"
+    },
+    {
+      "amount": 2500,
+      "valueScale": 5,
+      "color": "orange",
+      "numeralText": "2500",
+      "material": "shallow debossed numeral grooves with dark muted clay infill",
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/points-2500-v3.webp",
+      "width": 320,
+      "height": 240,
+      "hasAlpha": true,
+      "bytes": 33242,
+      "sha256": "fe2be5ce465d8a78c55668409520b42286bc73ec5934a62f3b22267fada4429a",
+      "sourceCrop": {
+        "left": 1302,
+        "top": 220,
+        "width": 420,
+        "height": 315
+      },
+      "alphaBox": {
+        "threshold": 12,
+        "left": 11,
+        "top": 8,
+        "width": 298,
+        "height": 224,
+        "center": {
+          "x": 159.5,
+          "y": 119.5
+        },
+        "edgeAlphaMax": 0
+      },
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/points-2500-v3.webp"
+    },
+    {
+      "amount": 5000,
+      "valueScale": 5,
+      "color": "purple",
+      "numeralText": "5000",
+      "material": "shallow debossed numeral grooves with dark muted clay infill",
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/points-5000-v3.webp",
+      "width": 320,
+      "height": 240,
+      "hasAlpha": true,
+      "bytes": 32098,
+      "sha256": "49e866ace39c1e920755d730516017cd2da16d417bb82ee8072d6a9bdcf0742d",
+      "sourceCrop": {
+        "left": 1732,
+        "top": 220,
+        "width": 420,
+        "height": 315
+      },
+      "alphaBox": {
+        "threshold": 12,
+        "left": 11,
+        "top": 8,
+        "width": 299,
+        "height": 224,
+        "center": {
+          "x": 160,
+          "y": 119.5
+        },
+        "edgeAlphaMax": 0
+      },
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/points-5000-v3.webp"
+    }
+  ]
+}

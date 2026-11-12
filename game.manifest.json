@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "tim-game-manifest.v1",
+  "id": "ximitu-card-hunt",
+  "kind": "standalone-game",
+  "version": "2.1.1",
+  "display": {
+    "title": "云港星星大冒险",
+    "description": "完整说出英语句子，解锁不同等级的骰子，和伙伴一起探索云港、积累本局星星。",
+    "status": "可进行",
+    "tags": ["完整句表达", "1–8 人", "合作寻宝"],
+    "coverKind": "cloud-harbor"
+  },
+  "entry": {
+    "path": "/games/monopoly/",
+    "navigation": "document"
+  },
+  "management": {
+    "path": "/teacher/assessment/",
+    "label": "配置知识点评分"
+  },
+  "integration": {
+    "contract": "platform-game-entry.v1",
+    "auth": {
+      "mode": "same-origin-platform-session",
+      "cookieName": "__Host-vwa_session",
+      "sessionEndpoint": "/api/auth/me",
+      "credentials": "same-origin"
+    },
+    "platformOwns": ["catalog-entry", "login-session", "game-launch-link"],
+    "gameOwns": ["board", "dice", "movement", "landing-effects", "game-state"]
+  }
+}

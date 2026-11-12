@@ -1,0 +1,18 @@
+Use case: precise-object-edit.
+Asset type: one five-cell horizontal transparent numbered clay-tile sprite sheet for a real board game.
+
+Input image 1 is the approved game look and material/lighting reference. Input image 2 is the EDIT TARGET: the existing five blank thick clay discs. Change ONLY the blank top surfaces of image 2 by physically debossing the five correct values into them. Preserve image 2's five-disc silhouette, thickness, colors, oval perspective, handmade matte grain, shadows, equal scale, horizontal positions and transparent background. Keep exactly five isolated discs in one evenly spaced horizontal row.
+
+Text, exact left-to-right mapping:
+yellow disc: "500" (five zero zero)
+green disc: "1000" (one zero zero zero)
+blue disc: "1500" (one five zero zero)
+orange disc: "2500" (two five zero zero)
+purple disc: "5000" (five zero zero zero).
+Each disc has ONLY its own one value, exactly once.
+
+The numerals must be part of the physical clay, like a bold rounded sans-serif metal numeral stamp pressed shallowly into the clay. Actual sunken grooves, tiny sculpted bevels around the numeral cuts, softly illuminated inner edges and recessed shadows consistent with the existing upper-left light; dark muted charcoal-brown material in the bottoms of the grooves. The recessed material has the same tangible grain as the clay. No flat printed overlay, no floating graphic, no separate plaque. Numerals follow the TOP SURFACE's foreshortened perspective and surface plane, not a front-facing UI layer or vertical sidewall. Keep them broad and legible in a small game sprite: about 60% of top-face width, strong simple heavy strokes, open counters in zeros, no ornate font. Position the value slightly toward the FRONT of each top face, leaving some blank clay in the rear third where a pawn can stand. Keep the entire value within the top face and away from the rim.
+
+Preserve a low substantial cylindrical disc with rounded thick bevels, tactile finger-pressed pores and warm upper-left rim light, a richer colored front wall and faint immediate contact shadow. Maintain the exact existing five colors and geometry. Keep generous transparent gaps between objects. True alpha background; clean edges; do not add any background or ground.
+
+No detached labels, pills, tabs, frames, borders, outlines, arrows, flags, icons, characters, standing pawns, scenery, extra text, repeated values, watermarks or other objects. High-detail finished game assets, not a mockup.

@@ -1,0 +1,73 @@
+/* Board UI C/A/A (2026-10-20): on-map fork buttons, points printed on tiles.
+   Perf (2026-10-21): no CSS filter on board SVG children; shadows are offset shapes. */
+
+/* ---- Points printed on the tile (score A) -------------------------------- */
+.board-space.has-tile-points .grounded-node .grounded-node-stone { transform: scale(1.38); }
+.board-space.has-tile-points .grounded-node :is(.grounded-node-mark, .grounded-node-object) { opacity: .22; }
+.tile-points { pointer-events: none; }
+.tile-points text { font-family: "Nunito", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; font-weight: 900; }
+.tile-points-face { font-size: 18px; fill: var(--tile-ink); paint-order: stroke; stroke: #fff; stroke-width: 3.2px; stroke-linejoin: round; letter-spacing: .01em; }
+.tile-points.is-long .tile-points-face { font-size: 15px; }
+.tile-points-tab rect { fill: var(--tile-front); stroke: #fff; stroke-width: 1.6; }
+.tile-points-tab rect.tile-points-tab-shadow { fill: rgba(0, 0, 0, .22); stroke: none; }
+.tile-points-tab text { font-size: 11.5px; fill: #fff; paint-order: stroke; stroke: var(--tile-ink); stroke-width: 2.2px; }
+.tile-points.is-grounded .tile-points-tab { display: none; }
+.tile-points.is-classic .tile-points-face { display: none; }
+/* A pawn standing on the tile covers its top face: move the number to the front-edge tab. */
+.board-space.has-tile-pawn .tile-points.is-grounded .tile-points-face { display: none; }
+.board-space.has-tile-pawn .tile-points.is-grounded .tile-points-tab { display: inline; }
+.board-space.has-tile-pawn .tile-points-tab { transform: translate(0, 31px); }
+.board-space.has-tile-pawn .tile-points-tab rect { opacity: .92; }
+/* Special tiles show their effect badge under the stone while current: hang the tab below it. */
+.board-space.is-special.has-tile-pawn .tile-points-tab { transform: translate(0, 53px); }
+/* While the on-map fork buttons are up they say everything; hide the junction's own hint badge. */
+.board-world:has(.board-route-choice) .board-space.is-route-junction .node-effect-badge { display: none; }
+
+/* ---- On-map fork choice (fork C) ------------------------------------------ */
+.board-route-choice text { font-family: "Nunito", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; font-weight: 900; }
+.brc-previews, .brc-previews *, .brc-tags, .brc-tags * { pointer-events: none; }
+.brc-tags text { font-family: "Nunito", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; font-weight: 900; }
+.brc-preview-under { fill: none; stroke: #fff; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+.brc-preview-line { fill: none; stroke: var(--brc-color); stroke-width: 8; stroke-linecap: round; stroke-dasharray: .1 16; opacity: .7; }
+.brc-landing-ring { fill: none; stroke: var(--brc-color); stroke-width: 3.5; stroke-dasharray: 7 6; opacity: .8; }
+.brc-landing-tag rect { fill: var(--brc-color); stroke: #fff; stroke-width: 2.5; }
+.brc-landing-tag rect.brc-shadow { fill: rgba(0, 0, 0, .22); stroke: none; }
+.brc-landing-tag text { fill: #fff; font-size: 14.5px; }
+.brc-preview.is-previewed .brc-preview-under { opacity: .88; }
+.brc-preview.is-previewed .brc-preview-line { stroke-width: 12; opacity: 1; }
+.brc-preview.is-previewed .brc-landing-ring { stroke-width: 6; stroke-dasharray: none; opacity: 1; }
+.brc-preview.is-previewed .brc-landing-tag { transform: scale(1.15); transform-box: fill-box; transform-origin: center; }
+:is(.board-route-choice, .brc-previews)[data-has-preview] .brc-preview:not(.is-previewed) { opacity: .3; }
+.brc-preview { transition: opacity .18s ease; }
+.brc-preview.is-previewed { isolation: isolate; }
+
+.brc-button { cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+.brc-button-hit { fill: transparent; pointer-events: all; }
+.brc-button-body { transform-box: fill-box; transform-origin: center; transition: transform .15s ease; }
+.brc-button-pill { fill: #fff; stroke: var(--brc-color); stroke-width: 4.5; }
+.brc-button-shadow { fill: rgba(20, 30, 60, .24); }
+.brc-button-icon circle { fill: var(--brc-color); }
+.brc-button-icon path { fill: #fff; }
+.brc-button-label { fill: var(--brc-color); font-size: 25px; }
+.brc-button-hint { display: none; fill: var(--brc-color); font-size: 15px; paint-order: stroke; stroke: #fff; stroke-width: 4px; stroke-linejoin: round; }
+.brc-button.is-previewed .brc-button-pill { fill: var(--brc-color); stroke: #fff; }
+.brc-button.is-previewed .brc-button-icon circle { fill: #fff; }
+.brc-button.is-previewed .brc-button-icon path { fill: var(--brc-color); }
+.brc-button.is-previewed .brc-button-label { fill: #fff; }
+.brc-button.is-previewed .brc-button-body { transform: scale(1.07); }
+.brc-button.is-armed .brc-button-hint { display: inline; }
+.brc-button:focus-visible .brc-button-pill { stroke: #17284d; stroke-width: 6; }
+.board-route-choice.is-locked .brc-button { cursor: default; }
+.board-route-choice.is-locked .brc-button:not(.is-selected) { opacity: .3; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .board-route-choice:not([data-has-preview]):not(.is-locked) .brc-button-body { animation: brc-breathe 1.8s ease-in-out infinite; }
+  .board-route-choice:not([data-has-preview]):not(.is-locked) .brc-button + .brc-button .brc-button-body { animation-delay: .9s; }
+  .brc-preview.is-previewed .brc-preview-line { animation: brc-flow .9s linear infinite; }
+}
+@keyframes brc-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes brc-flow { to { stroke-dashoffset: -16.1; } }
+@media (prefers-reduced-motion: reduce) {
+  .brc-button-body, .brc-preview { transition: none; }
+}
+.board-world:has(.board-route-choice) .board-space.is-route-junction.has-tile-pawn .tile-points-tab { transform: translate(0, 31px); }

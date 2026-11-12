@@ -1,0 +1,39 @@
+[Unit]
+Description=Ximitu Cloud Harbor standalone game
+Wants=network-online.target
+After=network-online.target voice-word-attack.service
+
+[Service]
+Type=simple
+User=ximitu-card-hunt
+Group=ximitu-card-hunt
+WorkingDirectory=/var/www/ximitu-card-hunt/current
+Environment=PORT=19421
+Environment=PLATFORM_ORIGIN=http://127.0.0.1:19321
+Environment=POINTS_PLATFORM_ORIGIN=http://127.0.0.1:19423
+EnvironmentFile=-/etc/ximitu-card-hunt/points.env
+Environment=PUBLIC_ORIGIN=https://wordattack.timclass.cn
+Environment=GAME_DATA_DIR=/var/lib/ximitu-card-hunt
+StateDirectory=ximitu-card-hunt
+StateDirectoryMode=0700
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+ExecStart=/usr/bin/env node server.mjs
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+RestrictNamespaces=true
+LockPersonality=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target

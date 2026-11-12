@@ -1,0 +1,40 @@
+/* Retired controls remain in the DOM solely for historical initialization hooks. */
+[data-retired-economy="true"] { display: none !important; }
+
+.dice-pack-face-header,
+.dice-pack-face-row { grid-template-columns: 42px minmax(62px, 1fr); }
+
+.player-asset-badge.is-points { background: #e4f7ee; }
+.player-asset-badge.is-points > strong { color: #17604c; }
+.player-asset-badge.is-actions { background: #edf2fb; }
+.player-asset-badge.is-points > i,
+.player-asset-badge.is-actions > i {
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 5px;
+  background: #d4ebdf;
+  color: #21614e;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+.player-asset-badge.is-actions > i { background: #dce5f6; color: #385782; }
+.runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge.is-points {
+  background: linear-gradient(135deg, #e8fbef, #d1f1e4);
+}
+.runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge.is-points > strong {
+  font-size: clamp(17px, 1.7vw, 27px);
+}
+.player-asset-badge.is-points .player-asset-label,
+.player-asset-badge.is-actions .player-asset-label { white-space: normal; }
+.player-reward-detail-metric.is-points dd { color: #17604c; }
+.result-team .player-assets { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.result-team .player-asset-badge { grid-template-columns: 20px auto; padding: 12px 8px; }
+.result-team .player-asset-badge > strong { font-size: 24px; }
+.result-team .player-asset-label { grid-column: 1 / -1; text-align: center; }
+@media (max-width: 680px) {
+  .runtime-shell[data-player-hud] .top-hud .team-hud .player-asset-badge.is-points > strong { font-size: 17px; }
+}

@@ -1,0 +1,220 @@
+{
+  "schemaVersion": "imagegen-board-master.v2",
+  "worldRef": "world.ximitu.cloud-harbor@1.1.0",
+  "boardTemplateRef": "ximitu-card-hunt-board.v1@2.1.0",
+  "generatedAt": "2026-08-01",
+  "generator": "built-in image_gen",
+  "generationMode": "selected ImageGen v7 raster retained; SVG-owned geometry fitted post-selection; authoritative control regenerated; four runtime crops byte-unchanged",
+  "selectedVersion": 7,
+  "artContract": {
+    "sourceSize": [
+      2400,
+      1120
+    ],
+    "geometryOwner": "BoardTemplate via board-route-geometry.js",
+    "interactionOwner": "SVG/DOM runtime",
+    "imageOwner": "ThemePack",
+    "runtimeStrategy": "ThemePack.regionArt per exact BoardTemplate artBox",
+    "preFitBoardTemplateDigest": "cf45e6786313e2067c3372dd3c3d500a6cc74fc2c68b4921ee82ec12bd3542a3",
+    "boardTemplateDigest": "a848499f0c3c90a8d6b155115ea6a496b96b7e914351fca0bfce824732a76352",
+    "boardTemplateDigestMode": "sha256(canonical complete exported BoardTemplate via svg-imagegen-game-art topology_digest.mjs)",
+    "topologyDigest": "4ff4531a3cdf1936f9da9f0f6c199722ac804421655557a3f0919b8d2fac06c2",
+    "topologyDigestMode": "sha256(zoneId:topologySha256 joined by LF in runtime crop order)",
+    "ruleTopologyDigest": "70618a57564a95f69ea350409f11439eafdbd1048d3b6b8eb1b5fedd0231e282",
+    "ruleTopologyDigestMode": "sha256(JSON BoardTemplate rule projection with node x/y/zoneId and edge pathData omitted)",
+    "derivedZoneDigest": "2b3a25825ce6859c844669deab712f30b2984cb0bf67ad822f8f032f128fe08c",
+    "derivedZoneDigestMode": "sha256(JSON nodeId-to-zoneId map using ordered half-open BoardTemplate bounds)",
+    "imagegenProjectionDigest": "0304b30548e025f842f8ca349ce8a256efd0c89ebe79bbc9cd101c871cb69687",
+    "ordinaryRoadCount": 64,
+    "conditionalCloudStairCount": 1,
+    "nodeClearanceCount": 61,
+    "transportClearanceCount": 2
+  },
+  "authoritativeControl": {
+    "svgFile": "world-01-imagegen-control-guide.svg",
+    "svgSha256": "f35501209ea5f8ab9eedeafd69569011408365e6a4d138874e8e8977b034bcd3",
+    "rasterFile": "world-01-imagegen-control-guide.png",
+    "rasterSize": [
+      2400,
+      1120
+    ],
+    "rasterSha256": "0ff63995e2c8c23a8c42af21f8ad135af6b7ce4f2299423be21d5bf3c4013b4c",
+    "interpretation": {
+      "coloredCorridorsAndDiscs": "mandatory continuous quiet top-facing support terrain",
+      "darkField": "off-route sky or cloud void",
+      "whiteCurve": "conditional cloud-stair clearance",
+      "cyanCurves": "transport flight clearances"
+    }
+  },
+  "iterations": [
+    {
+      "version": 4,
+      "rawFile": "world-01-master-v4-imagegen-raw.png",
+      "rawSize": [
+        1835,
+        857
+      ],
+      "rawSha256": "787ff76db9db2457f22c6ebc983eb7e4c7b5511541d726be53786b0145b4e4ee",
+      "normalizedFile": "world-01-master-v4-source.png",
+      "normalizedSize": [
+        2400,
+        1120
+      ],
+      "normalizedSha256": "d60f36ee1c6f6ee6bc2ea77cfbf86fe0d785429dcb080c624a75f6ce2075cc42",
+      "alignmentOverlay": "../../../output/verification/world-01-master-v4-route-alignment.png",
+      "alignmentOverlaySha256": "fce481807b609804e0229b052bbe56cb5a99045e90405251c89e293406dd97a6",
+      "decision": "Rejected after exact overlay: the harbor start nodes and upper-middle ordinary branch crossed water or cloud void."
+    },
+    {
+      "version": 5,
+      "rawFile": "world-01-master-v5-imagegen-raw.png",
+      "rawSize": [
+        1836,
+        857
+      ],
+      "rawSha256": "9d4acdfd18fa8415d94505d20258d3b10c2ef209162df5b681ae6129a3b74470",
+      "normalizedFile": "world-01-master-v5-source.png",
+      "normalizedSize": [
+        2400,
+        1120
+      ],
+      "normalizedSha256": "80129c411852eb2eac84799adda30274a67647df36f082211c795c44065d01dd",
+      "alignmentOverlay": "../../../output/verification/world-01-master-v5-route-alignment.png",
+      "alignmentOverlaySha256": "813c3302df6113bba635504f9f4fdb690807830bb58f44ec26c16ae76f33416b",
+      "decision": "Rejected by independent overlay review: the n34–n37 ordinary route crossed a painted pond, and several node clearances overlapped a gate or tall trees."
+    },
+    {
+      "version": 6,
+      "rawFile": "world-01-master-v6-imagegen-raw.png",
+      "rawSize": [
+        1835,
+        857
+      ],
+      "rawSha256": "368e0ec3ca71024c705d1e5faecb77b7a28d6e9f2f803679eb49aee4c7375c81",
+      "normalizedFile": "world-01-master-v6-source.png",
+      "normalizedSize": [
+        2400,
+        1120
+      ],
+      "normalizedSha256": "b39c98727b0c740eaace1592f75889fb6c54d49dbb7dea4f8d0ddeee9b442117",
+      "alignmentOverlay": "../../../output/verification/world-01-master-v6-route-alignment.png",
+      "alignmentOverlaySha256": "739450fd3a64fa883fee38c16b30df3dd04639aa0e53584d2dc6de77e9ea5ad5",
+      "decision": "Rejected after exact overlay: the pond and tall-tree conflicts were removed, but the relocated stone gate still occupied the n48 clearance."
+    },
+    {
+      "version": 7,
+      "rawFile": "world-01-master-v7-imagegen-raw.png",
+      "rawSize": [
+        1836,
+        857
+      ],
+      "rawSha256": "b136a93eea535d32e745a3ff4482a1310f2180d75232cabea4f6a0437c6179cc",
+      "normalizedFile": "world-01-master-v7-source.png",
+      "normalizedSize": [
+        2400,
+        1120
+      ],
+      "normalizedSha256": "b05e4338ac1bd947d1b6d586968acae784eca49c3eecbe9e292db9c3ca6819b6",
+      "alignmentOverlay": "../../../output/verification/world-01-master-v7-route-alignment.png",
+      "alignmentOverlaySha256": "04941a4655fb5db07ccda1d34e1fa1f063d518125e2fd06345a44a73b67805b9",
+      "decision": "Selected as the version-7 raster after the initial exact overlay review; later user QA found local Zone 01 and Zone 02 centerline drift.",
+      "currentDisposition": "Raster retained; SVG-owned route and node geometry was fitted to its safe terrain without regenerating the bitmap.",
+      "supersededQaBy": "world-01-v7-svg-fit-v1"
+    }
+  ],
+  "svgFitRevisions": [
+    {
+      "id": "world-01-v7-svg-fit-v1",
+      "date": "2026-08-01",
+      "sourceRasterVersion": 7,
+      "sourceRasterFile": "world-01-master-v7-source.png",
+      "sourceRasterSha256": "b05e4338ac1bd947d1b6d586968acae784eca49c3eecbe9e292db9c3ca6819b6",
+      "preFitBoardTemplateDigest": "cf45e6786313e2067c3372dd3c3d500a6cc74fc2c68b4921ee82ec12bd3542a3",
+      "postFitBoardTemplateDigest": "a848499f0c3c90a8d6b155115ea6a496b96b7e914351fca0bfce824732a76352",
+      "ruleTopologyDigestBefore": "70618a57564a95f69ea350409f11439eafdbd1048d3b6b8eb1b5fedd0231e282",
+      "ruleTopologyDigestAfter": "70618a57564a95f69ea350409f11439eafdbd1048d3b6b8eb1b5fedd0231e282",
+      "derivedZoneDigestBefore": "2b3a25825ce6859c844669deab712f30b2984cb0bf67ad822f8f032f128fe08c",
+      "derivedZoneDigestAfter": "2b3a25825ce6859c844669deab712f30b2984cb0bf67ad822f8f032f128fe08c",
+      "imagegenProjectionDigestBefore": "e83dd7469808915c2a090accc16d9cd9bb5bcb4d335786d1bd2bd8811225f9fa",
+      "imagegenProjectionDigestAfter": "0304b30548e025f842f8ca349ce8a256efd0c89ebe79bbc9cd101c871cb69687",
+      "changedLayoutContracts": {
+        "zone-01": {
+          "from": "board.ximitu-card-hunt.zone-01-layout.v3",
+          "to": "board.ximitu-card-hunt.zone-01-layout.v4"
+        },
+        "zone-02": {
+          "from": "board.ximitu-card-hunt.zone-02-layout.v1",
+          "to": "board.ximitu-card-hunt.zone-02-layout.v2"
+        }
+      },
+      "alignmentOverlaySvg": "verification/world-01-master-v7-route-alignment-svg-fit-v1.svg",
+      "alignmentOverlaySvgSha256": "f08d10d010c197c3d419b6a638d2392542f835b95beaba64e0ecd83e0cb6a2c7",
+      "alignmentOverlay": "verification/world-01-master-v7-route-alignment-svg-fit-v1.png",
+      "alignmentOverlaySha256": "4f1ec36ea28bc3fe44834cb0a2582a0238b53cb3f8c95b00c370054253fcf689",
+      "bitmapRegenerated": false,
+      "runtimeCropBytesChanged": false,
+      "gameRuleTopologyChanged": false,
+      "note": "SVG-owned nodes and route centerlines were fitted to the retained v7 road and safe-terrain centers; no ImageGen regeneration, rule-topology change, or zone-ownership change."
+    }
+  ],
+  "runtimeCrops": [
+    {
+      "zoneId": "zone-01",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-01-layout.v4",
+      "topologySha256": "79578b6d06892fb94f418a5e4b443e41cbdb22fa1bc2f0be29c6650bdf31d101",
+      "artBox": [
+        0,
+        0,
+        1200,
+        620
+      ],
+      "file": "../../../public/assets/board-themes/cloud-harbor/regions/zone-01-v3.jpg",
+      "sha256": "6e240b824921be92d69d4565952346f1c2728dbf7e6802b0d81e506542c08ee8"
+    },
+    {
+      "zoneId": "zone-02",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-02-layout.v2",
+      "topologySha256": "ca304dafea64e5002b1606cf6952402b19d7873d78e574dedd21d32dc5443f86",
+      "artBox": [
+        1200,
+        0,
+        1200,
+        560
+      ],
+      "file": "../../../public/assets/board-themes/cloud-harbor/regions/zone-02-v3.jpg",
+      "sha256": "668ec9facf62c8ffd871d8f63c0c9a625b76f9eb9f646f317c1510d5b1ba9026"
+    },
+    {
+      "zoneId": "zone-03",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-03-layout.v1",
+      "topologySha256": "8d5656cb077ed4e2a5ddef16b28316b43e81634ad331af6a86b4619878178c04",
+      "artBox": [
+        1200,
+        560,
+        1200,
+        560
+      ],
+      "file": "../../../public/assets/board-themes/cloud-harbor/regions/zone-03-v3.jpg",
+      "sha256": "b6ceb09e6e1c009dc7e752f0c0bca25f19a3169dd7015fb8737c8f24d1e47b70"
+    },
+    {
+      "zoneId": "zone-04",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-04-layout.v1",
+      "topologySha256": "278f91fbb4d599253e8533dfc48774d6fba1ea8d12fb6fa44110d48985a85cad",
+      "artBox": [
+        0,
+        560,
+        1200,
+        560
+      ],
+      "file": "../../../public/assets/board-themes/cloud-harbor/regions/zone-04-v3.jpg",
+      "sha256": "afc17f16d4d1f9fa5fd24b82c649c458d9d3b1c25b6178266d411e300aaf8615"
+    }
+  ],
+  "prompts": {
+    "version4": "Treat the SVG-derived control guide as an immutable pixel-registered composition target. Paint one calm four-biome floating-island background beneath every ordinary route and node footprint. Keep cloud stairs and transport clearances open. Do not bake roads, nodes, characters, labels, or UI into the bitmap.",
+    "version5Repair": "Preserve version 4 while repairing the far-left harbor start and upper-middle branch to cover every mandatory colored support footprint from the same control guide. Keep the white cloud stair and cyan transport clearances distinct. Do not paint guide marks or gameplay geometry.",
+    "version6Repair": "Preserve version 5 while replacing the Rainbow Canyon transport pond with dry quiet terrain and clearing the n06a, n46, and n47 node footprints. Do not represent transport geometry in the bitmap.",
+    "version7Repair": "Preserve version 6 while removing the remaining lower-left stone gate and lamp from the n48 clearance. Replace only that local area with calm indigo walkable ground."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "cloud-harbor-clay-preview-zone-art.v4",
+  "generatedAt": "2026-11-10T06:13:12.994Z",
+  "status": "local-preview-only pending browser review",
+  "scope": "Zone01 environment detail edit only; no app, rule, geometry or registered original asset edits.",
+  "boardTemplateRef": "ximitu-card-hunt-board.v1@2.3.0",
+  "layoutContractRef": "board.ximitu-card-hunt.zone-01-layout.v7",
+  "boardTopologyDigest": "d00f6dadcede6ffd6df0616b3d53ef78a887c307f0af5a119355e678614f27a5",
+  "artBox": {
+    "x": 0,
+    "y": 0,
+    "width": 1200,
+    "height": 620
+  },
+  "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/regions/zone-01-v4.webp",
+  "generation": {
+    "tool": "built-in image_gen.imagegen",
+    "originalOutput": "/Users/tiantianci/.codex/generated_images/01a1c3f2-8b7b-76f2-afae-b791a2515d1a/exec-9f5513b3-0001-4ee7-954c-74e45a1de05d.png",
+    "promptFile": "art-source/cloud-harbor/clay-preview/background/zone-01-v3/prompt-clearance-v4.txt",
+    "promptSha256": "b58c0af6949e65210ab2094b0f576343963697581a0b2c4132064b7b2fd31ce1",
+    "references": [
+      {
+        "file": "art-source/cloud-harbor/clay-preview/background/zone-01-v3/zone-01-background-v3.png",
+        "sha256": "6f01b593413e8b9d18189562db7ece484feb0644802415e3c5b66093413d3fd1",
+        "bytes": 7500829,
+        "width": 2400,
+        "height": 1240
+      },
+      {
+        "file": "art-source/cloud-harbor/clay-preview/background/zone-01-v3/current-route-alignment-v3.png",
+        "sha256": "9ac77298e0d88dc58d0a54fe7781b441a35d2a9cc6c8a336399a224d56fb649d",
+        "bytes": 2125914,
+        "width": 1200,
+        "height": 620
+      }
+    ]
+  },
+  "raw": {
+    "file": "art-source/cloud-harbor/clay-preview/background/zone-01-v3/generated-clearance-v4-original.png",
+    "sha256": "54e7e5b40bc1748e933220b94f9f210e6f5d1c33d127ec109ca5981fae4b9f8d",
+    "bytes": 2796824,
+    "width": 1746,
+    "height": 901
+  },
+  "normalized": {
+    "file": "art-source/cloud-harbor/clay-preview/background/zone-01-v3/zone-01-background-v4.png",
+    "sha256": "342bc334401314932b4a1785a09eb38b268d4a720ca18e2e094a03ada032bedc",
+    "bytes": 7429120,
+    "width": 2400,
+    "height": 1240
+  },
+  "runtime": {
+    "file": "public/assets/board-themes/cloud-harbor/clay-preview/regions/zone-01-v4.webp",
+    "sha256": "fd244af1bb7a52f387f59908857de6c4a1ba26f169b59d2de391f10e35ac3442",
+    "bytes": 724652,
+    "width": 2400,
+    "height": 1240
+  },
+  "processing": {
+    "library": "Sharp",
+    "version": "0.35.3",
+    "resize": {
+      "width": 2400,
+      "height": 1240,
+      "fit": "fill",
+      "kernel": "lanczos3"
+    },
+    "webp": {
+      "quality": 94,
+      "effort": 6
+    },
+    "note": "Mechanical size/encoding conversion only; original raw output retained. New asset is standalone zone01; border matching to other v2 regions must be verified by parent before acceptance."
+  },
+  "validation": {
+    "routeOverlay": "art-source/cloud-harbor/clay-preview/background/zone-01-v3/current-route-alignment-v4.png",
+    "generationInspect": "Inspected exact current Board2.3.0 overlay: n01 footprint clear after dock-side rock removal; n14→n13b branch cleared; other visible route/node areas grounded and unobstructed; only e15 crosses open sky. No baked roads, tiles, characters, labels or HUD. This is a visual inspection, not browser/neighbor acceptance.",
+    "browserAlignment": "pending",
+    "neighborSeams": "pending"
+  },
+  "supersedes": "manifest-v3.json"
+}

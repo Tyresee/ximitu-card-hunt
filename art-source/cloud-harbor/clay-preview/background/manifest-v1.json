@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "cloud-harbor-clay-preview-art.v1",
+  "generatedAt": "2026-11-10",
+  "status": "local-preview-only",
+  "scope": "Full 2400x1120 world; terrain and environment only; no baked paths/nodes/UI/characters.",
+  "boardTemplateRef": "ximitu-card-hunt-board.v1@2.3.0",
+  "boardTopologyDigest": "d00f6dadcede6ffd6df0616b3d53ef78a887c307f0af5a119355e678614f27a5",
+  "generation": {
+    "tool": "built-in image_gen.imagegen",
+    "mode": "reference-guided generation",
+    "originalOutput": "/Users/tiantianci/.codex/generated_images/01a1c3f2-8b7b-76f2-afae-b791a2515d1a/exec-a85c415f-3612-433d-9573-61d303631a31.png",
+    "promptFile": "prompt-v1.txt",
+    "promptSha256": "bd79f1bba3a3f245fcf3717bcb63789715d38fe3d9eb3384e0138fd009c4a706",
+    "references": [
+      {
+        "role": "material/style reference",
+        "file": "../../../.codex/generated_images/01a1c3c0-4b0e-7341-965a-ff4db722a701/exec-a0b6db9e-3c5d-4db1-938c-e94f41dea189.png",
+        "sha256": "e791e40b94277f6a461258bb24c1c83737fae6c04eab7aecec8cc36e2b961df4",
+        "bytes": 2746964,
+        "width": 1586,
+        "height": 992
+      },
+      {
+        "role": "landmass/camera reference",
+        "file": "art-source/cloud-harbor/crystal-v1/world-01-master-crystal-v1.png",
+        "sha256": "ec83c529c44d81aa8aa30d929e80cd93a30a5a8fc0d00ca32406414e2e262e3c",
+        "bytes": 5977913,
+        "width": 2400,
+        "height": 1120
+      },
+      {
+        "role": "safe-land/corridor spatial reference",
+        "file": "art-source/cloud-harbor/crystal-v2/world-01-imagegen-control-guide.png",
+        "sha256": "a3e229f40ae398776231cd8e4e5048267ea56c07208793a663a5897a648fd41d",
+        "bytes": 172033,
+        "width": 2400,
+        "height": 1120
+      }
+    ]
+  },
+  "source": {
+    "file": "art-source/cloud-harbor/clay-preview/background/generated-master-original.png",
+    "sha256": "88a36f8895eb86404386b1c427220d2ae3bbc3a64dd23e538d5b9ff33d7886f7",
+    "bytes": 2630584,
+    "width": 1836,
+    "height": 857
+  },
+  "master": {
+    "file": "art-source/cloud-harbor/clay-preview/background/world-01-master-clay-v1.png",
+    "sha256": "40639d36b018a9d848b137cc866e10f358ea07e0c36d2fc8f0b03fadbb0270ff",
+    "bytes": 6545126,
+    "width": 2400,
+    "height": 1120
+  },
+  "processing": {
+    "library": "sharp",
+    "version": "0.35.3",
+    "vipsVersion": "8.18.3",
+    "resize": {
+      "width": 2400,
+      "height": 1120,
+      "fit": "fill",
+      "kernel": "lanczos3"
+    },
+    "aspectRatioAdjustmentPercent": 0.023342670401493848,
+    "webp": {
+      "quality": 90,
+      "effort": 6
+    },
+    "note": "Only resize/encoding and exact authoritative artBox crops. The raw ImageGen output is preserved; original game assets are unchanged. West regions retain their 60px overlap from this shared master."
+  },
+  "validation": {
+    "generationInspect": "No baked game roads, tiles, text, characters or mechanical structures visible. Upper-center crossing remains open cloud gap. Final route/background browser alignment to be checked by parent."
+  },
+  "crops": [
+    {
+      "regionId": "region-zone-01",
+      "zoneId": "zone-01",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-01-layout.v7",
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/regions/zone-01-v1.webp",
+      "artBox": {
+        "x": 0,
+        "y": 0,
+        "width": 1200,
+        "height": 620
+      },
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/regions/zone-01-v1.webp",
+      "sha256": "f36d7203d075afd9275993a331d83d908b91ad8c9a64cbc8932a6a8be745bdb1",
+      "bytes": 126974,
+      "width": 1200,
+      "height": 620
+    },
+    {
+      "regionId": "region-zone-02",
+      "zoneId": "zone-02",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-02-layout.v4",
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/regions/zone-02-v1.webp",
+      "artBox": {
+        "x": 1200,
+        "y": 0,
+        "width": 1200,
+        "height": 560
+      },
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/regions/zone-02-v1.webp",
+      "sha256": "6bbd08afe0a2f8202126730a433091fba8cae54c8ab8276696ca354d624a9c60",
+      "bytes": 115100,
+      "width": 1200,
+      "height": 560
+    },
+    {
+      "regionId": "region-zone-03",
+      "zoneId": "zone-03",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-03-layout.v2",
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/regions/zone-03-v1.webp",
+      "artBox": {
+        "x": 1200,
+        "y": 560,
+        "width": 1200,
+        "height": 560
+      },
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/regions/zone-03-v1.webp",
+      "sha256": "a936db72c636525472db05ae94d9ac2694afa3e2d9319d66a5d2abc97d28ee31",
+      "bytes": 114624,
+      "width": 1200,
+      "height": 560
+    },
+    {
+      "regionId": "region-zone-04",
+      "zoneId": "zone-04",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-04-layout.v2",
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/regions/zone-04-v1.webp",
+      "artBox": {
+        "x": 0,
+        "y": 560,
+        "width": 1200,
+        "height": 560
+      },
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/regions/zone-04-v1.webp",
+      "sha256": "ebaba0dacd5002c4916f665cb998afa4d5fb226506ba4cc30047e061ea76384c",
+      "bytes": 123710,
+      "width": 1200,
+      "height": 560
+    }
+  ]
+}

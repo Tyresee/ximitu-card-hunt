@@ -1,0 +1,128 @@
+/* Classroom play keeps the map open and the actionable controls in one corner.
+   Compatibility nodes stay mounted for snapshots, camera and editor hooks. */
+.runtime-shell .session-hud[hidden],
+.runtime-shell .map-navigator[hidden],
+.runtime-shell .board-legend[hidden] { display: none !important; }
+.runtime-shell[data-player-hud] .top-hud { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.runtime-shell[data-player-hud] .top-hud .team-hud-stack { max-width: 540px; }
+.runtime-shell .team-hud-stack-left { grid-column: 1; grid-row: 1; }
+.runtime-shell .team-hud-stack-right { grid-column: 2; grid-row: 1; }
+
+.teacher-play-panel:not([hidden]) {
+  position: fixed;
+  left: max(12px, env(safe-area-inset-left)); right: auto;
+  bottom: max(12px, env(safe-area-inset-bottom)); transform: none;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center;
+  gap: 8px; width: max-content; max-width: min(560px, calc(100vw - 80px));
+  padding: 8px; border-width: 2px; border-radius: 15px;
+  box-shadow: 0 4px 0 #173c4024;
+}
+.teacher-play-panel .teacher-player-options {
+  min-width: 0; max-width: 340px; padding: 0;
+  display: flex; flex-wrap: nowrap; gap: 5px;
+  overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: thin;
+}
+.teacher-play-panel .teacher-player-options button {
+  min-width: 48px; max-width: 132px; min-height: 40px;
+  display: block; padding: 6px 9px; border-radius: 10px;
+  font-size: 14px; line-height: 1.25; white-space: nowrap;
+}
+.teacher-player-options button > span { display: block; overflow: hidden; text-overflow: ellipsis; }
+.teacher-play-panel .teacher-play-action { display: contents; }
+.teacher-play-panel .teacher-play-action button {
+  min-height: 40px; padding: 7px 12px; border-radius: 10px;
+  max-width: 150px; font-size: 14px; line-height: 1.3; white-space: nowrap;
+}
+.teacher-play-panel .teacher-play-action button[hidden],
+.teacher-play-panel #teacher-play-status[hidden] { display: none; }
+.teacher-play-panel #teacher-play-status:not([hidden]) {
+  grid-column: 1 / -1; grid-row: 2; max-width: 60ch;
+  margin: 0; font-size: 12px; line-height: 1.4;
+}
+
+.board-utility-menu {
+  position: fixed; z-index: 25;
+  right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom));
+  color: var(--ink); pointer-events: auto;
+}
+.board-utility-menu > summary {
+  display: grid; place-items: center; width: 40px; height: 40px;
+  border: 2px solid var(--ink); border-radius: 12px;
+  background: var(--paper); font-size: 24px; cursor: pointer; list-style: none;
+}
+.board-utility-menu > summary::-webkit-details-marker { display: none; }
+.board-utility-menu .session-utility-actions {
+  position: absolute; top: auto; right: 0; bottom: 48px;
+  display: grid; gap: 6px; width: 152px; padding: 8px;
+  border: 2px solid var(--ink); border-radius: 13px; background: var(--paper);
+  box-shadow: 0 4px 0 #173c4024;
+}
+.board-utility-menu:not([open]) .session-utility-actions { display: none; }
+.board-utility-menu .session-utility-actions :is(button, .leave-session) {
+  justify-content: center; min-height: 38px; padding: 7px;
+  font-size: 13px; white-space: nowrap;
+}
+.board-utility-menu .session-utility-actions button[hidden] { display: none; }
+.board-utility-menu .board-sound-toggle b { display: inline; font-size: 13px; }
+.board-utility-menu .session-utility-actions .leave-session::after { content: none; }
+.board-utility-menu > summary:focus-visible { outline: 3px solid #7550b8; outline-offset: 3px; }
+.runtime-shell[data-layout-editor-active="true"] .board-utility-menu { display: none; }
+
+/* The map owns the entire play viewport; controls overlay it without reserving rows.
+   The layout editor keeps its separate canvas/panel arrangement. */
+body[data-classroom-mode] .runtime-shell:not([data-layout-editor-active="true"]) { min-height: 0; }
+body[data-classroom-mode] .runtime-shell:not([data-layout-editor-active="true"]) .board-viewport {
+  position: fixed; inset: 0; min-height: 0;
+  border: 0; border-radius: 0;
+}
+body[data-classroom-mode] .runtime-shell:not([data-layout-editor-active="true"]) .top-hud { position: fixed; }
+body[data-classroom-mode] .runtime-shell:not([data-layout-editor-active="true"]) .sc-legend {
+  position: fixed; bottom: max(80px, calc(env(safe-area-inset-bottom) + 68px));
+  max-height: calc(100dvh - 210px); overflow-x: hidden; overflow-y: auto;
+}
+body[data-classroom-mode] .runtime-shell:not([data-layout-editor-active="true"]) .sc-legend:not(.is-collapsed) {
+  right: 116px; max-width: calc(100vw - 140px);
+}
+@media (min-width: 901px) and (max-width: 1199px) {
+  body[data-classroom-mode="teacher-led"] .runtime-shell[data-player-hud="compact"] .team-hud-stack {
+    grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 620px) {
+  .teacher-play-panel:not([hidden]) { gap: 6px; padding: 6px; border-radius: 12px; }
+  .teacher-play-panel .teacher-player-options button { max-width: 96px; font-size: 13px; padding: 6px; }
+  .teacher-play-panel .teacher-play-action button { font-size: 13px; padding: 7px 9px; }
+}
+/* Short landscape windows keep the candidate tray visible above corner actions. */
+@media (max-height: 500px) {
+  body[data-classroom-mode] .runtime-shell:not([data-layout-editor-active="true"]) .dice-dock {
+    position: fixed; top: calc(50dvh - 48px);
+  }
+}
+
+.teacher-play-panel .teacher-status-retry {
+  margin-inline-start: 8px; padding: 4px 9px; min-height: 32px;
+  border-radius: 8px; font-size: 12px; white-space: nowrap;
+}
+/* Give multi-pupil phone balances a full row so every credited digit is visible. */
+@media (max-width: 680px) {
+  .runtime-shell[data-player-count]:not([data-player-count="1"]):not([data-player-count="2"]) .top-hud .team-hud .player-assets {
+    grid-template-columns: minmax(0, 1fr); gap: 1px; padding: 0;
+  }
+  .runtime-shell[data-player-count]:not([data-player-count="1"]):not([data-player-count="2"]) .top-hud .team-hud .player-asset-badge.is-points {
+    grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto;
+    min-height: 36px; gap: 0; padding: 2px;
+  }
+  .runtime-shell[data-player-count]:not([data-player-count="1"]):not([data-player-count="2"]) .top-hud .team-hud .player-asset-badge > i { display: none; }
+  .runtime-shell[data-player-count]:not([data-player-count="1"]):not([data-player-count="2"]) .top-hud .team-hud .player-asset-badge.is-points > strong {
+    grid-column: 1; font-size: 15px; line-height: 1.4; white-space: nowrap;
+  }
+  .runtime-shell[data-player-count]:not([data-player-count="1"]):not([data-player-count="2"]) .top-hud .team-hud .player-asset-badge.is-points .player-asset-label {
+    grid-column: 1; font-size: 8px; white-space: nowrap;
+  }
+  .runtime-shell[data-player-count]:not([data-player-count="1"]):not([data-player-count="2"]) .top-hud .team-hud .player-asset-badge.is-actions {
+    display: flex; align-items: center; min-height: 16px; padding: 2px; gap: 3px;
+  }
+  .runtime-shell[data-player-count]:not([data-player-count="1"]):not([data-player-count="2"]) .top-hud .team-hud .player-asset-badge.is-actions > strong { font-size: 11px; }
+  .runtime-shell[data-player-count]:not([data-player-count="1"]):not([data-player-count="2"]) .top-hud .team-hud .player-asset-badge.is-actions .player-asset-label { font-size: 8px; white-space: nowrap; }
+}

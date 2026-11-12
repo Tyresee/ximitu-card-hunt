@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "clay-preview-route-art.v1",
+  "generatedAt": "2026-11-10",
+  "status": "local-preview-only",
+  "generation": {
+    "tool": "built-in image_gen.imagegen",
+    "originalOutput": "/Users/tiantianci/.codex/generated_images/01a1c3f2-8b7b-76f2-afae-b791a2515d1a/exec-17376f9e-b083-400b-a6aa-44eb203af056.png",
+    "promptFile": "prompt-v1.txt",
+    "promptSha256": "84aa059cf6540cb342ede5643285c0d18cb6e6c18b6580a34912a39648e7dd0e",
+    "styleReference": "/Users/tiantianci/.codex/generated_images/01a1c3c0-4b0e-7341-965a-ff4db722a701/exec-a0b6db9e-3c5d-4db1-938c-e94f41dea189.png"
+  },
+  "source": {
+    "file": "clay-stone-v1-source.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "3279217cd87ab6b0cae5f5cf3208bacc1f583ed6908cdfeda87e5a98bd68d5bd"
+  },
+  "runtime": {
+    "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/routes/clay-stone-v1.webp",
+    "width": 512,
+    "height": 512,
+    "bytes": 19284,
+    "sha256": "04f3f627c9225b5155ef43b18f739aa0f5eea0cd5fd989c56c26e4b6a13e4d8d"
+  },
+  "processing": {
+    "library": "sharp",
+    "version": "0.35.3",
+    "kernel": "lanczos3",
+    "webp": {
+      "quality": 90,
+      "effort": 6
+    }
+  },
+  "validation": {
+    "texture": "Full-bleed warm ivory fine clay grain, no path edges/objects/text",
+    "repeatPreview": "clay-stone-v1-repeat-2x2.png",
+    "scope": "Visual texture only; SVG path mask retains authoritative geometry."
+  }
+}

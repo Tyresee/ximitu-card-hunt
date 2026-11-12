@@ -1,0 +1,186 @@
+/* Grounded node stonework. The board-space remains the interaction owner. */
+.grounded-node,
+.grounded-node * {
+  pointer-events: none;
+}
+
+.grounded-node {
+  --grounded-stone-top: #f8efd9;
+  --grounded-stone-front: #d7c5a6;
+  --grounded-stone-line: #b6a285;
+  --grounded-stone-mark: #796f59;
+}
+
+.grounded-node-contact-shadow {
+  fill: #514a31;
+  opacity: .16;
+}
+
+.grounded-node-front {
+  fill: var(--grounded-stone-front);
+  stroke: #c3ad8d;
+  stroke-width: .75;
+  stroke-linejoin: round;
+}
+
+.grounded-node-top {
+  fill: var(--grounded-stone-top);
+  stroke: var(--grounded-stone-line);
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.grounded-node-light-edge {
+  fill: none;
+  stroke: #fffdf0;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.grounded-node-stone-grain {
+  fill: none;
+  stroke: #c4b398;
+  stroke-width: .75;
+  stroke-linecap: round;
+  opacity: .55;
+}
+
+.grounded-node.is-ordinary {
+  --grounded-stone-top: #eee7d7;
+  --grounded-stone-front: #cdc1aa;
+  --grounded-stone-line: #bbae96;
+}
+
+.grounded-node.is-facility {
+  --grounded-stone-top: #e5e4d1;
+  --grounded-stone-front: #b6beaa;
+  --grounded-stone-line: #99a58f;
+  --grounded-stone-mark: #63766a;
+}
+
+.grounded-node-engraving {
+  fill: none;
+  stroke: var(--grounded-stone-mark);
+  stroke-width: 2.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.grounded-node-footstep {
+  fill: var(--grounded-stone-mark);
+  opacity: .78;
+}
+
+.grounded-node-glyph {
+  fill: var(--grounded-stone-mark);
+  font-family: "Nunito", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 19px;
+  font-weight: 900;
+  stroke: none;
+}
+
+.grounded-node-object-shadow {
+  fill: #8b7548;
+  opacity: .18;
+}
+
+.grounded-node-coin-edge {
+  fill: #cd9435;
+  stroke: #b88332;
+  stroke-width: .8;
+}
+
+.grounded-node-coin-face {
+  fill: #f2cc64;
+  stroke: #cc9b42;
+  stroke-width: 1;
+}
+
+.grounded-node-coin-inset {
+  fill: none;
+  stroke: #dba84b;
+  stroke-width: 1;
+}
+
+.grounded-node-coin-stamp {
+  fill: #b98332;
+}
+
+.grounded-node-object-glint {
+  fill: none;
+  stroke: #fff9d4;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.grounded-node-gem-body {
+  fill: #78bbba;
+  stroke: #568d8d;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.grounded-node-gem-light {
+  fill: #c3e9df;
+}
+
+.grounded-node-gem-facet {
+  fill: none;
+  stroke: #5b9997;
+  stroke-width: .8;
+}
+
+.grounded-node-star {
+  fill: #e7c778;
+  stroke: #ae9250;
+  stroke-width: 1.1;
+  stroke-linejoin: round;
+}
+
+.board-space.is-current .grounded-node .grounded-node-top,
+.board-space.is-route-junction .grounded-node .grounded-node-top {
+  stroke: #698b77;
+  stroke-width: 1.8;
+}
+
+.board-space.is-route-preview .grounded-node .grounded-node-top {
+  stroke: var(--route-preview-tone, #698b77);
+  stroke-width: 1.8;
+}
+
+/* The selected crystal landscape uses the local ground color in each region.
+ * These overrides are scoped to the new immutable theme; old sessions retain
+ * the harbor sample exactly. */
+[data-scene-presentation="grounded-crystal.v1"] [data-node-zone="zone-01"] .grounded-node {
+  --grounded-stone-top: #e1f3e8;
+  --grounded-stone-front: #a5cdbc;
+  --grounded-stone-line: #80b8a3;
+  --grounded-stone-mark: #427766;
+}
+[data-scene-presentation="grounded-crystal.v1"] [data-node-zone="zone-02"] .grounded-node {
+  --grounded-stone-top: #f6f6d6;
+  --grounded-stone-front: #cfd49d;
+  --grounded-stone-line: #a4b56e;
+  --grounded-stone-mark: #708248;
+}
+[data-scene-presentation="grounded-crystal.v1"] [data-node-zone="zone-03"] .grounded-node {
+  --grounded-stone-top: #fbeafb;
+  --grounded-stone-front: #d8b7e3;
+  --grounded-stone-line: #b68aca;
+  --grounded-stone-mark: #885eab;
+}
+[data-scene-presentation="grounded-crystal.v1"] [data-node-zone="zone-04"] .grounded-node {
+  --grounded-stone-top: #e9efff;
+  --grounded-stone-front: #b9c8eb;
+  --grounded-stone-line: #91a5ce;
+  --grounded-stone-mark: #5b70a0;
+}
+[data-scene-presentation="grounded-crystal.v1"] .grounded-node-front {
+  stroke: var(--grounded-stone-line);
+}
+[data-scene-presentation="grounded-crystal.v1"] .grounded-node-contact-shadow {
+  fill: var(--grounded-stone-mark);
+}
+[data-scene-presentation="grounded-crystal.v1"] .grounded-node-stone-grain {
+  stroke: var(--grounded-stone-line);
+}

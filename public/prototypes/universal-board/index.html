@@ -1,0 +1,1273 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>云港星星大冒险</title>
+    <link rel="icon" href="/assets/robot.svg">
+    <link rel="stylesheet" href="/prototypes/universal-board/styles.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/game-feel.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/grounded-routes.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/grounded-scene.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/grounded-scene-integration.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/platform-points.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/points-only.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/harbor-light-host.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/special-cells.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/coin-gain-fx.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/board-ui.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/setup-roster.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/play-controls.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/clay-preview.css">
+    <link rel="stylesheet" href="/prototypes/universal-board/clay-board.css">
+  </head>
+  <body>
+    <main class="runtime-shell" data-testid="universal-board-prototype">
+      <header class="top-hud">
+        <section id="team-hud-left" class="team-hud-stack team-hud-stack-left" aria-label="左侧玩家"></section>
+        <section class="session-hud" aria-label="游戏进度" hidden>
+          <span>XIMITU STAR ADVENTURE</span>
+          <strong data-testid="session-round">回合 1</strong>
+          <div class="session-progress">
+            <small id="session-goal">终章进度 0 / 12</small>
+            <small id="session-opportunity" data-testid="content-proof">等待开局</small>
+          </div>
+          <small id="platform-points-note" class="platform-points-note" hidden></small>
+        </section>
+        <section id="team-hud-right" class="team-hud-stack team-hud-stack-right" aria-label="右侧玩家"></section>
+      </header>
+
+      <details class="board-utility-menu" aria-label="棋局操作">
+        <summary aria-label="打开棋局操作" title="棋局操作">⋯</summary>
+        <div class="session-utility-actions">
+            <button
+              type="button"
+              id="board-sound-toggle"
+              class="board-sound-toggle"
+              aria-pressed="true"
+              title="打开或关闭棋盘提示音"
+            >
+              <span aria-hidden="true">🔊</span>
+              <b>声效开</b>
+            </button>
+            <button type="button" id="return-to-setup" class="leave-session">暂停并保存</button>
+            <button type="button" id="restart-game" class="leave-session" hidden>重开一局</button>
+            <button type="button" id="end-game" class="leave-session" hidden>结束本局</button>
+          </div>
+      </details>
+
+      <p id="layout-registry-error" class="layout-registry-error" role="status" aria-live="polite" hidden></p>
+
+      <a
+        id="game-authoring-open"
+        class="game-authoring-open"
+        href="/prototypes/universal-board/?layoutEditor=1"
+        target="_blank"
+        rel="noopener"
+        title="在新页面打开地图节点编辑器，不打断当前棋局"
+        hidden
+      >
+        <span aria-hidden="true">✎</span>
+        <b>编辑地图</b>
+      </a>
+
+      <aside
+        class="dice-dock"
+        id="dice-dock"
+        data-side="right"
+        aria-label="右侧骰子候场：从上到下由最强到最基础"
+        hidden
+      >
+        <span class="dice-dock-title">骰子候场</span>
+        <small class="dice-dock-order">强力在上</small>
+        <div class="dice-dock-list" id="dice-dock-list"></div>
+      </aside>
+
+      <section
+        class="board-viewport"
+        tabindex="0"
+        aria-label="可拖动浏览的通用冒险大地图"
+        aria-describedby="board-pan-status"
+      >
+        <svg
+          id="board-svg"
+          viewBox="0 0 1200 620"
+          preserveAspectRatio="xMidYMin meet"
+          role="img"
+          aria-label="由数据生成的多区域冒险棋盘"
+        ></svg>
+        <div id="board-fx-layer" class="board-fx-layer" aria-hidden="true"></div>
+        <aside id="special-cells-legend" class="sc-legend" aria-label="本节课宝藏" hidden></aside>
+        <details class="map-navigator" aria-label="大地图导航" hidden>
+          <summary class="board-control-summary">世界地图</summary>
+          <div class="map-navigator-body">
+            <div class="map-navigator-heading">
+              <span>WORLD MAP</span>
+              <button type="button" id="focus-active-pawn">回到当前棋子</button>
+            </div>
+            <svg id="mini-map" role="img" aria-label="整张棋盘的缩略地图"></svg>
+            <div id="map-zone-buttons" class="map-zone-buttons" aria-label="快速前往地图区域"></div>
+            <small id="board-pan-status">拖动画布浏览 · 方向键移动</small>
+          </div>
+        </details>
+        <details class="board-legend" aria-label="棋盘格子规则图例" hidden>
+          <summary class="board-control-summary">看懂格子</summary>
+          <div class="board-legend-items">
+            <span class="legend-entity"><i class="legend-team">人</i>玩家棋子</span>
+            <span class="legend-divider" aria-hidden="true">看懂格子</span>
+            <span><i class="legend-learning">步</i>停靠 · 看格子上的积分</span>
+            <span><i class="legend-reward">＋</i>积分 · 最终停稳后到账</span>
+            <span><i class="legend-ability">⚙</i>设施 · 触发地图效果</span>
+            <span><i class="legend-choice">↗</i>选择 · 到达后自己决定</span>
+            <span><i class="legend-transport">→</i>传送 · 落点后自动前进</span>
+            <span><i class="legend-clue">足</i>经过 · 不领取积分</span>
+            <span><i class="legend-challenge">旗</i>行动 · 按骰子逐格前进</span>
+            <span class="legend-safety">完成全部移动后，只领取最终停下那一格的积分</span>
+          </div>
+        </details>
+      </section>
+
+      <div
+        class="collection-fx-layer"
+        id="collection-fx-layer"
+        aria-hidden="true"
+      ></div>
+      <p
+        class="visually-hidden"
+        id="collection-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      ></p>
+
+      <aside class="speaker-dock" data-testid="speaker-dock">
+        <span class="dock-kicker">当前发言</span>
+        <div class="speaker-row">
+          <span class="speaker-avatar" id="speaker-avatar" aria-hidden="true">🐰</span>
+          <div>
+            <strong id="speaker-name">Mia</strong>
+            <small id="speaker-team">西米兔 · 个人回合</small>
+          </div>
+        </div>
+        <p>完整读出题卡，看看本轮表现分会解锁哪一种骰子。</p>
+      </aside>
+
+      <section
+        class="mission-dock"
+        data-testid="mission-dock"
+        data-speech-state="preparing"
+        data-speech-busy="true"
+      >
+        <div class="mission-cue" id="mission-cue" aria-hidden="true"></div>
+        <div class="mission-content">
+          <div class="mission-meta">
+            <span id="learning-pack-name"></span>
+            <span class="voice-state"><i></i><b id="voice-state-text">正在听…</b></span>
+          </div>
+          <p id="mission-prompt"></p>
+          <h1 id="mission-frame"></h1>
+          <output
+            class="mission-score-result"
+            id="mission-score-result"
+            aria-live="polite"
+            hidden
+          >
+            <small>本轮表现分</small>
+            <strong>—</strong>
+          </output>
+          <small id="mission-model"></small>
+          <div class="voice-action">
+            <div
+              class="asr-console"
+              id="asr-console"
+              data-state="checking"
+              tabindex="-1"
+            >
+              <span
+                class="asr-status-line"
+                id="asr-status-line"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                <i class="speech-state-marker" data-testid="speech-state-marker" aria-hidden="true"></i>
+                <span id="asr-availability">正在准备声音魔法…</span>
+              </span>
+              <span class="asr-transcript" id="asr-transcript">说完后，这里会出现本轮表现分</span>
+            </div>
+            <div class="voice-action-buttons">
+              <button
+                type="button"
+                id="asr-toggle"
+                class="asr-primary"
+                data-testid="asr-toggle"
+                aria-describedby="asr-availability asr-transcript asr-help"
+                disabled
+              >
+                开始回答
+              </button>
+              <button type="button" id="teacher-accept" class="teacher-accept" data-testid="teacher-accept" hidden>
+                老师确认完成
+              </button>
+            </div>
+            <small id="asr-help">完整说出句子，AI 会自动停录并给出表现分！</small>
+          </div>
+        </div>
+        <div class="die-panel" aria-label="本轮骰子">
+          <small id="die-kind">等待表现分</small>
+          <output class="die-status" id="die-status" aria-live="polite">?</output>
+        </div>
+      </section>
+
+      <section id="teacher-play-panel" class="teacher-play-panel" aria-label="选择学生并掷骰" hidden>
+        <div id="teacher-player-options" class="teacher-player-options" role="group" aria-label="选择获得机会的学生"></div>
+        <div class="teacher-play-action"><p id="teacher-play-status" role="status" aria-live="polite" hidden></p><button id="teacher-grant" type="button" disabled>先选一位学生</button><button id="teacher-roll" type="button" hidden>掷骰子</button></div>
+      </section>
+
+      <section
+        class="turn-showtime"
+        id="turn-showtime"
+        hidden
+        aria-live="polite"
+        aria-label="轮到当前孩子"
+      >
+        <div class="showtime-rays" aria-hidden="true"></div>
+        <div class="showtime-card">
+          <span class="showtime-kicker">IT’S MY TURN</span>
+          <span class="showtime-avatar" id="showtime-avatar" aria-hidden="true">🐰</span>
+          <strong id="showtime-name">Mia</strong>
+          <p id="showtime-role">西米兔</p>
+          <small id="showtime-team">个人回合 · 轮到我啦</small>
+        </div>
+      </section>
+
+      <section
+        class="turn-feedback"
+        id="turn-feedback"
+        hidden
+        data-state="success"
+        data-phase="judgement"
+        data-visibility="closed"
+        data-side="right"
+        aria-live="polite"
+        aria-atomic="true"
+        aria-label="本轮回答与移动反馈"
+      >
+        <div class="turn-feedback-card">
+          <div class="feedback-heading">
+            <span id="feedback-kicker">本轮判定</span>
+            <strong id="feedback-title">等待本轮反馈</strong>
+          </div>
+          <p id="feedback-transcript">你说：She has two apples.</p>
+          <p id="feedback-guidance"></p>
+          <div class="feedback-rewards" aria-label="本轮奖励">
+            <span class="feedback-primary"><small>本轮表现分</small><strong id="feedback-score">92</strong></span>
+            <span><small>解锁骰子</small><strong id="feedback-dice">传奇骰二选一</strong></span>
+            <span><small>行动结果</small><strong id="feedback-move">等待投骰</strong></span>
+          </div>
+          <ol class="feedback-timeline" aria-label="本轮结算进度">
+            <li data-feedback-step="judgement">听懂了</li>
+            <li data-feedback-step="reward">表现分</li>
+            <li data-feedback-step="dice">选骰子</li>
+            <li data-feedback-step="move">出发</li>
+            <li data-feedback-step="effect">找宝藏</li>
+          </ol>
+        </div>
+      </section>
+
+      <section
+        class="dice-choice-stage"
+        id="dice-choice-stage"
+        role="dialog"
+        aria-modal="true"
+        aria-live="assertive"
+        aria-labelledby="dice-choice-title"
+        data-phase="idle"
+        data-score-tone="steady"
+        hidden
+      >
+        <div class="dice-choice-card">
+          <span class="stage-kicker">DICE SHOWTIME</span>
+          <h2 id="dice-choice-title">选一个你的幸运骰子</h2>
+          <p id="dice-choice-copy">同一个高分，也会遇见不同惊喜。</p>
+          <div class="dice-options" id="dice-options"></div>
+          <div class="dice-choice-retry">
+            <button
+              type="button"
+              id="dice-score-retry"
+              data-testid="dice-score-retry"
+              aria-describedby="dice-score-retry-note"
+              hidden
+            >
+              分数不太对？重新回答一次
+            </button>
+            <small id="dice-score-retry-note" hidden>
+              本题仅可重试一次，重新评分前不会掷骰或移动。
+            </small>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="dice-roll-stage"
+        id="dice-roll-stage"
+        hidden
+        aria-label="聚光灯骰子舞台"
+      >
+        <div class="dice-stage-scenery" aria-hidden="true">
+          <span class="dice-stage-beam is-left"></span>
+          <span class="dice-stage-beam is-right"></span>
+          <span class="dice-stage-aura"></span>
+          <span class="dice-stage-floor"></span>
+          <span class="dice-stage-stars"></span>
+        </div>
+        <div class="dice-roll-card" id="dice-roll-card" data-phase="wake">
+          <div class="dice-roll-heading">
+            <div>
+              <span class="stage-kicker">好运登场</span>
+              <h2 id="dice-roll-name">寻宝骰</h2>
+            </div>
+              <strong id="dice-roll-status" class="dice-roll-status">聚光灯就位</strong>
+          </div>
+          <div class="dice-roll-cube-slot" id="dice-roll-cube-slot"></div>
+          <details class="dice-roll-face-reference">
+            <summary>查看六个骰面 · 每面机会相同</summary>
+            <div class="dice-face-tray" id="dice-roll-faces"></div>
+          </details>
+          <output id="dice-roll-result" class="dice-roll-result" aria-live="polite">准备滚动</output>
+        </div>
+      </section>
+
+      <output class="dice-board-result" id="dice-board-result" hidden aria-live="polite">
+        <span class="dice-board-result-number" id="dice-board-result-number"></span>
+        <span class="dice-board-result-copy"><strong id="dice-board-result-title"></strong><small id="dice-board-result-bonus"></small></span>
+      </output>
+
+      <section
+        class="route-choice-stage"
+        id="route-choice-stage"
+        role="dialog"
+        aria-modal="true"
+        hidden
+        aria-live="assertive"
+        aria-labelledby="route-choice-title"
+        aria-describedby="route-choice-copy route-choice-steps route-choice-note"
+      >
+        <article class="route-choice-card">
+          <header class="route-choice-heading">
+            <div>
+              <span class="stage-kicker">ROUTE CHOICE · 岔路选择</span>
+              <h2 id="route-choice-title">前面出现两条路</h2>
+            </div>
+            <strong id="route-choice-steps">还剩 3 格</strong>
+          </header>
+          <p id="route-choice-copy">先看看每条路会经过什么，再替自己的角色做决定。</p>
+          <div class="route-options" id="route-options"></div>
+          <small class="route-choice-note" id="route-choice-note">角色已到达路口；选定后，会沿着高亮路线继续逐格前进。</small>
+        </article>
+      </section>
+
+      <section
+        class="coin-exchange-stage"
+        id="coin-exchange-stage"
+        role="dialog"
+        aria-modal="true"
+        hidden
+        aria-labelledby="coin-exchange-title"
+        aria-describedby="coin-exchange-copy coin-exchange-note"
+       data-retired-economy="true" inert>
+        <article class="coin-exchange-card" tabindex="-1">
+          <span class="stage-kicker">COIN EXCHANGE · 金币兑换站</span>
+          <h2 id="coin-exchange-title">要换一颗星星吗？</h2>
+          <div class="coin-exchange-rate" aria-label="5枚金币兑换1颗星星">
+            <strong><span aria-hidden="true">🪙</span> 5</strong>
+            <span aria-hidden="true">→</span>
+            <strong><span aria-hidden="true">★</span> 1</strong>
+          </div>
+          <p id="coin-exchange-copy">金币只会在你确认后扣除，并立即获得一颗星星。</p>
+          <strong class="coin-exchange-balance" id="coin-exchange-balance">当前金币：0</strong>
+          <div class="coin-exchange-actions">
+            <button type="button" id="coin-exchange-keep">保留金币</button>
+            <button type="button" id="coin-exchange-confirm">兑换星星</button>
+          </div>
+          <small id="coin-exchange-note">最终落在兑换站才会出现；路过不触发。</small>
+        </article>
+      </section>
+
+      <section class="card-reveal-stage" id="card-reveal-stage" hidden aria-live="polite" data-retired-economy="true" inert>
+        <div class="card-reveal-shell">
+          <span class="card-reveal-kicker">NEW CARD!</span>
+          <span class="card-reveal-chest" data-reward-source="card" aria-hidden="true">CARD</span>
+          <div class="ximitu-card">
+            <span class="ximitu-card-stars">★</span>
+            <span class="ximitu-card-avatar" id="revealed-card-avatar">🐰</span>
+            <strong id="revealed-card-name">西米兔</strong>
+            <small id="revealed-card-story">云港启航</small>
+          </div>
+          <p id="card-reveal-owner">这张卡已放进孩子的个人星星记录！</p>
+        </div>
+      </section>
+
+      <details class="teacher-tools" id="teacher-tools" hidden>
+        <summary>老师工具</summary>
+        <div class="teacher-tools-body">
+        <label>
+          棋盘主题包
+          <select id="theme-select" data-testid="theme-select"></select>
+        </label>
+        <label>
+          教学内容包
+          <select id="learning-select" data-testid="learning-select"></select>
+        </label>
+        <label>
+          课堂人数
+          <select id="player-count" data-testid="player-count"></select>
+        </label>
+        </div>
+      </details>
+
+      <section
+        class="activity-stage"
+        id="activity-stage"
+        role="dialog"
+        aria-modal="true"
+        hidden
+        data-state="active"
+        data-testid="activity-stage"
+        aria-live="assertive"
+        aria-labelledby="activity-title"
+      >
+        <div class="activity-arrival-rays" aria-hidden="true"></div>
+        <article
+          class="activity-card"
+          id="activity-card"
+          tabindex="-1"
+          aria-labelledby="activity-title"
+          aria-describedby="activity-first-action activity-outcome"
+        >
+          <header class="activity-heading">
+            <div>
+              <span id="activity-kicker">CLASS CHALLENGE · 惊喜事件</span>
+              <small id="activity-landed-label">角色落在挑战格</small>
+            </div>
+            <button type="button" id="skip-activity" aria-label="教师跳过本次活动">教师跳过</button>
+          </header>
+          <div class="activity-identity">
+            <div>
+              <strong id="activity-title"></strong>
+              <p id="activity-story"></p>
+            </div>
+            <div class="activity-actor">
+              <span id="activity-actor-avatar" aria-hidden="true">🐰</span>
+              <small>当前挑战者</small>
+              <strong id="activity-actor-name"></strong>
+            </div>
+          </div>
+          <div class="activity-first-action">
+            <span>现在先做</span>
+            <strong id="activity-first-action"></strong>
+          </div>
+          <ol class="activity-steps" id="activity-steps" aria-label="活动操作步骤"></ol>
+          <div class="activity-challenge" id="activity-challenge-wrap" hidden>
+            <span>如果卡住了，就对照这里</span>
+            <strong id="activity-challenge"></strong>
+          </div>
+          <div class="activity-target">
+            <span>本次挑战句</span>
+            <strong id="activity-target"></strong>
+          </div>
+          <div class="material-tags" id="material-tags"></div>
+          <div class="activity-outcome">
+            <span>完成后会发生</span>
+            <strong id="activity-outcome"></strong>
+          </div>
+          <div class="activity-result" id="activity-result" hidden aria-live="assertive">
+            <span aria-hidden="true">✓</span>
+            <strong id="activity-result-copy">挑战完成！回到角色落点。</strong>
+          </div>
+          <button type="button" id="complete-activity">完成挑战，看看棋盘变化</button>
+        </article>
+      </section>
+
+      <section class="game-stage setup-stage" id="setup-stage" aria-labelledby="setup-title">
+        <div class="setup-card">
+          
+          <h1 id="setup-title" class="sr-only">准备一场云港星星大冒险</h1>
+          <p id="setup-mode-intro" hidden>题目和活动由老师掌握。选择今天的学生和角色，掷骰前进；最终停格的积分进入学生家园账户。</p>
+          <form id="setup-form">
+            <section class="student-roster" aria-labelledby="student-roster-title">
+              <div class="student-roster-heading">
+                <div>
+                  <span>STEP 1 · CHOOSE TODAY'S PLAYERS</span>
+                  <strong id="student-roster-title">选择本节课学生</strong>
+                </div>
+                <div class="student-roster-heading-actions">
+                  <small id="student-roster-progress" aria-live="polite">正在加载资料库…</small>
+                  <button type="button" id="student-manager-open">管理学生资料</button>
+                </div>
+              </div>
+              <div id="student-create-form" class="student-create-form">
+                <label>
+                  新学生姓名
+                  <input id="student-create-name" maxlength="40" autocomplete="off" placeholder="例如：贝贝" />
+                </label>
+                <button type="button" id="student-create-submit">快速加入</button>
+              </div>
+              <p class="student-roster-status" id="student-roster-status" role="status"></p>
+              <div
+                class="student-profile-list"
+                id="student-profile-list"
+                role="group"
+                aria-label="学生资料库"
+              ></div>
+              <select id="setup-player-count" hidden aria-hidden="true" tabindex="-1"></select>
+            </section>
+            <div class="setup-grid">
+              <label hidden>
+                课堂模式
+                <select id="setup-mode"><option value="voice">知识答题 · 语音评分</option><option value="teacher-led" selected>老师主持 · 自由记分</option></select>
+              </label>
+              <label hidden>
+                棋盘主题
+                <select id="setup-theme"></select>
+              </label>
+              <label>
+                教学内容
+                <select id="setup-learning"></select>
+              </label>
+              <label>
+                发言保障
+                <select id="setup-opportunities">
+                  <option value="2">标准课堂 · 每位至少 2 次</option>
+                  <option value="3">深度练习 · 每位至少 3 次</option>
+                </select>
+              </label>
+            </div>
+            <section class="character-selection" aria-labelledby="character-selection-title">
+              <div class="character-selection-heading">
+                <div>
+                  <span>STEP 2 · MEET YOUR ADVENTURE BUDDY</span>
+                  <strong id="character-selection-title">谁陪你一起去冒险？</strong>
+                </div>
+                <small id="character-selection-progress" aria-live="polite">还未选择</small>
+              </div>
+              <div
+                class="player-character-tabs"
+                id="player-character-tabs"
+                role="group"
+                aria-label="选择要设置角色的孩子"
+              ></div>
+              <p class="character-selection-guide" id="character-selection-guide">选一位喜欢的伙伴，一起出发吧</p>
+              <div
+                class="character-options"
+                id="character-options"
+                role="group"
+                aria-label="可选角色"
+                aria-describedby="character-selection-guide"
+              ></div>
+            </section>
+            <div class="setup-preview" id="setup-preview" hidden></div>
+            <div class="setup-actions">
+              <button type="submit" id="start-session" disabled>选完角色，出发寻宝</button>
+              <button type="button" id="resume-session" class="secondary" hidden>继续上次游戏</button>
+              <button
+                type="button"
+                id="layout-editor-open"
+                class="secondary layout-editor-open"
+                hidden
+              >
+                地图制作 · 微调节点
+              </button>
+            </div>
+          </form>
+          <section id="platform-points-setup" class="platform-points-panel" aria-label="家园积分到账记录" hidden></section>
+        </div>
+      </section>
+
+      <section class="game-stage boss-stage" id="boss-stage" hidden aria-labelledby="boss-title">
+        <div class="boss-card">
+          <div class="stage-kicker">CHAPTER CHECKPOINT</div>
+          <h2 id="boss-title">全班章节挑战 · 点亮远征信标</h2>
+          <p id="boss-copy"></p>
+          <div class="boss-tree" aria-hidden="true">
+            <span class="boss-node boss-node-top">?</span>
+            <i class="boss-line boss-line-left"></i>
+            <i class="boss-line boss-line-right"></i>
+            <span class="boss-node boss-node-left">A</span>
+            <span class="boss-node boss-node-right">B</span>
+            <span class="boss-spark">✦</span>
+          </div>
+          <div class="boss-task">
+            <span>全班共同完成</span>
+            <strong id="boss-task-frame"></strong>
+          </div>
+          <p class="boss-progress" id="boss-progress"></p>
+          <button type="button" id="complete-boss">教师确认：完成本章挑战</button>
+        </div>
+      </section>
+
+      <section class="game-stage results-stage" id="results-stage" hidden aria-labelledby="results-title">
+        <div class="results-card">
+          <div class="stage-kicker">GAME STAR RESULTS</div>
+          <h2 id="results-title">本章远征完成！</h2>
+          <p id="results-copy">继续本局保留地图进度与行动记录；结束棋局不会清空已到账的家园积分。</p>
+          <div class="results-team-list" id="results-team-list"></div>
+          <section id="platform-points-results" class="platform-points-panel" aria-label="本局家园积分"></section>
+          <details class="teacher-summary">
+            <summary>查看教师私有发言记录</summary>
+            <div id="results-seat-list"></div>
+          </details>
+          <div class="results-actions">
+            <button type="button" id="replay-session">保留进度 · 继续下一章</button>
+            <button type="button" id="new-session" class="secondary">结束远征并返回设置</button>
+          </div>
+        </div>
+      </section>
+
+      <aside
+        class="layout-editor-panel"
+        id="layout-editor-panel"
+        aria-labelledby="layout-editor-title"
+        hidden
+      >
+        <header class="layout-editor-heading">
+          <div>
+            <span>BOARD AUTHORING</span>
+            <h2 id="layout-editor-title" tabindex="-1">地图与骰子编辑</h2>
+          </div>
+          <button type="button" id="layout-editor-close">退出编辑</button>
+        </header>
+        <div class="layout-editor-tabs" role="tablist" aria-label="编辑内容">
+          <button
+            type="button"
+            id="layout-editor-node-tab"
+            role="tab"
+            aria-selected="true"
+            aria-controls="layout-editor-node-section"
+          >节点布局</button>
+          <button
+            type="button"
+            id="layout-editor-dice-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="layout-editor-dice-section"
+          >骰子配置</button>
+          <button
+            type="button"
+            id="layout-editor-reward-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="layout-editor-reward-section"
+           data-retired-economy="true" inert hidden>节点奖励</button>
+          <button
+            type="button"
+            id="layout-editor-event-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="layout-editor-event-section"
+            hidden
+          >节点事件</button>
+          <button
+            type="button"
+            id="layout-editor-card-tab"
+            hidden
+            role="tab"
+            aria-selected="false"
+            aria-controls="layout-editor-card-section"
+           data-retired-economy="true" inert>历史卡片库</button>
+          <button
+            type="button"
+            id="layout-editor-codex-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="layout-editor-codex-section"
+          >Codex JSON</button>
+        </div>
+        <section
+          id="layout-editor-node-section"
+          class="layout-editor-section"
+          role="tabpanel"
+          aria-labelledby="layout-editor-node-tab"
+        >
+        <div
+          class="layout-editor-save-bar"
+          id="layout-editor-save-bar"
+          data-save-state="clean"
+        >
+          <button
+            type="button"
+            id="layout-editor-save"
+            aria-describedby="layout-editor-save-state"
+            aria-keyshortcuts="Control+S Meta+S"
+          >
+            保存并应用到棋盘
+          </button>
+          <p id="layout-editor-save-state" role="status" aria-live="polite">
+            点击保存后会应用到棋盘，退出编辑或刷新仍会保留。
+          </p>
+        </div>
+        <p class="layout-editor-safety">
+          这里只调整棋盘的视觉坐标与道路贴合；路线方向、分岔和落点规则不会改变。
+        </p>
+
+        <div class="layout-editor-mode" role="group" aria-label="拖动手势模式">
+          <button type="button" id="layout-editor-node-mode" aria-pressed="true">
+            移动节点
+          </button>
+          <button type="button" id="layout-editor-pan-mode" aria-pressed="false">
+            移动地图
+          </button>
+        </div>
+
+        <div class="layout-editor-fields">
+          <label>
+            编辑世界
+            <select id="layout-editor-world"></select>
+          </label>
+          <label>
+            当前节点
+            <select id="layout-editor-node"></select>
+          </label>
+          <div class="layout-editor-node-summary" aria-live="polite">
+            <strong id="layout-editor-node-name">请选择节点</strong>
+            <small id="layout-editor-node-meta">—</small>
+          </div>
+          <div class="layout-editor-coordinate-grid">
+            <label>
+              X
+              <input id="layout-editor-x" type="number" inputmode="numeric" step="1">
+            </label>
+            <label>
+              Y
+              <input id="layout-editor-y" type="number" inputmode="numeric" step="1">
+            </label>
+          </div>
+          <div class="layout-editor-position-copy">
+            <span id="layout-editor-original">原位置 X — / Y —</span>
+            <strong id="layout-editor-delta">相对原位 0 / 0</strong>
+          </div>
+          <label>
+            拖动吸附
+            <select id="layout-editor-grid">
+              <option value="1">1 px · 精细</option>
+              <option value="5">5 px · 快速</option>
+              <option value="10">10 px · 粗调</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="layout-editor-nudge" role="group" aria-label="微调当前节点">
+          <button type="button" data-layout-nudge-x="0" data-layout-nudge-y="-1" aria-label="节点上移">↑</button>
+          <button type="button" data-layout-nudge-x="-1" data-layout-nudge-y="0" aria-label="节点左移">←</button>
+          <button type="button" data-layout-nudge-x="1" data-layout-nudge-y="0" aria-label="节点右移">→</button>
+          <button type="button" data-layout-nudge-x="0" data-layout-nudge-y="1" aria-label="节点下移">↓</button>
+        </div>
+        <small class="layout-editor-key-help">节点聚焦时：方向键 1px · Shift + 方向键 10px</small>
+
+        <div class="layout-editor-history">
+          <button type="button" id="layout-editor-undo" disabled>撤销</button>
+          <button type="button" id="layout-editor-redo" disabled>重做</button>
+          <button type="button" id="layout-editor-reset-node">重置本节点</button>
+          <button type="button" id="layout-editor-reset-world">重置本世界</button>
+        </div>
+
+        <p class="layout-editor-warning" id="layout-editor-warning" hidden></p>
+        <div class="layout-editor-export-actions">
+          <button type="button" id="layout-editor-copy">复制调整 JSON</button>
+          <button type="button" id="layout-editor-download">下载布局草稿</button>
+        </div>
+        <textarea
+          id="layout-editor-export-text"
+          class="layout-editor-export-text"
+          aria-label="布局草稿 JSON"
+          readonly
+          hidden
+        ></textarea>
+        <footer>
+          <strong id="layout-editor-changed-count">布局草稿 · 尚未调整节点</strong>
+          <small>每次调整都会自动备份；只有点击“保存并应用到棋盘”才会更新普通游戏画面。</small>
+        </footer>
+        </section>
+
+        <section
+          id="layout-editor-dice-section"
+          class="layout-editor-section dice-pack-editor"
+          role="tabpanel"
+          aria-labelledby="layout-editor-dice-tab"
+          hidden
+        >
+          <div
+            class="layout-editor-save-bar dice-pack-editor-save-bar"
+            id="dice-pack-editor-save-bar"
+            data-save-state="clean"
+          >
+            <button
+              type="button"
+              id="dice-pack-editor-save"
+              aria-describedby="dice-pack-editor-save-state"
+              aria-keyshortcuts="Control+S Meta+S"
+            >发布骰子配置</button>
+            <p id="dice-pack-editor-save-state" role="status" aria-live="polite">
+              新配置发布后只用于新开的棋局，进行中的棋局保持原版本。
+            </p>
+          </div>
+
+          <p class="layout-editor-safety dice-pack-editor-safety">
+            六个实体骰面始终等概率随机抽取，只决定移动步数。家园积分按最终停格结算；评分档位与逐格移动顺序保持原规则。
+          </p>
+
+          <label class="dice-pack-family-field">
+            当前骰子
+            <select id="dice-pack-editor-family"></select>
+          </label>
+
+          <div class="dice-pack-editor-preview" aria-live="polite">
+            <div id="dice-pack-editor-preview-die" aria-hidden="true"></div>
+            <div>
+              <strong id="dice-pack-editor-family-name">起步骰</strong>
+              <small id="dice-pack-editor-family-summary">六面等概率</small>
+            </div>
+          </div>
+
+          <div class="dice-pack-face-header" aria-hidden="true">
+            <span>骰面</span>
+            <span>点数</span>
+          </div>
+          <div id="dice-pack-editor-faces" class="dice-pack-face-list"></div>
+
+          <p class="dice-pack-probability-note">
+            提示：如果多个骰面填相同点数，这个点数被摇到的机会会相应增加。
+          </p>
+
+          <div class="dice-pack-editor-actions">
+            <button type="button" id="dice-pack-editor-reset-family">恢复这颗骰子默认值</button>
+            <button type="button" id="dice-pack-editor-reset-all">恢复全部默认值</button>
+          </div>
+
+          <footer>
+            <strong id="dice-pack-editor-changed-count">骰子草稿 · 尚未修改</strong>
+            <small>骰子配置与节点布局独立保存；未发布的修改不会进入普通游戏。</small>
+          </footer>
+          <p class="visually-hidden" id="dice-pack-editor-status" role="status" aria-live="polite"></p>
+        </section>
+
+        <section
+          id="layout-editor-reward-section"
+          class="layout-editor-section node-reward-editor"
+          role="tabpanel"
+          aria-labelledby="layout-editor-reward-tab"
+          hidden
+         data-retired-economy="true" inert>
+          <div
+            class="layout-editor-save-bar node-reward-editor-save-bar"
+            id="node-reward-editor-save-bar"
+            data-save-state="clean"
+          >
+            <button
+              type="button"
+              id="node-reward-editor-save"
+              aria-describedby="node-reward-editor-save-state"
+              aria-keyshortcuts="Control+S Meta+S"
+            >发布节点奖励</button>
+            <p id="node-reward-editor-save-state" role="status" aria-live="polite">
+              新配置发布后只用于新开的棋局，进行中的棋局保持原版本。
+            </p>
+          </div>
+
+          <p class="layout-editor-safety node-reward-editor-safety">
+            所有节点都可查看。纯资源节点可调整到账奖励；岔路、运输、地图机关、航标线索、图鉴、兑换站与世界门的固定机制不会被改写。
+          </p>
+
+          <div class="node-reward-editor-fields">
+            <label>
+              编辑世界
+              <select id="node-reward-editor-world"></select>
+            </label>
+            <label>
+              当前节点
+              <select id="node-reward-editor-node"></select>
+            </label>
+          </div>
+
+          <div class="node-reward-editor-node-summary" aria-live="polite">
+            <strong id="node-reward-editor-node-name">请选择节点</strong>
+            <small id="node-reward-editor-node-meta">—</small>
+          </div>
+
+          <div class="node-reward-editor-effect-card">
+            <strong id="node-reward-editor-fixed-effect">节点效果</strong>
+            <p id="node-reward-editor-fixed-detail">选择节点后显示当前固定机制。</p>
+            <small id="node-reward-editor-base-reward">默认资源：—</small>
+          </div>
+
+          <div class="node-reward-editor-controls">
+            <label>
+              资源奖励
+              <select id="node-reward-editor-reward"></select>
+            </label>
+            <label>
+              数量
+              <input
+                id="node-reward-editor-amount"
+                type="number"
+                inputmode="numeric"
+                min="0"
+                max="3"
+                step="1"
+              >
+            </label>
+          </div>
+          <p id="node-reward-editor-effective" class="node-reward-editor-effective">
+            当前结算：沿用默认奖励
+          </p>
+
+          <div class="node-reward-editor-actions">
+            <button type="button" id="node-reward-editor-reset-node">恢复本节点默认值</button>
+            <button type="button" id="node-reward-editor-reset-world">恢复本世界默认值</button>
+            <button type="button" id="node-reward-editor-reset-all">恢复全部默认值</button>
+          </div>
+
+          <footer>
+            <strong id="node-reward-editor-changed-count">节点奖励草稿 · 尚未修改</strong>
+            <small>节点奖励与坐标、骰子分别发布；最终只在棋子完成移动后的真实落点结算一次。</small>
+          </footer>
+          <p class="visually-hidden" id="node-reward-editor-status" role="status" aria-live="polite"></p>
+        </section>
+
+        <section
+          id="layout-editor-card-section"
+          class="layout-editor-section card-catalog-editor"
+          role="tabpanel"
+          aria-labelledby="layout-editor-card-tab"
+          hidden
+         data-retired-economy="true" inert>
+          <p class="layout-editor-safety card-catalog-editor-safety">
+            卡片数量可以持续扩展。目录初始为空，只有你新增的内容才是正式卡片；没有用户图片的卡片只显示“尚未上传”，不会用生成图或角色图冒充。
+          </p>
+
+          <div class="card-catalog-summary" aria-live="polite">
+            <span>CARD BINDER</span>
+            <strong id="card-catalog-count">正在载入卡片目录…</strong>
+            <small id="card-catalog-revision">刷新或重新登录后仍会读取服务端目录。</small>
+          </div>
+
+          <form id="card-catalog-add-form" class="card-catalog-add-form">
+            <header>
+              <strong>新增一张卡片</strong>
+              <small>不会预先锁死卡片总数</small>
+            </header>
+            <label>
+              卡片名称
+              <input
+                id="card-catalog-new-name"
+                type="text"
+                maxlength="60"
+                autocomplete="off"
+                placeholder="例如：月光邮差"
+                required
+              >
+            </label>
+            <label>
+              卡片说明
+              <input
+                id="card-catalog-new-story"
+                type="text"
+                maxlength="180"
+                autocomplete="off"
+                placeholder="可选，之后仍可补充正式内容"
+              >
+            </label>
+            <button type="submit" id="card-catalog-add">新增卡片</button>
+          </form>
+
+          <label class="card-catalog-search-field">
+            查找卡片
+            <input
+              id="card-catalog-search"
+              type="search"
+              autocomplete="off"
+              placeholder="输入名称、说明或稳定 ID"
+            >
+          </label>
+
+          <div
+            id="card-catalog-list"
+            class="card-catalog-list"
+            role="list"
+            aria-busy="false"
+          ></div>
+
+          <p
+            id="card-catalog-status"
+            class="card-catalog-status"
+            role="status"
+            aria-live="polite"
+          >载入目录后即可新增卡片或上传图片。</p>
+        </section>
+
+        <section
+          id="layout-editor-event-section"
+          class="layout-editor-section classroom-event-editor"
+          role="tabpanel"
+          aria-labelledby="layout-editor-event-tab"
+          hidden
+        >
+          <div
+            class="layout-editor-save-bar classroom-event-editor-save-bar"
+            id="classroom-event-editor-save-bar"
+            data-save-state="saved"
+          >
+            <button
+              type="button"
+              id="classroom-event-editor-save"
+              aria-describedby="classroom-event-editor-save-state"
+              aria-keyshortcuts="Control+S Meta+S"
+              disabled
+            >发布节点事件</button>
+            <p id="classroom-event-editor-save-state" role="status" aria-live="polite">
+              载入已发布题目事件后可编辑；发布只影响之后新开的棋局。
+            </p>
+          </div>
+
+          <p class="layout-editor-safety classroom-event-editor-safety">
+            题目事件只在真实最终落点、固定地图 Trigger 与节点奖励结算之后打开；事件不参与评分、不发奖励，也不修改骰子、路线或步数。运输与世界门始终按真实目标节点判断。
+          </p>
+
+          <div class="classroom-event-editor-fields">
+            <label>
+              教学内容
+              <select id="classroom-event-editor-learning"></select>
+            </label>
+            <label>
+              编辑世界
+              <select id="classroom-event-editor-world"></select>
+            </label>
+            <label>
+              当前节点
+              <select id="classroom-event-editor-node"></select>
+            </label>
+          </div>
+
+          <section
+            class="classroom-event-editor-trigger-card"
+            aria-labelledby="classroom-event-editor-trigger-heading"
+          >
+            <header>
+              <span>FIXED MAP RULE · 只读</span>
+              <strong id="classroom-event-editor-trigger-heading">固定 Trigger</strong>
+            </header>
+            <dl>
+              <div>
+                <dt>何时触发</dt>
+                <dd id="classroom-event-editor-trigger-when">选择节点后显示固定触发时机</dd>
+              </div>
+              <div>
+                <dt>固定效果</dt>
+                <dd id="classroom-event-editor-trigger-effect">选择节点后显示地图效果与奖励顺序</dd>
+              </div>
+              <div>
+                <dt>规则来源</dt>
+                <dd id="classroom-event-editor-trigger-source">选择节点后显示 BoardTemplate / LevelPack 来源</dd>
+              </div>
+            </dl>
+          </section>
+
+          <label class="classroom-event-editor-event-field">
+            题目事件
+            <select id="classroom-event-editor-event">
+              <option value="">本节点暂未绑定题目事件</option>
+            </select>
+          </label>
+
+          <article
+            class="classroom-event-editor-preview"
+            aria-live="polite"
+            aria-labelledby="classroom-event-editor-title"
+          >
+            <header>
+              <span>来源题目</span>
+              <small id="classroom-event-editor-source-question">尚未选择题目事件</small>
+            </header>
+            <strong id="classroom-event-editor-title">选择题目事件后预览</strong>
+            <dl>
+              <div>
+                <dt>课堂指令</dt>
+                <dd id="classroom-event-editor-instruction">—</dd>
+              </div>
+              <div>
+                <dt>挑战提示</dt>
+                <dd id="classroom-event-editor-challenge">—</dd>
+              </div>
+              <div>
+                <dt>目标内容</dt>
+                <dd id="classroom-event-editor-target">—</dd>
+              </div>
+            </dl>
+          </article>
+
+          <div class="classroom-event-editor-actions">
+            <button type="button" id="classroom-event-editor-reset-node" disabled>
+              恢复本节点默认值
+            </button>
+            <button type="button" id="classroom-event-editor-reset-world" disabled>
+              恢复本世界默认值
+            </button>
+            <button type="button" id="classroom-event-editor-reset-all" disabled>
+              恢复全部默认值
+            </button>
+          </div>
+
+          <footer>
+            <strong id="classroom-event-editor-changed-count">节点事件草稿 · 尚未修改</strong>
+            <small>节点事件独立发布；未发布草稿不会进入普通游戏，进行中的棋局继续使用开局时固定的版本。</small>
+          </footer>
+          <p
+            class="visually-hidden"
+            id="classroom-event-editor-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </section>
+
+        <section
+          id="layout-editor-codex-section"
+          class="layout-editor-section codex-node-exchange"
+          role="tabpanel"
+          aria-labelledby="layout-editor-codex-tab"
+          hidden
+        >
+          <p class="layout-editor-safety codex-node-exchange-safety">
+            用这一份受控 JSON 批量修改节点坐标。家园积分使用独立规则；路线拓扑、固定 Trigger、评分、骰池与移动规则保持只读。
+          </p>
+
+          <ol class="codex-node-exchange-steps" aria-label="Codex 节点编辑流程">
+            <li><strong>复制</strong><span>生成当前配置并交给 Codex</span></li>
+            <li><strong>描述</strong><span>用自然语言说明要修改的节点</span></li>
+            <li><strong>粘贴</strong><span>预览差异后应用到编辑草稿</span></li>
+          </ol>
+
+          <div class="codex-node-exchange-export">
+            <label>
+              Codex 修改焦点（交换文件仍为完整地图）
+              <select id="codex-node-exchange-scope">
+                <option value="current-node">当前节点</option>
+                <option value="current-world" selected>当前世界</option>
+                <option value="all-worlds">全部地图</option>
+              </select>
+            </label>
+            <div class="codex-node-exchange-actions">
+              <button type="button" id="codex-node-exchange-generate">生成交换 JSON</button>
+              <button type="button" id="codex-node-exchange-copy" disabled>复制给 Codex</button>
+            </div>
+            <textarea
+              id="codex-node-exchange-output"
+              aria-label="可复制给 Codex 的节点交换 JSON"
+              readonly
+              spellcheck="false"
+              placeholder="点击“生成交换 JSON”后，这里会出现可交给 Codex 的完整数据。"
+            ></textarea>
+          </div>
+
+          <div class="codex-node-exchange-import">
+            <label for="codex-node-exchange-input">粘贴 Codex 返回的完整 JSON</label>
+            <textarea
+              id="codex-node-exchange-input"
+              spellcheck="false"
+              placeholder="支持直接粘贴 JSON，也支持带有 ```json 代码围栏的内容。"
+            ></textarea>
+            <button type="button" id="codex-node-exchange-preview">解析并预览</button>
+          </div>
+
+          <section
+            id="codex-node-exchange-diff"
+            class="codex-node-exchange-diff"
+            aria-labelledby="codex-node-exchange-diff-title"
+            hidden
+          >
+            <header>
+              <strong id="codex-node-exchange-diff-title">导入差异</strong>
+              <span id="codex-node-exchange-diff-summary">尚未解析</span>
+            </header>
+            <ul id="codex-node-exchange-diff-list"></ul>
+            <button type="button" id="codex-node-exchange-apply" disabled>
+              应用到编辑草稿
+            </button>
+            <small>应用后不会自动发布；有修改的标签页会显示“未发布”，请检查后点击各页顶部发布按钮。</small>
+          </section>
+
+          <p
+            id="codex-node-exchange-status"
+            class="codex-node-exchange-status"
+            role="status"
+            aria-live="polite"
+          >先生成当前配置，或粘贴 Codex 返回的 JSON。</p>
+        </section>
+        <p class="visually-hidden" id="layout-editor-status" role="status" aria-live="polite"></p>
+      </aside>
+    </main>
+    <dialog class="student-manager-dialog" id="student-manager-dialog" aria-labelledby="student-manager-title">
+      <section class="student-manager-panel">
+        <header class="student-manager-header">
+          <div>
+            <span>STUDENT LIBRARY</span>
+            <h2 id="student-manager-title">学生资料管理</h2>
+            <p>编辑孩子的游戏昵称与学习资料；课堂资产由游戏结算自动累计。</p>
+          </div>
+          <button type="button" id="student-manager-close" aria-label="关闭学生资料管理">×</button>
+        </header>
+        <div class="student-manager-body">
+          <aside class="student-manager-directory" aria-label="学生目录">
+            <label class="student-manager-search">
+              搜索学生
+              <input id="student-manager-search" type="search" autocomplete="off" placeholder="姓名或昵称" />
+            </label>
+            <div id="student-manager-list" class="student-manager-list"></div>
+          </aside>
+          <form id="student-manager-form" class="student-manager-form">
+            <div class="student-manager-empty" id="student-manager-empty">请先从左侧选择一名学生。</div>
+            <div id="student-manager-fields" hidden>
+              <div class="student-manager-identity">
+                <span id="student-manager-avatar" aria-hidden="true">学</span>
+                <div>
+                  <small>正在编辑</small>
+                  <strong id="student-manager-current-name">—</strong>
+                </div>
+              </div>
+              <div class="student-manager-field-grid">
+                <label>
+                  学生姓名 <small>用于资料辨认</small>
+                  <input id="student-manager-display-name" maxlength="40" required autocomplete="off" />
+                </label>
+                <label>
+                  游戏昵称 <small>游戏中优先显示</small>
+                  <input id="student-manager-nickname" maxlength="24" autocomplete="off" placeholder="例如：小船长" />
+                </label>
+                <label class="student-manager-field-wide">
+                  课程阶段 <small>可填写教材、级别或班型</small>
+                  <input id="student-manager-course-stage" maxlength="60" autocomplete="off" placeholder="例如：Power Up 1 · 周六班" />
+                </label>
+                <label class="student-manager-field-wide">
+                  教学备注 <small>仅用于老师备课和辨认</small>
+                  <textarea id="student-manager-note" maxlength="240" rows="4" placeholder="例如：喜欢恐龙主题；本月重点练习完整句。"></textarea>
+                </label>
+              </div>
+              <section class="student-manager-assets" aria-labelledby="student-manager-assets-title">
+                <div>
+                  <strong id="student-manager-assets-title">家园账户</strong>
+                  <small>只读 · 显示已查询的家园账户余额</small>
+                </div>
+                <dl id="student-manager-asset-summary"></dl>
+              </section>
+              <footer class="student-manager-footer">
+                <p id="student-manager-status" role="status" aria-live="polite"></p>
+                <button type="submit" id="student-manager-save">保存资料</button>
+              </footer>
+            </div>
+          </form>
+        </div>
+      </section>
+    </dialog>
+    <script src="/prototypes/universal-board/vendor/gsap.min.js"></script>
+    <script type="module" src="/prototypes/universal-board/app.js"></script>
+  </body>
+</html>

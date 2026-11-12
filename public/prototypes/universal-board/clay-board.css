@@ -1,0 +1,62 @@
+/* The optional local art skin leaves all route/node geometry and hit owners intact. */
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .has-clay-tile > .grounded-node > .grounded-node-stone {
+  visibility: hidden;
+}
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .clay-tile-art,
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .clay-route-material {
+  pointer-events: none;
+}
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .tile-points-face {
+  fill: #55412f; stroke: none; font-size: 19px; font-weight: 800; letter-spacing: -.3px;
+}
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .tile-points.is-long .tile-points-face {
+  font-size: 17px;
+}
+/* Points stay on the material surface, including when a pawn occupies it. */
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .board-space.has-tile-points .tile-points .tile-points-tab {
+  display: none;
+}
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .board-space.has-tile-points .tile-points .tile-points-face {
+  display: inline;
+}
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .board-space.has-engraved-tile > .tile-points {
+  display: none;
+}
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .has-clay-pavers .grounded-route-stone > :is(.grounded-route-grain, .grounded-route-stepping, .clay-route-material) { opacity: 0; }
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .has-clay-pavers .grounded-route-stone > :is(.grounded-route-edge, .grounded-route-surface) { opacity: .15; }
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .grounded-routes {
+  --grounded-stone-contact: #7d8c6d;
+  --grounded-stone-edge: #c9bba1;
+  --grounded-stone-surface: #eee5d0;
+  --grounded-stone-stepping: #f7efdb;
+  --grounded-timber-contact: #7f8264;
+  --grounded-timber-edge: #b19260;
+  --grounded-timber-surface: #ddbe83;
+  --grounded-timber-seams: #b49666;
+}
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .grounded-route-stone > .grounded-route-contact { stroke: #7d8c6d; }
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .grounded-route-stone > .grounded-route-edge { stroke: #c9bba1; }
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .grounded-route-stone > .grounded-route-surface { stroke: #eee5d0; }
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .grounded-route-stone > .grounded-route-stepping { stroke: #f7efdb; opacity: .45; }
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .grounded-route-stone > .grounded-route-grain { opacity: .18; }
+/* All four region crops share one master, so the old mist seam is unnecessary. */
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .region-art.is-ready > .region-art-fallback {
+  opacity: 0;
+}
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .region-art-transitions,
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .pawn-turn-aura,
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .pawn-turn-chevron {
+  display: none;
+}
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .pawn-turn-pedestal {
+  fill: #318e96; stroke: #fff6e3; stroke-width: 3;
+}
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .node-effect-badge {
+  display: none;
+}
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .clay-special-art { opacity: 0; }
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .has-clay-flag > .clay-special-art { opacity: 1; }
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .has-clay-flag > .sc-marker-anchor { opacity: 0; }
+body[data-visual-preview="clay"] .runtime-shell:not([data-layout-editor-active="true"]) .clay-special-label {
+  fill: #4b2b0e; stroke: none; font-family: "Nunito", "PingFang SC", system-ui, sans-serif; font-weight: 1000;
+}

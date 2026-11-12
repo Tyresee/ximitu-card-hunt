@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "clay-preview-tile-art.v1",
+  "generatedAt": "2026-11-10",
+  "scope": "Local opt-in visual preview only; no game geometry, hit areas, values or rules are changed",
+  "generator": {
+    "mode": "built-in image_gen",
+    "promptFile": "prompt-v1.txt",
+    "reference": "/Users/tiantianci/.codex/generated_images/01a1c3c0-4b0e-7341-965a-ff4db722a701/exec-a0b6db9e-3c5d-4db1-938c-e94f41dea189.png"
+  },
+  "source": {
+    "file": "clay-tiles-sprite-v1-source.png",
+    "width": 2172,
+    "height": 724,
+    "hasAlpha": true,
+    "bytes": 631679,
+    "sha256": "1f4dd35299cb1394781ee37ba2cfaa2784ceeef095b9ed7e28e62849d265c3ca"
+  },
+  "processing": {
+    "library": "sharp",
+    "version": "0.35.3",
+    "operation": "mechanical crop + uniform contain resize only; no painted content edits",
+    "runtimeSize": {
+      "width": 240,
+      "height": 160
+    },
+    "suggestedRenderBox": {
+      "x": -24,
+      "y": -16,
+      "width": 48,
+      "height": 32
+    },
+    "alpha": "preserved, alphaQuality100",
+    "webpQuality": 94
+  },
+  "outputs": [
+    {
+      "name": "yellow",
+      "points": 500,
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/yellow-v1.webp",
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/yellow-v1.webp",
+      "width": 240,
+      "height": 160,
+      "hasAlpha": true,
+      "bytes": 9676,
+      "sha256": "3590ea920ffabdc539900dbf11454ffc478abe82e2f4b45a8361abaf162b1cd0",
+      "sourceCrop": {
+        "left": 29,
+        "top": 225,
+        "width": 400,
+        "height": 264
+      }
+    },
+    {
+      "name": "green",
+      "points": 1000,
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/green-v1.webp",
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/green-v1.webp",
+      "width": 240,
+      "height": 160,
+      "hasAlpha": true,
+      "bytes": 9098,
+      "sha256": "18c52b91556511da83da9770e24ba9cdccfeea006bb10666b2691d32b3884695",
+      "sourceCrop": {
+        "left": 457,
+        "top": 225,
+        "width": 400,
+        "height": 264
+      }
+    },
+    {
+      "name": "blue",
+      "points": 1500,
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/blue-v1.webp",
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/blue-v1.webp",
+      "width": 240,
+      "height": 160,
+      "hasAlpha": true,
+      "bytes": 10008,
+      "sha256": "1581ef95dfa3787ea702060d420758df0f6153eada87b00197abc3e738643f85",
+      "sourceCrop": {
+        "left": 885,
+        "top": 225,
+        "width": 400,
+        "height": 264
+      }
+    },
+    {
+      "name": "orange",
+      "points": 2500,
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/orange-v1.webp",
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/orange-v1.webp",
+      "width": 240,
+      "height": 160,
+      "hasAlpha": true,
+      "bytes": 9464,
+      "sha256": "fd02832e5eab78b6179dfedd39cd201ee88d72ae5427c75ea803897deb3f4163",
+      "sourceCrop": {
+        "left": 1311,
+        "top": 225,
+        "width": 400,
+        "height": 264
+      }
+    },
+    {
+      "name": "purple",
+      "points": 5000,
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/tiles/purple-v1.webp",
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/tiles/purple-v1.webp",
+      "width": 240,
+      "height": 160,
+      "hasAlpha": true,
+      "bytes": 9664,
+      "sha256": "22867458d3455df1e22d51290ec3b2ff8c0f71c7810f37dfdd633de19f2e73ca",
+      "sourceCrop": {
+        "left": 1740,
+        "top": 225,
+        "width": 400,
+        "height": 264
+      }
+    }
+  ]
+}

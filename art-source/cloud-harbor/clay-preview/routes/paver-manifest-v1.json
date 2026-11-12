@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "clay-preview-route-paver-art.v1",
+  "generatedAt": "2026-11-10",
+  "scope": "Decorative stamps along authoritative paths only",
+  "generator": {
+    "mode": "built-in image_gen",
+    "promptFile": "paver-prompt-v1.txt",
+    "reference": "/Users/tiantianci/.codex/generated_images/01a1c3c0-4b0e-7341-965a-ff4db722a701/exec-a0b6db9e-3c5d-4db1-938c-e94f41dea189.png"
+  },
+  "source": {
+    "file": "art-source/cloud-harbor/clay-preview/routes/clay-pavers-section-v1-source.png",
+    "width": 2172,
+    "height": 724,
+    "hasAlpha": true,
+    "bytes": 2355042,
+    "sha256": "73af2e3e8d39213b35d2be2cc18badffd35f55e79080c0348cc8eca1526cfbb8"
+  },
+  "processing": {
+    "library": "sharp",
+    "version": "0.35.3",
+    "operation": "mechanical crop and uniform contain resize only; alpha preserved",
+    "sourceCrop": {
+      "left": 48,
+      "top": 114,
+      "width": 2072,
+      "height": 496
+    }
+  },
+  "output": {
+    "file": "public/assets/board-themes/cloud-harbor/clay-preview/routes/clay-pavers-section-v1.webp",
+    "width": 720,
+    "height": 180,
+    "hasAlpha": true,
+    "bytes": 57176,
+    "sha256": "1cdec9cdf005f7e46711697a38605ee813017163343ff9bef757793ea91ac333",
+    "alphaBox": {
+      "threshold": 12,
+      "left": 5,
+      "top": 9,
+      "width": 710,
+      "height": 162,
+      "edgeAlphaMax": 0
+    },
+    "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/routes/clay-pavers-section-v1.webp"
+  },
+  "suggestedRenderBox": {
+    "x": -42,
+    "y": -10.5,
+    "width": 84,
+    "height": 21
+  },
+  "recommendedAdvance": 80,
+  "notes": "One straight section contains three connected pavers and two seams. Width follows path tangent; rotate only this decoration. About 27 units per paver at the recommended display size. Do not use its contour as collision or routing geometry."
+}

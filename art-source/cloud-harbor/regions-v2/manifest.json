@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "imagegen-board-master.v1",
+  "worldRef": "world.ximitu.cloud-harbor@1.0.0",
+  "boardTemplateRef": "ximitu-card-hunt-board.v1@2.0.0",
+  "generatedAt": "2026-08-01",
+  "generator": "built-in image_gen",
+  "generationMode": "one continuous master source, four exact runtime crops",
+  "selectedVersion": 3,
+  "artContract": {
+    "sourceSize": [2400, 1120],
+    "runtimeStrategy": "ThemePack.regionArt per region",
+    "geometryOwner": "BoardTemplate",
+    "interactionOwner": "SVG/DOM runtime",
+    "imageOwner": "ThemePack",
+    "preArtContractDigest": "becd6c85cd4afad8cbfe9431aa9648f6501df2177bfd6b4285f531dc3b30c363",
+    "selectedArtContractDigest": "cf45e6786313e2067c3372dd3c3d500a6cc74fc2c68b4921ee82ec12bd3542a3",
+    "intentionalDigestChange": "Added Zone 02-04 layoutContractRef values and changed visual-only region clip paths to seamless rectangular crops; nodes, edges, entry, exit, transport and hit geometry are unchanged."
+  },
+  "references": [
+    {
+      "role": "visual style reference",
+      "file": "../../../public/assets/board-themes/cloud-harbor/regions/zone-01-v1.jpg",
+      "size": [1744, 901],
+      "sha256": "1f2e34d74b2b8e25bc3219c76c0ed4b56a895d3235cc9ce35e86923096a9f1c9"
+    },
+    {
+      "role": "spatial clearance guide only",
+      "file": "world-01-master-layout-guide.png",
+      "size": [2400, 1120],
+      "sha256": "be98ee9c08e4b29cc980a2c8b93a169edba7db4e2c15935c01c8165781fca052"
+    }
+  ],
+  "iterations": [
+    {
+      "version": 1,
+      "rawFile": "world-01-master-v1-imagegen-raw.png",
+      "rawSize": [1835, 857],
+      "rawSha256": "c76700e6cfae4f94c5e997343f36dee42175abbeac5fc4f3175333eb173ca1d5",
+      "normalizedFile": "world-01-master-v1-source.png",
+      "normalizedSize": [2400, 1120],
+      "normalizedSha256": "9eadab3de2e548ecba7791abe7500f3de142e9341ee0deee10124163828c17e0",
+      "decision": "Rejected: strong biome identity, but windmills, crystals and observatory structures intruded into route/node clearances."
+    },
+    {
+      "version": 2,
+      "rawFile": "world-01-master-v2-imagegen-raw.png",
+      "rawSize": [1836, 856],
+      "rawSha256": "57d51c5d4363fc8d69c8be82034714f3edb8e453ccfe0290dc2467c6c9c172dc",
+      "normalizedFile": "world-01-master-v2-source.png",
+      "normalizedSize": [2400, 1120],
+      "normalizedSha256": "632a092c93d7ae7087f33b20e37898c86e36ee857a04a1b22fa21dc53c541cf6",
+      "decision": "Rejected: clear gameplay corridor, but Wind-Sail Highlands lost its defining distant landmark and the lower-left observatory still intersected the route."
+    },
+    {
+      "version": 3,
+      "rawFile": "world-01-master-v3-imagegen-raw.png",
+      "rawSize": [1835, 857],
+      "rawSha256": "7df3b1e5acee300be44cfc02698a2082eaf61a363a53331ea40127d22bf79bd4",
+      "normalizedFile": "world-01-master-v3-source.png",
+      "normalizedSize": [2400, 1120],
+      "normalizedSha256": "3558e2994d4dcbc0353701672009c2268ae509285735c173070d85399ca6a63b",
+      "decision": "Selected: quiet route clearances, distant upper-right windmills, and a forward star-gate silhouette outside the lower-left route."
+    }
+  ],
+  "runtimeCrops": [
+    {
+      "zoneId": "zone-01",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-01-layout.v3",
+      "topologySha256": "aff05eb186451a1de342bb690c7bb5e568b8ce2a998f325f782c0000609d2541",
+      "artBox": [0, 0, 1200, 620],
+      "file": "../../../public/assets/board-themes/cloud-harbor/regions/zone-01-v2.jpg",
+      "sha256": "85c0b6cf9dc015579e89dadd24d9386c840bd0cb5f16eddac823e6bce4e2a7a8"
+    },
+    {
+      "zoneId": "zone-02",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-02-layout.v1",
+      "topologySha256": "75b58aab6377757e865e676e7aa7cec76fa40143dc9cf2b0b93a82b7159967cd",
+      "artBox": [1200, 0, 1200, 560],
+      "file": "../../../public/assets/board-themes/cloud-harbor/regions/zone-02-v2.jpg",
+      "sha256": "2d9b58d07bc4cb7f7c8f77c91a7e85ddfd4e786b6042facc1c953a0d986958ec"
+    },
+    {
+      "zoneId": "zone-03",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-03-layout.v1",
+      "topologySha256": "8d5656cb077ed4e2a5ddef16b28316b43e81634ad331af6a86b4619878178c04",
+      "artBox": [1200, 560, 1200, 560],
+      "file": "../../../public/assets/board-themes/cloud-harbor/regions/zone-03-v2.jpg",
+      "sha256": "0d10c9bad74d712ac1a4ae287602820c6c05a1baa2d2ba5abc3e963731038a11"
+    },
+    {
+      "zoneId": "zone-04",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-04-layout.v1",
+      "topologySha256": "278f91fbb4d599253e8533dfc48774d6fba1ea8d12fb6fa44110d48985a85cad",
+      "artBox": [0, 560, 1200, 560],
+      "file": "../../../public/assets/board-themes/cloud-harbor/regions/zone-04-v2.jpg",
+      "sha256": "a3f8ac5829430a4dd4f554f945239d22d2f01505f9de215df6da785c999003d5"
+    }
+  ],
+  "prompts": {
+    "initial": "Create one seamless premium hand-painted 2D children's adventure world at about 15:7. Use the existing Cloud Harbor image only for palette, upper-left light and finish; use the master layout guide only for clearance. Four continuous biomes: Cloud Harbor, Wind-Sail Highlands, Rainbow Canyon and Starlight Gate Outpost. Keep every route corridor and node anchor visually quiet. No baked routes, nodes, labels, UI, panels, characters, stateful facilities or watermark.",
+    "readabilityEdit": "Preserve the complete world and exact framing. Clear every guide corridor and node ring by replacing intrusive windmills, crystals, waterfalls, telescope structures and portals with low calm terrain. Push landmarks outside clearance areas. Never reproduce guide marks or create roads.",
+    "selectedEdit": "Preserve version 2. Remove the lower-left telescope and bulky observatory from route clearances; retain only a small forward star-gate at the extreme outer edge. Restore one windmill and two distant sail silhouettes only at the extreme upper-right horizon beyond all clearances. Change nothing else."
+  }
+}

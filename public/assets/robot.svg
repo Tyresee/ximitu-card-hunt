@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" role="img" aria-labelledby="title desc">
+  <title id="title">声波机器人</title>
+  <desc id="desc">一个蓝色圆润的小机器人</desc>
+  <g stroke="#0d2857" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="90" cy="199" rx="62" ry="14" fill="#8edfb2" opacity=".48" stroke="none"/>
+    <path d="M52 163h76l14 28c-9 16-95 16-104 0z" fill="#ffd84a"/>
+    <path d="M46 71c0-25 20-45 44-45s44 20 44 45v92H46z" fill="#4ea9ff"/>
+    <path d="M57 74h66v76H57z" rx="20" fill="#dff8e8"/>
+    <rect x="62" y="83" width="56" height="59" rx="18" fill="#13284f"/>
+    <circle cx="78" cy="108" r="6" fill="#fff" stroke="none"/>
+    <circle cx="102" cy="108" r="6" fill="#fff" stroke="none"/>
+    <path d="M77 126c9 8 18 8 27 0" fill="none" stroke="#fff" stroke-width="6"/>
+    <path d="M90 25V11" fill="none"/>
+    <circle cx="90" cy="10" r="8" fill="#ffd84a"/>
+    <path d="M44 151c-12 1-20 10-20 21M136 151c12 1 20 10 20 21" fill="none"/>
+    <path d="M43 60c21 8 57 9 91 0" fill="none" stroke="#a9e2ff" stroke-width="5"/>
+  </g>
+</svg>

@@ -1,0 +1,755 @@
+{
+  "generator": "OpenAI built-in ImageGen",
+  "generatedOn": "2026-09-22",
+  "artDirection": "Rounded pastel storybook plush animals, 20 distinct species",
+  "source": {
+    "file": "character-atlas.png",
+    "width": 1122,
+    "height": 1402,
+    "sha256": "8e5eab1db948145efd3312bc8e5aed3a49df6ee2be147e1686fe62dce843250b"
+  },
+  "promptFile": "prompt.txt",
+  "topologyDigest": "a848499f0c3c90a8d6b155115ea6a496b96b7e914351fca0bfce824732a76352",
+  "sprites": [
+    {
+      "slug": "ximi-rabbit",
+      "row": 0,
+      "column": 0,
+      "crop": {
+        "left": 51,
+        "top": 4,
+        "width": 199,
+        "height": 286
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/ximi-rabbit-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "c34ceee987b3b991178d35c47f618aaeaee360882e12c134cad84a58ae1e9cf2",
+          "bytes": 149251
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/ximi-rabbit-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "dd4b4197b75e1472f28c41b177051a635ae5447a3f00eced4e36025ab6bd21f9",
+          "bytes": 84216
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/ximi-rabbit-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "a0e39f7f27713300c9792f05830275c1e2b5e510208f8fee782ac5d0bdb3f717",
+          "bytes": 67043
+        }
+      ]
+    },
+    {
+      "slug": "wave-otter",
+      "row": 0,
+      "column": 1,
+      "crop": {
+        "left": 317,
+        "top": 44,
+        "width": 205,
+        "height": 247
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/wave-otter-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "37bad53ff1d52a3fa33b15f456e3aa91cc0f5565486ed968876fc67456546b59",
+          "bytes": 186011
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/wave-otter-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "178c7caed8058ba73ad1559b3c9a8bbdbc7ad1f3ce6ebddac43fe6896e031522",
+          "bytes": 103669
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/wave-otter-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "05c19b35515a0d21710fbb43eb2dfd639428c50be4ef4366e756f7e4561b3b1f",
+          "bytes": 72412
+        }
+      ]
+    },
+    {
+      "slug": "cloud-cat",
+      "row": 0,
+      "column": 2,
+      "crop": {
+        "left": 566,
+        "top": 29,
+        "width": 232,
+        "height": 261
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/cloud-cat-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "aba6370b78036560af9280fcd7aabd1ec630ac89432f7e2b16bc2dafee399dcc",
+          "bytes": 169330
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/cloud-cat-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "3227fd8b38af3b2ad9e7f3345dbe693a13daf2cd277f0424b8341093ae742004",
+          "bytes": 91422
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/cloud-cat-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "e1d46d973bf8fd2fc98d3d324ebd8068c2b34c1956233385505d49c77dfb8cfc",
+          "bytes": 65614
+        }
+      ]
+    },
+    {
+      "slug": "spark-fox",
+      "row": 0,
+      "column": 3,
+      "crop": {
+        "left": 853,
+        "top": 6,
+        "width": 243,
+        "height": 285
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/spark-fox-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "79802c1dda4038fc33744edac38352851965da5b0f68870984975bab93c32fd7",
+          "bytes": 181187
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/spark-fox-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "b498c028fd5d65f3f4ac551f5ee265bc20d43e6e24effd9b06a08028d4ae5109",
+          "bytes": 101323
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/spark-fox-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "73455b3e8ed3dae1e623cdbf91c1da405f483c2324b3f1197bddbf46c9a85ab4",
+          "bytes": 69317
+        }
+      ]
+    },
+    {
+      "slug": "bubble-penguin",
+      "row": 1,
+      "column": 0,
+      "crop": {
+        "left": 24,
+        "top": 309,
+        "width": 237,
+        "height": 253
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/bubble-penguin-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "e107e099ace40a9918f4204400d7ae3771b51945e673e2fcf59fd15ca5370877",
+          "bytes": 157519
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/bubble-penguin-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "1a3fb5139d0f326a3ce89490645978db103e7591c1c8e84b68dba554de5757bc",
+          "bytes": 89509
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/bubble-penguin-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "d27993080ae1edbae7a6d7f22c945d2c63ff25673220e1a75c9ec92b78599150",
+          "bytes": 60656
+        }
+      ]
+    },
+    {
+      "slug": "forest-fawn",
+      "row": 1,
+      "column": 1,
+      "crop": {
+        "left": 314,
+        "top": 292,
+        "width": 216,
+        "height": 278
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/forest-fawn-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "1b6529a8f9dfce3cdcfc51cbe4d557e00b0690909448b61fc82488115277aa1e",
+          "bytes": 189089
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/forest-fawn-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "34598259218d06d049519f7301335dd0184e6fbc4f9a5188b4e31810f35f937d",
+          "bytes": 110113
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/forest-fawn-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "790596cbb0fcf4acef26bde8fe35e0e17def4d74be8f63fe926a012c38c401c4",
+          "bytes": 73165
+        }
+      ]
+    },
+    {
+      "slug": "tinker-bear",
+      "row": 1,
+      "column": 2,
+      "crop": {
+        "left": 597,
+        "top": 307,
+        "width": 205,
+        "height": 262
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/tinker-bear-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "e53fc6d468d7b23f83aa879b7a5dd6a10769d19bdeea5f6b744fcd1f239feee6",
+          "bytes": 219770
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/tinker-bear-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "a8609d8edb6b3a7b5b695a3661d1525d3d4e3294ab8b27debf046b37c9af81e9",
+          "bytes": 127410
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/tinker-bear-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "f40b30de132b047904c612e39b401762f1f62033975fae2e55a53e26bfc9d946",
+          "bytes": 84482
+        }
+      ]
+    },
+    {
+      "slug": "crystal-dragon",
+      "row": 1,
+      "column": 3,
+      "crop": {
+        "left": 849,
+        "top": 299,
+        "width": 260,
+        "height": 270
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/crystal-dragon-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "d5c06bb1cfb5addb49e984680bbb8bda8e8b4b635cb76b64beab3d394a4da981",
+          "bytes": 151331
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/crystal-dragon-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "02cf59a115a738c9b247eeee714b5629c541c218d067ddd00595aabf6c5bd4c1",
+          "bytes": 84433
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/crystal-dragon-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "6e66114918c0a9ace3a6199cb78419ea592e7dab3d4dd9ea5f8a39beac5c7c77",
+          "bytes": 57211
+        }
+      ]
+    },
+    {
+      "slug": "pudding-puppy",
+      "row": 2,
+      "column": 0,
+      "crop": {
+        "left": 9,
+        "top": 577,
+        "width": 266,
+        "height": 251
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/pudding-puppy-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "99a885ddbb664fb2dca1c312359036904696af603931f6f82880ea3ff31508b0",
+          "bytes": 142031
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/pudding-puppy-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "899938e852f2072b06ae8f98e3f2508ef5f3714eced5c13b33aa9dbbf5ed95f3",
+          "bytes": 85522
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/pudding-puppy-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "b6c309a49b506eed9a5b0c0c9c46d9715ae6be55b4875cd5e2cfca782007aeea",
+          "bytes": 54282
+        }
+      ]
+    },
+    {
+      "slug": "mochi-hamster",
+      "row": 2,
+      "column": 1,
+      "crop": {
+        "left": 317,
+        "top": 571,
+        "width": 211,
+        "height": 253
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/mochi-hamster-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "ee9d111303e50abd37a10dcaa0e253ff9cba9db202bbf54cae87b7985c5e4aeb",
+          "bytes": 191139
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/mochi-hamster-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "e8d23b9073bd0cf8b2e9fadf1c28360255c03b20e4c470c10908e2244ab24d62",
+          "bytes": 107504
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/mochi-hamster-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "f2400a1d181945f5a567fb6f88c4d42d7cca5e77e51dd42b574562cca4c8c74e",
+          "bytes": 74468
+        }
+      ]
+    },
+    {
+      "slug": "bamboo-panda",
+      "row": 2,
+      "column": 2,
+      "crop": {
+        "left": 590,
+        "top": 571,
+        "width": 203,
+        "height": 256
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/bamboo-panda-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "d442f4be1617d5284dc2587fd522300e2ba2975459bf0e84f6cd343ad7d0e33b",
+          "bytes": 204415
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/bamboo-panda-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "89e2c1d1198d844be786e7762e503f573792a8e06ddb7666cffe8237aebe52ce",
+          "bytes": 115400
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/bamboo-panda-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "28d7ae939d3367160515a00ca4370d1a129a0e7ddd61b9163525468329bcf16e",
+          "bytes": 80082
+        }
+      ]
+    },
+    {
+      "slug": "maple-red-panda",
+      "row": 2,
+      "column": 3,
+      "crop": {
+        "left": 872,
+        "top": 572,
+        "width": 238,
+        "height": 254
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/maple-red-panda-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "7aa1a9ae729d2fe69b308108e31dbf9de82caf01177cb31cce14b914b77ff813",
+          "bytes": 191277
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/maple-red-panda-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "d790be6debfd4fd02ccfbcd9efd78db999ef9a61431efb65305ce18d8da669aa",
+          "bytes": 106891
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/maple-red-panda-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "533bbe12d1cd96970a03dd19e8658af7ac0bd6b019aaf545c9d31f08ef80e337",
+          "bytes": 72466
+        }
+      ]
+    },
+    {
+      "slug": "sleepy-koala",
+      "row": 3,
+      "column": 0,
+      "crop": {
+        "left": 12,
+        "top": 836,
+        "width": 279,
+        "height": 254
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/sleepy-koala-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "1f170e013da7d78bd22e092ecefe67216de83396248cb215c8a1218e9bffd745",
+          "bytes": 131039
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/sleepy-koala-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "c8b8cbe57a95d4450581c3d619fd8615cb7dfd1a8dbb5f785586eea5d732cde0",
+          "bytes": 77650
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/sleepy-koala-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "1e6ff9efaba57b4d3064c09ba9b6c9e593003b36f7a6aa01bf4e66897da29677",
+          "bytes": 49578
+        }
+      ]
+    },
+    {
+      "slug": "cotton-lamb",
+      "row": 3,
+      "column": 1,
+      "crop": {
+        "left": 302,
+        "top": 830,
+        "width": 260,
+        "height": 263
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/cotton-lamb-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "c599f27df05515339848a97ad2fb2b0966a2b5303ffeef008aaac18aef507de0",
+          "bytes": 133121
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/cotton-lamb-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "4d3579b23bad68db9314a8a4ab67c22d7cd531f1729c9900a333c17dba7b30a9",
+          "bytes": 78120
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/cotton-lamb-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "60c1d6b570f6cd586302d0a94721771c100643d20eeeaa71bf09b04193e39ad3",
+          "bytes": 51067
+        }
+      ]
+    },
+    {
+      "slug": "honey-tiger",
+      "row": 3,
+      "column": 2,
+      "crop": {
+        "left": 581,
+        "top": 832,
+        "width": 242,
+        "height": 262
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/honey-tiger-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "c8a6b7b5e1a497db61947dfd955ac56337b10e8e24eab6dabf39550c16a47159",
+          "bytes": 181161
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/honey-tiger-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "fb6eec54ea791ab37242461c710fcb4879933770b3a3a755184d456b137392af",
+          "bytes": 104334
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/honey-tiger-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "27a019c0666c0161857f77f5875d96091ef192751b00ab3dc6d7f0591622e5a9",
+          "bytes": 68857
+        }
+      ]
+    },
+    {
+      "slug": "sunshine-lion",
+      "row": 3,
+      "column": 3,
+      "crop": {
+        "left": 863,
+        "top": 825,
+        "width": 242,
+        "height": 264
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/sunshine-lion-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "5c95a3eb46c09b64a1be03f2063aa59fde4b33921fcb88d6e62ae13d562bbc49",
+          "bytes": 187784
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/sunshine-lion-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "77abe1dbffe1eb96bc167c18eefb5dffba197c809a9e1f523c645f95ce636ab4",
+          "bytes": 107318
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/sunshine-lion-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "a8147a8219a37a52d2af50e62819fd99f3055920ca1a61814063c3804b263363",
+          "bytes": 71315
+        }
+      ]
+    },
+    {
+      "slug": "starlight-unicorn",
+      "row": 4,
+      "column": 0,
+      "crop": {
+        "left": 12,
+        "top": 1097,
+        "width": 244,
+        "height": 275
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/starlight-unicorn-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "71a955901322114a3530980285b90a443b4b70df31258583927f99ef543c31cf",
+          "bytes": 164691
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/starlight-unicorn-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "7c218a956eb93891b8dac98abd713c0690fb1b5703dedba4fda0bb5d67a436b3",
+          "bytes": 94881
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/starlight-unicorn-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "f3119464c466479f0e0b9daa541b2e438a4312b8aada88937ef97aa9c94a7bb3",
+          "bytes": 63246
+        }
+      ]
+    },
+    {
+      "slug": "mint-dinosaur",
+      "row": 4,
+      "column": 1,
+      "crop": {
+        "left": 302,
+        "top": 1099,
+        "width": 230,
+        "height": 273
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/mint-dinosaur-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "365e2a87abcf7db57b332fe97230661ab0b190eadf95edf38d85b213bb0a803c",
+          "bytes": 175718
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/mint-dinosaur-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "58f412606bb197c888650c7f58d45041e5187627c52fb6a9adefc1675e8cad5e",
+          "bytes": 94902
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/mint-dinosaur-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "b5338741ce160ceface25e9da325818035d117ff209d86e9ea577193f05815e5",
+          "bytes": 67521
+        }
+      ]
+    },
+    {
+      "slug": "moon-raccoon",
+      "row": 4,
+      "column": 2,
+      "crop": {
+        "left": 578,
+        "top": 1096,
+        "width": 235,
+        "height": 275
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/moon-raccoon-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "88fa829ab24d783961dff19299420fd2360ae8bedb98dfc37588150a654b75a0",
+          "bytes": 184155
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/moon-raccoon-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "831838c85f9cb32c3f4c08a8810a318108d843aa7335acb03baedff839d22f1b",
+          "bytes": 103868
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/moon-raccoon-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "fd9eb6e8ce9cac47a5d197c4bccfd7d7ac4bc5f806365440ed18400d24d093ee",
+          "bytes": 70124
+        }
+      ]
+    },
+    {
+      "slug": "chestnut-hedgehog",
+      "row": 4,
+      "column": 3,
+      "crop": {
+        "left": 864,
+        "top": 1103,
+        "width": 233,
+        "height": 264
+      },
+      "assets": [
+        {
+          "variant": "selection",
+          "assetRef": "/assets/characters/ximitu-friends/v3/selection/chestnut-hedgehog-v3.png",
+          "width": 320,
+          "height": 400,
+          "sha256": "082a3cdf79f104307df83d3fe468bf5c8a68a7b320d99de452e38622b8d09bdb",
+          "bytes": 204567
+        },
+        {
+          "variant": "hud",
+          "assetRef": "/assets/characters/ximitu-friends/v3/hud/chestnut-hedgehog-v3.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "293e296fde1a41f67b157c0e893e3ef5a21a0dbdbfbf03689087f99e21605d2d",
+          "bytes": 115823
+        },
+        {
+          "variant": "pawns",
+          "assetRef": "/assets/characters/ximitu-friends/v3/pawns/chestnut-hedgehog-v3.png",
+          "width": 192,
+          "height": 256,
+          "sha256": "e045806d6cbf1336db6335ff8ec431274cc3abf7f32f6caf142958cff0b1eaf5",
+          "bytes": 76870
+        }
+      ]
+    }
+  ]
+}

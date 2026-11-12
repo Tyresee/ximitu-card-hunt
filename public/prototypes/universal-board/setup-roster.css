@@ -1,0 +1,144 @@
+/* Keep compatibility nodes out of the visual layout at every viewport size. */
+.setup-stage [hidden] { display: none !important; }
+.setup-stage #setup-title.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+/* Setup / roster + character pick (2026-10-21).
+   Wide screens get a two-column sheet that fits the viewport: a narrow left
+   column for the class (roster, mode, start) and the wide right column for
+   the buddies. The whole sheet never scrolls; the only scroll region is the
+   student list, and only when the class is larger than the column. */
+@media (min-width: 1000px) and (min-height: 620px) {
+  .setup-stage { padding: 14px 18px 22px; overflow: hidden; place-items: stretch center; }
+  .setup-stage .setup-card {
+    display: grid;
+    grid-template-columns: clamp(330px, 26vw, 420px) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    column-gap: 18px;
+    row-gap: 8px;
+    width: min(1800px, 100%);
+    height: 100%;
+    min-height: 0;
+    padding: 14px 20px 10px;
+    overflow: hidden;
+    border-radius: 26px;
+    box-shadow: 0 8px 0 var(--ink);
+  }
+  .setup-stage .setup-card > .stage-kicker { display: none; }
+  .setup-stage .setup-card > h1 {
+    grid-column: 1; grid-row: 1; align-self: center;
+    margin: 0; font-size: clamp(22px, 1.9vw, 32px); letter-spacing: -.02em; white-space: nowrap;
+  }
+  .setup-stage .setup-card > p {
+    grid-column: 2; grid-row: 1; align-self: center; justify-self: end;
+    max-width: none; margin: 0; font-size: 13px; line-height: 1.35; text-align: right;
+  }
+  .setup-stage .setup-card > small {
+    grid-column: 1 / -1; grid-row: 3; margin: 0; font-size: 11px; line-height: 1.3; color: #526581;
+  }
+  .setup-stage .setup-card > #platform-points-setup:not([hidden]) {
+    grid-column: 1; grid-row: 3; align-self: center; margin: 0; padding: 4px 10px; border-radius: 11px;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px;
+  }
+  .setup-stage #platform-points-setup h3 { margin: 0; font-size: 12px; }
+  .setup-stage #platform-points-setup :is(p, li, small) { margin: 0; font-size: 11px; line-height: 1.35; }
+  .setup-stage #platform-points-setup ul { margin: 0; padding-left: 16px; }
+  .setup-stage #platform-points-setup button { min-height: 28px; margin: 2px 6px 0 0; padding: 2px 10px; font-size: 12px; }
+  .setup-stage .setup-card > #platform-points-setup:not([hidden]) ~ small { align-self: center; }
+  .setup-stage .setup-card > #platform-points-setup:not([hidden]) ~ small { grid-column: 2; }
+
+  .setup-stage #setup-form {
+    grid-column: 1 / -1; grid-row: 1;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    row-gap: 8px;
+    min-height: 0;
+  }
+  .setup-stage #setup-form > * { grid-column: 1; min-width: 0; margin: 0; }
+  .setup-stage #setup-form > .character-selection { grid-column: 2; grid-row: 1 / -1; }
+
+  /* ---- left: class roster ---- */
+  .setup-stage .student-roster {
+    display: flex; flex-direction: column; gap: 6px; min-height: 0; margin: 0; padding: 10px 12px;
+  }
+  .setup-stage .student-roster > * { flex-shrink: 0; }
+  .setup-stage .character-selection > * { flex-shrink: 0; }
+  .setup-stage .student-roster-heading { gap: 6px; align-items: center; }
+  .setup-stage .student-roster-heading span { display: none; }
+  .setup-stage .student-roster-heading > div { min-width: 0; }
+  .setup-stage .student-roster-heading strong { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .setup-stage .student-roster-heading-actions { flex: 0 0 auto; flex-direction: column; align-items: end; gap: 3px; }
+  .setup-stage .student-roster-heading-actions small { white-space: nowrap; font-size: 10.5px; }
+  .setup-stage .student-roster-heading-actions button { min-height: 30px; padding: 0 10px; font-size: 12px; }
+  .setup-stage .student-create-form { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: end; margin: 0; }
+  .setup-stage .student-create-form label { font-size: 11px; }
+  .setup-stage .student-create-form input { min-height: 36px; padding-block: 4px; }
+  .setup-stage .student-create-form button { min-height: 38px; padding: 0 12px; }
+  .setup-stage .student-roster-status { margin: 0; font-size: 11px; line-height: 1.35; }
+  .setup-stage .student-roster-status:empty { display: none; }
+  .setup-stage .student-profile-list {
+    flex: 1 1 auto; min-height: 60px; max-height: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: max-content; align-content: start; gap: 6px;
+    overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin;
+  }
+  .setup-stage .student-profile-card { grid-template-columns: 26px minmax(0, 1fr); min-height: 46px; padding: 6px 8px; border-radius: 13px; gap: 0 7px; }
+  .setup-stage .student-profile-order { width: 26px; height: 26px; grid-row: 1 / 3; font-size: 12px; border-radius: 9px; }
+  .setup-stage .student-profile-name { font-size: 14px; line-height: 1.3; }
+  .setup-stage .student-profile-assets { font-size: 10.5px; }
+  .setup-stage .student-profile-note { display: none; }
+  .setup-stage .student-profile-card[aria-pressed="true"] { transform: none; box-shadow: 0 3px 0 var(--ink); }
+
+  .setup-stage .setup-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .setup-stage .setup-grid label { font-size: 11px; gap: 3px; }
+  .setup-stage .setup-grid select { min-height: 36px; padding-block: 4px; font-size: 13px; }
+  .setup-stage .setup-preview {
+    min-height: 0; padding: 7px 10px; border-radius: 13px; font-size: 11.5px; line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .setup-stage .setup-preview:empty { display: none; }
+  .setup-stage .setup-actions { grid-template-columns: 1fr; gap: 6px; padding-bottom: 6px; }
+  .setup-stage .setup-actions button { min-height: 50px; font-size: 18px; }
+  .setup-stage .setup-actions button.secondary { min-height: 38px; font-size: 14px; }
+  .setup-stage .setup-actions button[hidden] { display: none; }
+
+  /* ---- right: buddies get the room ---- */
+  .setup-stage .character-selection {
+    display: flex; flex-direction: column; gap: 6px; min-height: 0; margin: 0; padding: 10px 14px 12px;
+  }
+  .setup-stage .character-selection-heading { align-items: center; }
+  .setup-stage .character-selection-heading span { display: none; }
+  .setup-stage .character-selection-heading strong { font-size: 18px; }
+  .setup-stage .player-character-tabs { flex-wrap: wrap; margin: 0; padding: 2px 2px 4px; overflow: visible; gap: 6px; }
+  .setup-stage .player-character-tab { flex: 0 0 auto; width: 158px; min-height: 48px; padding: 4px 8px; }
+  .setup-stage .player-character-tab :is(.player-tab-avatar, .player-tab-placeholder) { height: 36px; width: 34px; }
+  .setup-stage .character-selection-guide { margin: 0; font-size: 13px; }
+  .setup-stage .character-options {
+    --co-cols: 7; --co-rows: 3; --co-gap: 10px;
+    flex: 1 1 0; min-height: 0; max-height: none;
+    grid-template-columns: repeat(var(--co-cols), minmax(0, 1fr));
+    grid-template-rows: repeat(var(--co-rows), minmax(0, 1fr));
+    grid-auto-rows: 210px;
+    gap: var(--co-gap);
+    padding: 3px 4px 3px;
+    overflow: hidden auto;            /* fallback only: 21+ buddies */
+    scrollbar-gutter: auto;
+  }
+  .setup-stage .character-option {
+    grid-template-rows: minmax(0, 1fr) auto auto auto;
+    min-height: 0; height: 100%; gap: 2px; padding: 4px 4px 7px; border-radius: 16px;
+  }
+  .setup-stage .character-option-avatar {
+    height: 100%; min-height: 0; max-height: 170px; border-radius: 13px;
+  }
+  .setup-stage .character-option-name { margin-top: 1px; font-size: clamp(13px, 1vw, 17px); line-height: 1.2; }
+  .setup-stage .character-option-role { font-size: 11px; line-height: 1.2; }
+  .setup-stage .character-option-status { font-size: 10.5px; line-height: 1.2; }
+}
+/* Short screens (1366x768, 1280x800): shrink the card chrome a little more. */
+@media (min-width: 1000px) and (min-height: 620px) and (max-height: 860px) {
+  .setup-stage .character-option-role { display: none; }
+  .setup-stage .character-options { --co-gap: 8px; }
+  .setup-stage .player-character-tab { width: 148px; }
+}

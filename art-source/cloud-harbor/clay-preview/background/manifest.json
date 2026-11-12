@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "cloud-harbor-clay-preview-art.v2",
+  "generatedAt": "2026-11-10",
+  "status": "local-preview-only",
+  "supersedes": "manifest-v1.json",
+  "scope": "Full2400x1120 terrain/environment only; originalregisteredgameassetsuntouched.",
+  "boardTemplateRef": "ximitu-card-hunt-board.v1@2.3.0",
+  "boardTopologyDigest": "d00f6dadcede6ffd6df0616b3d53ef78a887c307f0af5a119355e678614f27a5",
+  "generation": {
+    "tool": "built-in image_gen.imagegen",
+    "mode": "targeted background edit",
+    "originalOutput": "/Users/tiantianci/.codex/generated_images/01a1c3f2-8b7b-76f2-afae-b791a2515d1a/exec-dd249963-d6d5-419b-b967-a71b60517420.png",
+    "promptFile": "prompt-v2.txt",
+    "promptSha256": "d709a0603823c95bf1b2d0adf3af9ae82f14932f7613291c90d511792f3fae04",
+    "references": [
+      {
+        "role": "edit-target clean background",
+        "file": "art-source/cloud-harbor/clay-preview/background/world-01-master-clay-v1.png",
+        "sha256": "40639d36b018a9d848b137cc866e10f358ea07e0c36d2fc8f0b03fadbb0270ff",
+        "bytes": 6545126,
+        "width": 2400,
+        "height": 1120
+      },
+      {
+        "role": "exact current-node and edge diagnostic",
+        "file": "art-source/cloud-harbor/clay-preview/background/current-route-alignment.png",
+        "sha256": "3b8056e2e3dc5c62f2e96a4e45f8c0ee33c7f25289f14783eec1a157d898d6fe",
+        "bytes": 7046794,
+        "width": 2400,
+        "height": 1120
+      },
+      {
+        "role": "current Board2.3 quiet-land guide",
+        "file": "art-source/cloud-harbor/clay-preview/layout-guide.png",
+        "sha256": "8b8648f33fc01bf3cbbe9dc41fa5ef2ab7130d4926b3dc9e7d0b281f31c92357",
+        "bytes": 159274,
+        "width": 2400,
+        "height": 1120
+      },
+      {
+        "role": "clay material/style reference",
+        "file": "../../../.codex/generated_images/01a1c3c0-4b0e-7341-965a-ff4db722a701/exec-a0b6db9e-3c5d-4db1-938c-e94f41dea189.png",
+        "sha256": "e791e40b94277f6a461258bb24c1c83737fae6c04eab7aecec8cc36e2b961df4",
+        "bytes": 2746964,
+        "width": 1586,
+        "height": 992
+      }
+    ]
+  },
+  "source": {
+    "file": "art-source/cloud-harbor/clay-preview/background/generated-master-v2-original.png",
+    "sha256": "16353161fb12244632a57edf594d4bd4e971ece27a60a1effd7ae87557dbc30d",
+    "bytes": 2496559,
+    "width": 1836,
+    "height": 857
+  },
+  "master": {
+    "file": "art-source/cloud-harbor/clay-preview/background/world-01-master-clay-v2.png",
+    "sha256": "116e4ac44f7c8c4280730aaeb8b4be39f5fd00ab45a81ffc14194df34c7f3718",
+    "bytes": 6327280,
+    "width": 2400,
+    "height": 1120
+  },
+  "processing": {
+    "library": "sharp",
+    "version": "0.35.3",
+    "vipsVersion": "8.18.3",
+    "resize": {
+      "width": 2400,
+      "height": 1120,
+      "fit": "fill",
+      "kernel": "lanczos3"
+    },
+    "aspectRatioAdjustmentPercent": 0.023342670401493848,
+    "webp": {
+      "quality": 90,
+      "effort": 6
+    },
+    "note": "Only resize/encoding and exactBoardartBoxcrops. Rawv1andv2retained. Westcropsshare60pxoverlapfromonesource."
+  },
+  "validation": {
+    "generationInspect": "No baked roads/tiles/text/characters/mechanical structures.",
+    "correctionTargets": [
+      "groundunder n16(1125,135)/n17(1160,110)/n18(1195,85), onlye15airspanremains",
+      "cleardecorationfromn12a,n30b,n31b,n49"
+    ],
+    "routeOverlay": "current-route-alignment-v2.png",
+    "browserAlignment": "Pending parent browser acceptance; do not interpret this metadata as a completed production validation.",
+    "routeOverlayInspect": "Reviewed current Board2.3.0 full-world overlay: n16/n17/n18/n19 now on continuous right meadow; only e15 spans the open gap; n12a,n30b,n31b,n49 cleared of tall decorations. Other visible routes remain grounded. Browser/camera/clipping acceptance remains pending."
+  },
+  "crops": [
+    {
+      "regionId": "region-zone-01",
+      "zoneId": "zone-01",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-01-layout.v7",
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/regions/zone-01-v2.webp",
+      "artBox": {
+        "x": 0,
+        "y": 0,
+        "width": 1200,
+        "height": 620
+      },
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/regions/zone-01-v2.webp",
+      "sha256": "9c320f1f56f7483418ebd47e6ca18b0a9cfb932e1d0ab82978d70f16853cc2d7",
+      "bytes": 121986,
+      "width": 1200,
+      "height": 620
+    },
+    {
+      "regionId": "region-zone-02",
+      "zoneId": "zone-02",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-02-layout.v4",
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/regions/zone-02-v2.webp",
+      "artBox": {
+        "x": 1200,
+        "y": 0,
+        "width": 1200,
+        "height": 560
+      },
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/regions/zone-02-v2.webp",
+      "sha256": "2b653673134cb5e2eac7521ef871536710401ac4af2ab16c2cada1d014d34449",
+      "bytes": 108406,
+      "width": 1200,
+      "height": 560
+    },
+    {
+      "regionId": "region-zone-03",
+      "zoneId": "zone-03",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-03-layout.v2",
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/regions/zone-03-v2.webp",
+      "artBox": {
+        "x": 1200,
+        "y": 560,
+        "width": 1200,
+        "height": 560
+      },
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/regions/zone-03-v2.webp",
+      "sha256": "0c2e7f2a721bd761ec908dbd3cecd03e3fdcd6ffd315466bc66dfd7a0ea57e8c",
+      "bytes": 103622,
+      "width": 1200,
+      "height": 560
+    },
+    {
+      "regionId": "region-zone-04",
+      "zoneId": "zone-04",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-04-layout.v2",
+      "assetRef": "/assets/board-themes/cloud-harbor/clay-preview/regions/zone-04-v2.webp",
+      "artBox": {
+        "x": 0,
+        "y": 560,
+        "width": 1200,
+        "height": 560
+      },
+      "file": "public/assets/board-themes/cloud-harbor/clay-preview/regions/zone-04-v2.webp",
+      "sha256": "e48eb97d78bd0e6d023003bd3254b007537de0b629d37afdf9f50d69c4fc7586",
+      "bytes": 115642,
+      "width": 1200,
+      "height": 560
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "background-style-studies.v1",
+  "generatedAt": "2026-09-23",
+  "generator": "built-in image_gen",
+  "generationMode": "three independent layout-referenced candidates; image_gen-only cleanup for 01 and 02",
+  "status": "03-integrated-and-browser-verified",
+  "selected": "03",
+  "runtimeIntegrated": true,
+  "boardTemplateRef": "ximitu-card-hunt-board.v1@2.1.0",
+  "boardTemplateDigest": "a848499f0c3c90a8d6b155115ea6a496b96b7e914351fca0bfce824732a76352",
+  "layoutControl": "../../regions-v3/world-01-imagegen-control-guide.png",
+  "layoutControlSha256": "0ff63995e2c8c23a8c42af21f8ad135af6b7ce4f2299423be21d5bf3c4013b4c",
+  "targetWorldSize": [
+    2400,
+    1120
+  ],
+  "runtimeDimensions": [
+    2400,
+    1120
+  ],
+  "qa": {
+    "visualStyleReview": "passed as concept candidates; guide color remnants removed from 01 and 02",
+    "exactRouteAlignment": "Versioned geometry, deterministic overlay and completed browser verification in ../../crystal-v1/manifest.json",
+    "notes": [
+      "Do not deploy these unreviewed concept images directly.",
+      "Recheck start and forward-exit ground clearance, all 61 nodes and 65 edges.",
+      "Move or redesign the lower-right crystal gate and lower-left observatory if they overlap route/node clearances."
+    ]
+  },
+  "variants": [
+    {
+      "id": "01",
+      "title": "01 · 温暖黏土玩具岛",
+      "file": "01-clay-toy-islands.png",
+      "sourceGeneratedFile": "/Users/tiantianci/.codex/generated_images/01a09e49-3ee5-7020-a65c-9048a21c2035/exec-ecf8af2c-cdf9-4356-8e4a-ba9cd1865e43.png",
+      "promptSection": "01 · 温暖黏土玩具岛",
+      "cleanedGuideMarks": true,
+      "sourceDimensions": [
+        1836,
+        857
+      ],
+      "sha256": "64585af786bed92512fb9b71188ab8260d22d161b6d25b90758e947a53a54f21",
+      "bytes": 2142209
+    },
+    {
+      "id": "02",
+      "title": "02 · 清透童话绘本",
+      "file": "02-storybook-cloud-islands.png",
+      "sourceGeneratedFile": "/Users/tiantianci/.codex/generated_images/01a09e49-3ee5-7020-a65c-9048a21c2035/exec-04a94783-1e48-4dc3-824e-dd263f132061.png",
+      "promptSection": "02 · 清透童话绘本",
+      "cleanedGuideMarks": true,
+      "sourceDimensions": [
+        1836,
+        857
+      ],
+      "sha256": "897d3557aa95da3439ad3fd63e1a5c6f4948967856bdff499e8b8307813a796d",
+      "bytes": 2367542
+    },
+    {
+      "id": "03",
+      "title": "03 · 梦幻水晶云港",
+      "file": "03-crystal-dream-harbor.png",
+      "sourceGeneratedFile": "/Users/tiantianci/.codex/generated_images/01a09e49-3ee5-7020-a65c-9048a21c2035/exec-cb8d2b2f-cb46-43f1-821f-75231d319243.png",
+      "promptSection": "03 · 梦幻水晶云港",
+      "cleanedGuideMarks": false,
+      "sourceDimensions": [
+        1836,
+        857
+      ],
+      "sha256": "fb4fe9d30c971f5bcea1959b91518a3cdcbb3ddb431fa7af131b85438200a26e",
+      "bytes": 2356927
+    }
+  ],
+  "selection": {
+    "selectedAt": "2026-09-23",
+    "userAttachmentSource": "../../crystal-v1/selected-user-source.png",
+    "userAttachmentSha256": "e75e6f1ed251d2a4956513a423b6eac471e27fd9028d61aba581a7312b0d1fb2",
+    "rgbPixelsEqualToCandidate": true
+  },
+  "runtimeReleaseStatus": "browser-verified-ready-for-release",
+  "generationBaselineNote": "boardTemplateRef and layoutControl above record the original concept-generation baseline only. Current runtime geometry and authority are crystal-v1 Board 2.2.0."
+}

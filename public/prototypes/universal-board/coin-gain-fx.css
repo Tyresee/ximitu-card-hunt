@@ -1,0 +1,51 @@
+/* Coin-gain FX overlay (presentation only). */
+.coin-fx-layer { position: fixed; inset: 0; pointer-events: none; z-index: 2400; overflow: hidden; perspective: 600px; }
+.coin-fx-layer > * { position: absolute; will-change: transform, opacity; }
+.coin-fx-coin {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff8c4 0 14%, #ffd84a 15% 52%, #e9a800 53% 74%, #b97800 75%);
+  box-shadow: inset 0 0 0 2px #fff0a0, 0 2px 6px rgba(120, 70, 0, .45);
+}
+.coin-fx-coin::after {
+  content: "¥"; position: absolute; inset: 0; display: grid; place-items: center;
+  font: 900 15px/1 system-ui, sans-serif; color: #a86a00; text-shadow: 0 1px 0 #fff3b0;
+}
+.coin-fx-sparkle {
+  width: 14px; height: 14px; background: #fff6b8;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  filter: drop-shadow(0 0 6px #ffd84a);
+}
+.coin-fx-number {
+  font: 900 64px/1 "Nunito", "PingFang SC", system-ui, sans-serif; color: #ffe066; white-space: nowrap;
+  -webkit-text-stroke: 3px #9a5b00; paint-order: stroke fill;
+  text-shadow: 0 4px 0 #7a4400, 0 0 22px rgba(255, 210, 60, .85);
+}
+.coin-fx-number.is-big { font-size: 92px; }
+.coin-fx-number.is-reduced { transform: translate(-50%, -50%); font-size: 40px; animation: coin-fx-reduced-pop 1.3s ease-out forwards; }
+@keyframes coin-fx-reduced-pop { 0% { opacity: 0; } 15%, 75% { opacity: 1; } 100% { opacity: 0; } }
+.coin-fx-ring {
+  width: 120px; height: 120px; border-radius: 50%;
+  border: 8px solid #ffd84a; box-shadow: 0 0 30px #ffe680, inset 0 0 24px #fff3b0;
+}
+.coin-fx-edge-glow {
+  inset: 0; left: 0 !important; top: 0 !important; width: 100%; height: 100%;
+  box-shadow: inset 0 0 90px 30px rgba(255, 205, 50, .75);
+}
+.coin-fx-pending {
+  transform: translate(-50%, -140%); padding: 6px 14px; border-radius: 999px; white-space: nowrap;
+  font: 800 20px/1.2 "PingFang SC", system-ui, sans-serif; color: #6b5200;
+  background: rgba(255, 246, 205, .95); border: 2px dashed #d8a400;
+  animation: coin-fx-reduced-pop 2.2s ease-out forwards;
+}
+.coin-fx-red-packet {
+  display: grid; justify-items: center; gap: 6px; padding: 18px 30px 16px; border-radius: 22px;
+  background: linear-gradient(#ff5c6c, #d61f3a); border: 4px solid #ffd84a;
+  box-shadow: 0 0 40px rgba(255, 92, 108, .7), 0 10px 30px rgba(0, 0, 0, .3);
+}
+.coin-fx-red-packet span { font-size: 84px; line-height: 1; }
+.coin-fx-red-packet strong { font: 900 34px/1 "PingFang SC", system-ui, sans-serif; color: #fff3b0; -webkit-text-stroke: 1px #8a1020; }
+.player-asset-badge.is-points strong { font-variant-numeric: tabular-nums; }
+.player-asset-badge.is-points strong.is-coin-rolling { color: #b97800; text-shadow: 0 -2px 0 rgba(255, 216, 74, .55), 0 2px 0 rgba(255, 216, 74, .55); }
+@media (prefers-reduced-motion: reduce) {
+  .coin-fx-number.is-reduced, .coin-fx-pending { animation-duration: 1.3s; }
+}

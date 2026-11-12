@@ -1,0 +1,272 @@
+<!-- Exact live route geometry over the candidate ImageGen master. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1120"
+  viewBox="0 0 2400 1120" data-board-template-ref="ximitu-card-hunt-board.v1@2.1.0">
+  <style>
+    .route-envelope { fill: none; stroke: #ff2e8b; stroke-width: 180; stroke-opacity: .13; stroke-linecap: round; stroke-linejoin: round; }
+    .road { fill: none; stroke: #ff2e8b; stroke-width: 12; stroke-opacity: .96; stroke-linecap: round; stroke-linejoin: round; }
+    .node-clearance { fill: #ff2e8b; fill-opacity: .12; stroke: #ffe65d; stroke-width: 5; stroke-opacity: .92; }
+    .node-center { fill: #fff; stroke: #7b0045; stroke-width: 3; }
+    .cloud-stair { fill: none; stroke: #fff; stroke-width: 18; stroke-opacity: .96; stroke-linecap: round; stroke-linejoin: round; }
+    .transport { fill: none; stroke: #00eaff; stroke-width: 16; stroke-opacity: .96; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <image href="/art-source/cloud-harbor/regions-v3/world-01-master-v7-source.png" x="0" y="0" width="2400" height="1120" preserveAspectRatio="none"/>
+  <g class="route-envelope">
+<path class="road" data-edge-id="e01" d="M 80 520 Q 120 522.5 160 525"/>
+<path class="road" data-edge-id="e02" d="M 160 525 Q 200 507.5 240 490"/>
+<path class="road" data-edge-id="e03" d="M 240 490 Q 277.5 462.5 315 435"/>
+<path class="road" data-edge-id="e04a" d="M 315 435 Q 347.5 370.5 380 350"/>
+<path class="road" data-edge-id="e04b" d="M 315 435 Q 345 492 375 505"/>
+<path class="road" data-edge-id="e05a" d="M 380 350 Q 422.5 303 465 300"/>
+<path class="road" data-edge-id="e06a" d="M 465 300 Q 507.5 295.5 550 335"/>
+<path class="road" data-edge-id="e05b" d="M 375 505 Q 420 544.5 465 540"/>
+<path class="road" data-edge-id="e06b" d="M 465 540 Q 510 542 555 500"/>
+<path class="road" data-edge-id="e07a" d="M 550 335 Q 592.5 350.5 635 410"/>
+<path class="road" data-edge-id="e07b" d="M 555 500 Q 595 477 635 410"/>
+<path class="road" data-edge-id="e08" d="M 635 410 Q 670 377.5 705 345"/>
+<path class="road" data-edge-id="e09" d="M 705 345 Q 737.5 312.5 770 280"/>
+<path class="road" data-edge-id="e10a" d="M 770 280 Q 802.5 230.5 835 225"/>
+<path class="road" data-edge-id="e10b" d="M 770 280 Q 807.5 324.5 845 325"/>
+<path class="road" data-edge-id="e11a" d="M 835 225 Q 877.5 188 920 195"/>
+<path class="road" data-edge-id="e12a" d="M 920 195 Q 957.5 188 995 225"/>
+<path class="road" data-edge-id="e11b" d="M 845 325 Q 885 354.5 925 340"/>
+<path class="road" data-edge-id="e12b" d="M 925 340 Q 957.5 362 990 340"/>
+<path class="road" data-edge-id="e13a" d="M 995 225 Q 1020 235.5 1045 290"/>
+<path class="road" data-edge-id="e13b" d="M 990 340 Q 1017.5 337 1045 290"/>
+<path class="road" data-edge-id="e14" d="M 1045 290 Q 1077.5 272.5 1110 255"/>
+<path class="road" data-edge-id="e15" d="M 1110 255 Q 1115 220 1120 185"/>
+<path class="road" data-edge-id="e16" d="M 1120 185 Q 1095 165 1070 145"/>
+<path class="road" data-edge-id="e17" d="M 1070 145 C 1105 125 1145 145 1190 170"/>
+<path class="road" data-edge-id="e18" d="M 1190 170 Q 1230 175 1270 175"/>
+<path class="road" data-edge-id="e19" d="M 1270 175 Q 1305 150 1340 125"/>
+<path class="road" data-edge-id="e20" d="M 1340 125 Q 1395 150 1450 175"/>
+<path class="road" data-edge-id="e21a" d="M 1450 175 Q 1495 165 1540 180"/>
+<path class="road" data-edge-id="e21b" d="M 1450 175 Q 1510 265 1580 300"/>
+<path class="road" data-edge-id="e22a" d="M 1540 180 Q 1590 170 1640 175"/>
+<path class="road" data-edge-id="e23a" d="M 1640 175 Q 1690 178 1735 200"/>
+<path class="road" data-edge-id="e24a" d="M 1735 200 C 1780 215 1825 270 1880 285"/>
+<path class="road" data-edge-id="e22b" d="M 1580 300 Q 1630 308 1680 305"/>
+<path class="road" data-edge-id="e23b" d="M 1680 305 Q 1745 315 1810 300"/>
+<path class="road" data-edge-id="e24b" d="M 1810 300 Q 1845 292 1880 285"/>
+<path class="road" data-edge-id="e25" d="M 1880 285 Q 1925 290 1970 315"/>
+<path class="road" data-edge-id="e26" d="M 1970 315 Q 2008 335 2045 370"/>
+<path class="road" data-edge-id="e27" d="M 2045 370 Q 2075 405 2100 440"/>
+<path class="road" data-edge-id="e28" d="M 2100 440 Q 2137.5 475 2175 510"/>
+<path class="road" data-edge-id="e29a" d="M 2175 510 Q 2122.5 515.5 2070 565"/>
+<path class="road" data-edge-id="e29b" d="M 2175 510 Q 2212.5 582 2250 610"/>
+<path class="road" data-edge-id="e30a" d="M 2070 565 Q 2025 575.5 1980 630"/>
+<path class="road" data-edge-id="e31a" d="M 1980 630 Q 1945 648 1910 710"/>
+<path class="road" data-edge-id="e32a" d="M 1910 710 Q 1990 738 2070 810"/>
+<path class="road" data-edge-id="e30b" d="M 2250 610 Q 2265 682 2280 710"/>
+<path class="road" data-edge-id="e31b" d="M 2280 710 Q 2240 769.5 2200 785"/>
+<path class="road" data-edge-id="e32b" d="M 2200 785 Q 2135 819.5 2070 810"/>
+<path class="road" data-edge-id="e33" d="M 2070 810 Q 2010 835 1950 860"/>
+<path class="road" data-edge-id="e34" d="M 1950 860 Q 1892.5 842.5 1835 825"/>
+<path class="road" data-edge-id="e35" d="M 1835 825 Q 1777.5 812.5 1720 800"/>
+<path class="road" data-edge-id="e36" d="M 1720 800 Q 1662.5 812.5 1605 825"/>
+<path class="road" data-edge-id="e37" d="M 1605 825 Q 1552.5 845 1500 865"/>
+<path class="road" data-edge-id="e38" d="M 1500 865 Q 1442.5 887.5 1385 910"/>
+<path class="road" data-edge-id="e39" d="M 1385 910 Q 1322.5 927.5 1260 945"/>
+<path class="road" data-edge-id="e40" d="M 1260 945 Q 1192.5 935 1125 925"/>
+<path class="road" data-edge-id="e41" d="M 1125 925 Q 1055 907.5 985 890"/>
+<path class="road" data-edge-id="e42" d="M 985 890 Q 912.5 897.5 840 905"/>
+<path class="road" data-edge-id="e43" d="M 840 905 Q 770 922.5 700 940"/>
+<path class="road" data-edge-id="e44" d="M 700 940 Q 630 927.5 560 915"/>
+<path class="road" data-edge-id="e45" d="M 560 915 Q 495 890 430 865"/>
+<path class="road" data-edge-id="e46" d="M 430 865 Q 370 832.5 310 800"/>
+<path class="road" data-edge-id="e47" d="M 310 800 Q 255 755 200 710"/>
+<path class="road" data-edge-id="e48" d="M 200 710 Q 157.5 665 115 620"/>
+  </g>
+  <g id="ordinary-route-centerlines">
+<path class="road" data-edge-id="e01" d="M 80 520 Q 120 522.5 160 525"/>
+<path class="road" data-edge-id="e02" d="M 160 525 Q 200 507.5 240 490"/>
+<path class="road" data-edge-id="e03" d="M 240 490 Q 277.5 462.5 315 435"/>
+<path class="road" data-edge-id="e04a" d="M 315 435 Q 347.5 370.5 380 350"/>
+<path class="road" data-edge-id="e04b" d="M 315 435 Q 345 492 375 505"/>
+<path class="road" data-edge-id="e05a" d="M 380 350 Q 422.5 303 465 300"/>
+<path class="road" data-edge-id="e06a" d="M 465 300 Q 507.5 295.5 550 335"/>
+<path class="road" data-edge-id="e05b" d="M 375 505 Q 420 544.5 465 540"/>
+<path class="road" data-edge-id="e06b" d="M 465 540 Q 510 542 555 500"/>
+<path class="road" data-edge-id="e07a" d="M 550 335 Q 592.5 350.5 635 410"/>
+<path class="road" data-edge-id="e07b" d="M 555 500 Q 595 477 635 410"/>
+<path class="road" data-edge-id="e08" d="M 635 410 Q 670 377.5 705 345"/>
+<path class="road" data-edge-id="e09" d="M 705 345 Q 737.5 312.5 770 280"/>
+<path class="road" data-edge-id="e10a" d="M 770 280 Q 802.5 230.5 835 225"/>
+<path class="road" data-edge-id="e10b" d="M 770 280 Q 807.5 324.5 845 325"/>
+<path class="road" data-edge-id="e11a" d="M 835 225 Q 877.5 188 920 195"/>
+<path class="road" data-edge-id="e12a" d="M 920 195 Q 957.5 188 995 225"/>
+<path class="road" data-edge-id="e11b" d="M 845 325 Q 885 354.5 925 340"/>
+<path class="road" data-edge-id="e12b" d="M 925 340 Q 957.5 362 990 340"/>
+<path class="road" data-edge-id="e13a" d="M 995 225 Q 1020 235.5 1045 290"/>
+<path class="road" data-edge-id="e13b" d="M 990 340 Q 1017.5 337 1045 290"/>
+<path class="road" data-edge-id="e14" d="M 1045 290 Q 1077.5 272.5 1110 255"/>
+<path class="road" data-edge-id="e15" d="M 1110 255 Q 1115 220 1120 185"/>
+<path class="road" data-edge-id="e16" d="M 1120 185 Q 1095 165 1070 145"/>
+<path class="road" data-edge-id="e17" d="M 1070 145 C 1105 125 1145 145 1190 170"/>
+<path class="road" data-edge-id="e18" d="M 1190 170 Q 1230 175 1270 175"/>
+<path class="road" data-edge-id="e19" d="M 1270 175 Q 1305 150 1340 125"/>
+<path class="road" data-edge-id="e20" d="M 1340 125 Q 1395 150 1450 175"/>
+<path class="road" data-edge-id="e21a" d="M 1450 175 Q 1495 165 1540 180"/>
+<path class="road" data-edge-id="e21b" d="M 1450 175 Q 1510 265 1580 300"/>
+<path class="road" data-edge-id="e22a" d="M 1540 180 Q 1590 170 1640 175"/>
+<path class="road" data-edge-id="e23a" d="M 1640 175 Q 1690 178 1735 200"/>
+<path class="road" data-edge-id="e24a" d="M 1735 200 C 1780 215 1825 270 1880 285"/>
+<path class="road" data-edge-id="e22b" d="M 1580 300 Q 1630 308 1680 305"/>
+<path class="road" data-edge-id="e23b" d="M 1680 305 Q 1745 315 1810 300"/>
+<path class="road" data-edge-id="e24b" d="M 1810 300 Q 1845 292 1880 285"/>
+<path class="road" data-edge-id="e25" d="M 1880 285 Q 1925 290 1970 315"/>
+<path class="road" data-edge-id="e26" d="M 1970 315 Q 2008 335 2045 370"/>
+<path class="road" data-edge-id="e27" d="M 2045 370 Q 2075 405 2100 440"/>
+<path class="road" data-edge-id="e28" d="M 2100 440 Q 2137.5 475 2175 510"/>
+<path class="road" data-edge-id="e29a" d="M 2175 510 Q 2122.5 515.5 2070 565"/>
+<path class="road" data-edge-id="e29b" d="M 2175 510 Q 2212.5 582 2250 610"/>
+<path class="road" data-edge-id="e30a" d="M 2070 565 Q 2025 575.5 1980 630"/>
+<path class="road" data-edge-id="e31a" d="M 1980 630 Q 1945 648 1910 710"/>
+<path class="road" data-edge-id="e32a" d="M 1910 710 Q 1990 738 2070 810"/>
+<path class="road" data-edge-id="e30b" d="M 2250 610 Q 2265 682 2280 710"/>
+<path class="road" data-edge-id="e31b" d="M 2280 710 Q 2240 769.5 2200 785"/>
+<path class="road" data-edge-id="e32b" d="M 2200 785 Q 2135 819.5 2070 810"/>
+<path class="road" data-edge-id="e33" d="M 2070 810 Q 2010 835 1950 860"/>
+<path class="road" data-edge-id="e34" d="M 1950 860 Q 1892.5 842.5 1835 825"/>
+<path class="road" data-edge-id="e35" d="M 1835 825 Q 1777.5 812.5 1720 800"/>
+<path class="road" data-edge-id="e36" d="M 1720 800 Q 1662.5 812.5 1605 825"/>
+<path class="road" data-edge-id="e37" d="M 1605 825 Q 1552.5 845 1500 865"/>
+<path class="road" data-edge-id="e38" d="M 1500 865 Q 1442.5 887.5 1385 910"/>
+<path class="road" data-edge-id="e39" d="M 1385 910 Q 1322.5 927.5 1260 945"/>
+<path class="road" data-edge-id="e40" d="M 1260 945 Q 1192.5 935 1125 925"/>
+<path class="road" data-edge-id="e41" d="M 1125 925 Q 1055 907.5 985 890"/>
+<path class="road" data-edge-id="e42" d="M 985 890 Q 912.5 897.5 840 905"/>
+<path class="road" data-edge-id="e43" d="M 840 905 Q 770 922.5 700 940"/>
+<path class="road" data-edge-id="e44" d="M 700 940 Q 630 927.5 560 915"/>
+<path class="road" data-edge-id="e45" d="M 560 915 Q 495 890 430 865"/>
+<path class="road" data-edge-id="e46" d="M 430 865 Q 370 832.5 310 800"/>
+<path class="road" data-edge-id="e47" d="M 310 800 Q 255 755 200 710"/>
+<path class="road" data-edge-id="e48" d="M 200 710 Q 157.5 665 115 620"/>
+  </g>
+  <g id="node-clearances">
+<circle class="node-clearance" data-node-id="n01" cx="80" cy="520" r="58"/>
+<circle class="node-clearance" data-node-id="n02" cx="160" cy="525" r="58"/>
+<circle class="node-clearance" data-node-id="n03" cx="240" cy="490" r="58"/>
+<circle class="node-clearance" data-node-id="n04" cx="315" cy="435" r="78"/>
+<circle class="node-clearance" data-node-id="n05a" cx="380" cy="350" r="58"/>
+<circle class="node-clearance" data-node-id="n06a" cx="465" cy="300" r="108"/>
+<circle class="node-clearance" data-node-id="n07a" cx="550" cy="335" r="58"/>
+<circle class="node-clearance" data-node-id="n05b" cx="375" cy="505" r="86"/>
+<circle class="node-clearance" data-node-id="n06b" cx="465" cy="540" r="58"/>
+<circle class="node-clearance" data-node-id="n07b" cx="555" cy="500" r="58"/>
+<circle class="node-clearance" data-node-id="n08" cx="635" cy="410" r="58"/>
+<circle class="node-clearance" data-node-id="n09" cx="705" cy="345" r="58"/>
+<circle class="node-clearance" data-node-id="n10" cx="770" cy="280" r="78"/>
+<circle class="node-clearance" data-node-id="n11a" cx="835" cy="225" r="58"/>
+<circle class="node-clearance" data-node-id="n12a" cx="920" cy="195" r="58"/>
+<circle class="node-clearance" data-node-id="n13a" cx="995" cy="225" r="58"/>
+<circle class="node-clearance" data-node-id="n11b" cx="845" cy="325" r="58"/>
+<circle class="node-clearance" data-node-id="n12b" cx="925" cy="340" r="86"/>
+<circle class="node-clearance" data-node-id="n13b" cx="990" cy="340" r="58"/>
+<circle class="node-clearance" data-node-id="n14" cx="1045" cy="290" r="58"/>
+<circle class="node-clearance" data-node-id="n15" cx="1110" cy="255" r="58"/>
+<circle class="node-clearance" data-node-id="n16" cx="1120" cy="185" r="58"/>
+<circle class="node-clearance" data-node-id="n17" cx="1070" cy="145" r="58"/>
+<circle class="node-clearance" data-node-id="n18" cx="1190" cy="170" r="58"/>
+<circle class="node-clearance" data-node-id="n19" cx="1270" cy="175" r="58"/>
+<circle class="node-clearance" data-node-id="n20" cx="1340" cy="125" r="58"/>
+<circle class="node-clearance" data-node-id="n21" cx="1450" cy="175" r="78"/>
+<circle class="node-clearance" data-node-id="n22a" cx="1540" cy="180" r="58"/>
+<circle class="node-clearance" data-node-id="n23a" cx="1640" cy="175" r="58"/>
+<circle class="node-clearance" data-node-id="n24a" cx="1735" cy="200" r="58"/>
+<circle class="node-clearance" data-node-id="n22b" cx="1580" cy="300" r="58"/>
+<circle class="node-clearance" data-node-id="n23b" cx="1680" cy="305" r="58"/>
+<circle class="node-clearance" data-node-id="n24b" cx="1810" cy="300" r="58"/>
+<circle class="node-clearance" data-node-id="n25" cx="1880" cy="285" r="58"/>
+<circle class="node-clearance" data-node-id="n26" cx="1970" cy="315" r="58"/>
+<circle class="node-clearance" data-node-id="n27" cx="2045" cy="370" r="58"/>
+<circle class="node-clearance" data-node-id="n28" cx="2100" cy="440" r="58"/>
+<circle class="node-clearance" data-node-id="n29" cx="2175" cy="510" r="78"/>
+<circle class="node-clearance" data-node-id="n30a" cx="2070" cy="565" r="58"/>
+<circle class="node-clearance" data-node-id="n31a" cx="1980" cy="630" r="58"/>
+<circle class="node-clearance" data-node-id="n32a" cx="1910" cy="710" r="58"/>
+<circle class="node-clearance" data-node-id="n30b" cx="2250" cy="610" r="58"/>
+<circle class="node-clearance" data-node-id="n31b" cx="2280" cy="710" r="58"/>
+<circle class="node-clearance" data-node-id="n32b" cx="2200" cy="785" r="58"/>
+<circle class="node-clearance" data-node-id="n33" cx="2070" cy="810" r="58"/>
+<circle class="node-clearance" data-node-id="n34" cx="1950" cy="860" r="108"/>
+<circle class="node-clearance" data-node-id="n35" cx="1835" cy="825" r="58"/>
+<circle class="node-clearance" data-node-id="n36" cx="1720" cy="800" r="58"/>
+<circle class="node-clearance" data-node-id="n37" cx="1605" cy="825" r="58"/>
+<circle class="node-clearance" data-node-id="n38" cx="1500" cy="865" r="58"/>
+<circle class="node-clearance" data-node-id="n39" cx="1385" cy="910" r="58"/>
+<circle class="node-clearance" data-node-id="n40" cx="1260" cy="945" r="58"/>
+<circle class="node-clearance" data-node-id="n41" cx="1125" cy="925" r="58"/>
+<circle class="node-clearance" data-node-id="n42" cx="985" cy="890" r="58"/>
+<circle class="node-clearance" data-node-id="n43" cx="840" cy="905" r="58"/>
+<circle class="node-clearance" data-node-id="n44" cx="700" cy="940" r="58"/>
+<circle class="node-clearance" data-node-id="n45" cx="560" cy="915" r="58"/>
+<circle class="node-clearance" data-node-id="n46" cx="430" cy="865" r="58"/>
+<circle class="node-clearance" data-node-id="n47" cx="310" cy="800" r="58"/>
+<circle class="node-clearance" data-node-id="n48" cx="200" cy="710" r="58"/>
+<circle class="node-clearance" data-node-id="n49" cx="115" cy="620" r="58"/>
+<circle class="node-center" data-node-id="n01" cx="80" cy="520" r="8"/>
+<circle class="node-center" data-node-id="n02" cx="160" cy="525" r="8"/>
+<circle class="node-center" data-node-id="n03" cx="240" cy="490" r="8"/>
+<circle class="node-center" data-node-id="n04" cx="315" cy="435" r="8"/>
+<circle class="node-center" data-node-id="n05a" cx="380" cy="350" r="8"/>
+<circle class="node-center" data-node-id="n06a" cx="465" cy="300" r="8"/>
+<circle class="node-center" data-node-id="n07a" cx="550" cy="335" r="8"/>
+<circle class="node-center" data-node-id="n05b" cx="375" cy="505" r="8"/>
+<circle class="node-center" data-node-id="n06b" cx="465" cy="540" r="8"/>
+<circle class="node-center" data-node-id="n07b" cx="555" cy="500" r="8"/>
+<circle class="node-center" data-node-id="n08" cx="635" cy="410" r="8"/>
+<circle class="node-center" data-node-id="n09" cx="705" cy="345" r="8"/>
+<circle class="node-center" data-node-id="n10" cx="770" cy="280" r="8"/>
+<circle class="node-center" data-node-id="n11a" cx="835" cy="225" r="8"/>
+<circle class="node-center" data-node-id="n12a" cx="920" cy="195" r="8"/>
+<circle class="node-center" data-node-id="n13a" cx="995" cy="225" r="8"/>
+<circle class="node-center" data-node-id="n11b" cx="845" cy="325" r="8"/>
+<circle class="node-center" data-node-id="n12b" cx="925" cy="340" r="8"/>
+<circle class="node-center" data-node-id="n13b" cx="990" cy="340" r="8"/>
+<circle class="node-center" data-node-id="n14" cx="1045" cy="290" r="8"/>
+<circle class="node-center" data-node-id="n15" cx="1110" cy="255" r="8"/>
+<circle class="node-center" data-node-id="n16" cx="1120" cy="185" r="8"/>
+<circle class="node-center" data-node-id="n17" cx="1070" cy="145" r="8"/>
+<circle class="node-center" data-node-id="n18" cx="1190" cy="170" r="8"/>
+<circle class="node-center" data-node-id="n19" cx="1270" cy="175" r="8"/>
+<circle class="node-center" data-node-id="n20" cx="1340" cy="125" r="8"/>
+<circle class="node-center" data-node-id="n21" cx="1450" cy="175" r="8"/>
+<circle class="node-center" data-node-id="n22a" cx="1540" cy="180" r="8"/>
+<circle class="node-center" data-node-id="n23a" cx="1640" cy="175" r="8"/>
+<circle class="node-center" data-node-id="n24a" cx="1735" cy="200" r="8"/>
+<circle class="node-center" data-node-id="n22b" cx="1580" cy="300" r="8"/>
+<circle class="node-center" data-node-id="n23b" cx="1680" cy="305" r="8"/>
+<circle class="node-center" data-node-id="n24b" cx="1810" cy="300" r="8"/>
+<circle class="node-center" data-node-id="n25" cx="1880" cy="285" r="8"/>
+<circle class="node-center" data-node-id="n26" cx="1970" cy="315" r="8"/>
+<circle class="node-center" data-node-id="n27" cx="2045" cy="370" r="8"/>
+<circle class="node-center" data-node-id="n28" cx="2100" cy="440" r="8"/>
+<circle class="node-center" data-node-id="n29" cx="2175" cy="510" r="8"/>
+<circle class="node-center" data-node-id="n30a" cx="2070" cy="565" r="8"/>
+<circle class="node-center" data-node-id="n31a" cx="1980" cy="630" r="8"/>
+<circle class="node-center" data-node-id="n32a" cx="1910" cy="710" r="8"/>
+<circle class="node-center" data-node-id="n30b" cx="2250" cy="610" r="8"/>
+<circle class="node-center" data-node-id="n31b" cx="2280" cy="710" r="8"/>
+<circle class="node-center" data-node-id="n32b" cx="2200" cy="785" r="8"/>
+<circle class="node-center" data-node-id="n33" cx="2070" cy="810" r="8"/>
+<circle class="node-center" data-node-id="n34" cx="1950" cy="860" r="8"/>
+<circle class="node-center" data-node-id="n35" cx="1835" cy="825" r="8"/>
+<circle class="node-center" data-node-id="n36" cx="1720" cy="800" r="8"/>
+<circle class="node-center" data-node-id="n37" cx="1605" cy="825" r="8"/>
+<circle class="node-center" data-node-id="n38" cx="1500" cy="865" r="8"/>
+<circle class="node-center" data-node-id="n39" cx="1385" cy="910" r="8"/>
+<circle class="node-center" data-node-id="n40" cx="1260" cy="945" r="8"/>
+<circle class="node-center" data-node-id="n41" cx="1125" cy="925" r="8"/>
+<circle class="node-center" data-node-id="n42" cx="985" cy="890" r="8"/>
+<circle class="node-center" data-node-id="n43" cx="840" cy="905" r="8"/>
+<circle class="node-center" data-node-id="n44" cx="700" cy="940" r="8"/>
+<circle class="node-center" data-node-id="n45" cx="560" cy="915" r="8"/>
+<circle class="node-center" data-node-id="n46" cx="430" cy="865" r="8"/>
+<circle class="node-center" data-node-id="n47" cx="310" cy="800" r="8"/>
+<circle class="node-center" data-node-id="n48" cx="200" cy="710" r="8"/>
+<circle class="node-center" data-node-id="n49" cx="115" cy="620" r="8"/>
+  </g>
+  <g id="conditional-cloud-stair"><path class="cloud-stair" data-edge-id="e14c" d="M 1045 290 C 1095 270 1110 235 1088 215 C 1065 194 1055 167 1070 145"/></g>
+  <g id="transport-flight-paths"><path class="transport" data-node-id="n06a" d="M 465 300 Q 550 224 635 390 Q 670 290 705 345"/>
+<path class="transport" data-node-id="n34" d="M 1950 860 Q 1777.5 735 1605 825"/></g>
+</svg>

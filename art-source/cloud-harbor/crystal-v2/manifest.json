@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "cloud-harbor-selected-art.v1",
+  "selectedAt": "2026-09-23",
+  "selectedCandidate": "03",
+  "userDecision": "Use the attached dream-crystal map; fit nodes and paths naturally to the terrain.",
+  "boardTemplateRef": "ximitu-card-hunt-board.v1@2.2.1",
+  "themePackRef": "cloud-harbor@2.2.1",
+  "supersedes": "../crystal-v1/manifest.json",
+  "correction": "Replace the northern rock arch with an automatic airborne crossing over cloudfall; pull the exit approach onto grass; retain the selected bitmap and all game rules.",
+  "source": {
+    "file": "../crystal-v1/selected-user-source.png",
+    "sha256": "e75e6f1ed251d2a4956513a423b6eac471e27fd9028d61aba581a7312b0d1fb2",
+    "width": 1836,
+    "height": 857,
+    "bytes": 2619501
+  },
+  "master": {
+    "file": "../crystal-v1/world-01-master-crystal-v1.png",
+    "sha256": "ec83c529c44d81aa8aa30d929e80cd93a30a5a8fc0d00ca32406414e2e262e3c",
+    "width": 2400,
+    "height": 1120,
+    "bytes": 5977913
+  },
+  "processing": {
+    "library": "sharp",
+    "version": "0.35.4",
+    "vipsVersion": "8.18.6",
+    "resize": {
+      "fit": "fill",
+      "kernel": "lanczos3",
+      "width": 2400,
+      "height": 1120
+    },
+    "jpeg": {
+      "quality": 90,
+      "chromaSubsampling": "4:4:4",
+      "mozjpeg": false
+    },
+    "creativeChanges": false,
+    "note": "1836x857 selected source is resized to the exact 2400x1120 world; aspect adjustment is less than 0.024%. Crops share this one master, including the 60px west-region overlap."
+  },
+  "crops": [
+    {
+      "regionId": "region-zone-01",
+      "zoneId": "zone-01",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-01-layout.v6",
+      "assetRef": "/assets/board-themes/cloud-harbor/regions/zone-01-crystal-v1.jpg",
+      "artBox": {
+        "x": 0,
+        "y": 0,
+        "width": 1200,
+        "height": 620
+      },
+      "width": 1200,
+      "height": 620,
+      "sha256": "c30b5e6e6a2ce240c5811a1dd31dd79da348abd476a970cc471f863beeb88196",
+      "bytes": 207078
+    },
+    {
+      "regionId": "region-zone-02",
+      "zoneId": "zone-02",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-02-layout.v4",
+      "assetRef": "/assets/board-themes/cloud-harbor/regions/zone-02-crystal-v1.jpg",
+      "artBox": {
+        "x": 1200,
+        "y": 0,
+        "width": 1200,
+        "height": 560
+      },
+      "width": 1200,
+      "height": 560,
+      "sha256": "f525facaf34ffc8a9fc39556c69ed3c6a5e54e918240b31e07a0f007c393b9cb",
+      "bytes": 188906
+    },
+    {
+      "regionId": "region-zone-03",
+      "zoneId": "zone-03",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-03-layout.v2",
+      "assetRef": "/assets/board-themes/cloud-harbor/regions/zone-03-crystal-v1.jpg",
+      "artBox": {
+        "x": 1200,
+        "y": 560,
+        "width": 1200,
+        "height": 560
+      },
+      "width": 1200,
+      "height": 560,
+      "sha256": "afb1a8e7b18ee56b500d2df1dbc1054baafde37f7676ad024abc40cd36c8df13",
+      "bytes": 173681
+    },
+    {
+      "regionId": "region-zone-04",
+      "zoneId": "zone-04",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-04-layout.v2",
+      "assetRef": "/assets/board-themes/cloud-harbor/regions/zone-04-crystal-v1.jpg",
+      "artBox": {
+        "x": 0,
+        "y": 560,
+        "width": 1200,
+        "height": 560
+      },
+      "width": 1200,
+      "height": 560,
+      "sha256": "cc9d7b9e2799c632b1635d16639cdd586cc300bbfca815bc25b997f9efc66b6e",
+      "bytes": 175183
+    }
+  ],
+  "artContract": {
+    "boardTemplateDigest": "dcd96a4c526c1a9e130182b7acb6e00c67ca1f1bc2834915d19ac5d6327ef21f",
+    "ruleTopologyDigest": "70618a57564a95f69ea350409f11439eafdbd1048d3b6b8eb1b5fedd0231e282",
+    "imagegenProjectionDigest": "5a2d5f1aa77494228067d5e72d48daf369d428fbfd5030c9c72b840855b8c8bf",
+    "derivedZoneDigest": "2b3a25825ce6859c844669deab712f30b2984cb0bf67ad822f8f032f128fe08c",
+    "nodeCount": 61,
+    "edgeCount": 65,
+    "layoutContractRefs": {
+      "zone-01": "board.ximitu-card-hunt.zone-01-layout.v6",
+      "zone-02": "board.ximitu-card-hunt.zone-02-layout.v4",
+      "zone-03": "board.ximitu-card-hunt.zone-03-layout.v2",
+      "zone-04": "board.ximitu-card-hunt.zone-04-layout.v2"
+    }
+  },
+  "authoritativeControl": {
+    "svgFile": "world-01-imagegen-control-guide.svg",
+    "svgSha256": "cafd6ed9249979a65816aa444a15d34a389bcf06b9bec71c72738fad0c867258",
+    "rasterFile": "world-01-imagegen-control-guide.png",
+    "rasterSha256": "a3e229f40ae398776231cd8e4e5048267ea56c07208793a663a5897a648fd41d"
+  },
+  "guides": [
+    {
+      "zoneId": "zone-01",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-01-layout.v6",
+      "file": "layout-guides/zone-01-layout-guide.svg",
+      "sha256": "dc64002caf60510d2dc3652300d6e75707b883b20f3778d00321d0cd64226051",
+      "topologySha256": "a1952a1aff35ce0b91fd6e0060dc892906ee5d29540cce31340235e72d02024c"
+    },
+    {
+      "zoneId": "zone-02",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-02-layout.v4",
+      "file": "layout-guides/zone-02-layout-guide.svg",
+      "sha256": "462e8fc51a877fec0f7f91f3882c80036d12d289a6725328ade51a24fa59d17a",
+      "topologySha256": "735a620eb949f4e9cc4bda69e519469183796700f1fe88225d664c53124c743d"
+    },
+    {
+      "zoneId": "zone-03",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-03-layout.v2",
+      "file": "layout-guides/zone-03-layout-guide.svg",
+      "sha256": "17cbb4aea1a4f8618df3f50ea0b646b040eed25801f830bc5d0c5299e6126231",
+      "topologySha256": "43d951c9b15651cea1c9d38db2bdceb6382c60e03c1468e06f0459cb42a70f01"
+    },
+    {
+      "zoneId": "zone-04",
+      "layoutContractRef": "board.ximitu-card-hunt.zone-04-layout.v2",
+      "file": "layout-guides/zone-04-layout-guide.svg",
+      "sha256": "12bc186018afc44ef06e880815d1a0e8bab737f1b99ada6a326d0cfe3b8c41d4",
+      "topologySha256": "35902e4d3f6c485597a9838a17e60d4d702341c97a92f04839990e1f1f9a3bcb"
+    }
+  ],
+  "alignmentOverlay": {
+    "svgFile": "world-01-route-alignment.svg",
+    "svgSha256": "400ad825122ebf024a82c483cf4a45a70d3b9c039313d90cfd9c6db65773dbb8",
+    "rasterFile": "world-01-route-alignment.png",
+    "rasterSha256": "610ddb118916024c96140b1d4583268b74866edef397c410e50bc7136f5253a1"
+  },
+  "qa": {
+    "status": "verified-for-release",
+    "bitmapRegenerated": false,
+    "ruleTopologyChanged": false,
+    "geometryChanged": true,
+    "sourceSelection": "User attachment pixels exactly match candidate 03; PNG encoding differs, so attachment bytes are retained.",
+    "required": [
+      "normal",
+      "no-art",
+      "404-fallback",
+      "movement",
+      "transport",
+      "branches",
+      "mobile",
+      "reduced-motion"
+    ],
+    "verifiedAt": "2026-09-23",
+    "automated": "npm run verify: 520 passed, 0 failed; includes immutable published snapshots, unchanged rules, all dice values across the air edge, cancellation cleanup, and reduced-motion keyframes.",
+    "browser": [
+      "Chrome desktop: selected background preserved, no timber or solid road on e15; takeoff and landing on grass; cloud gate and exit approach align with terrain.",
+      "Synthetic teacher session: six random rolls, upper first branch and lower cloudfall branch; roll 2 from n14 traversed n15 to n16 and settled once; pause/resume preserved position and assets.",
+      "375x812: 61 nodes, one air route, no horizontal page overflow; viewport restored afterward.",
+      "Chrome reduced-motion emulation: node transition duration 0.00001s; roll 6 from n16 continued through n21 branch to n22a; preference restored afterward.",
+      "Intentional theme-asset 404: visible fallback, all 61 node transforms identical, one air route; next roll settled at n28."
+    ],
+    "limits": [
+      "Airborne midpoint was not captured as a browser screenshot; actual air-edge traversal completion and presentation/cancellation keyframes were checked independently.",
+      "Existing cannon transport had browser coverage in the preceding 2.2.0 release; current unchanged transport rules and flow were rechecked by the full automated suite.",
+      "One Chrome asynchronous extension message-channel error was observed; no app stack accompanied it. Expected theme 404 errors were confined to the missing-art fixture."
+    ],
+    "productionBaseline": "6c61b8c99f4f88dd6cde7d29b4d659d1a4847275"
+  }
+}

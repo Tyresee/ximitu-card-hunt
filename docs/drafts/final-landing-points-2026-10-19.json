@@ -1,0 +1,656 @@
+{
+  "kind": "monopoly-final-landing-points-proposal",
+  "version": "draft-2026-10-19-v1",
+  "status": "approved-amounts-archived-proposal",
+  "enabled": false,
+  "runtimeConfig": false,
+  "currency": "wordattack-points",
+  "trigger": "final-landing-only",
+  "creditTiming": "immediate-after-server-verified-landing",
+  "recipient": "acting-student-uuid",
+  "existingCoinsAndStars": "unchanged",
+  "historicalBackfill": false,
+  "requires": [
+    "user-approved-amounts",
+    "server-authoritative-turn-and-final-landing",
+    "idempotent-platform-wallet-receipt"
+  ],
+  "worlds": [
+    {
+      "worldRef": "world.ximitu.cloud-harbor@1.2.1",
+      "boardRef": "ximitu-card-hunt-board.v1@2.2.1",
+      "levelRef": "ximitu-card-hunt.level-01@2.0.0",
+      "nodes": [
+        {
+          "nodeId": "n01",
+          "zoneId": "zone-01",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n02",
+          "zoneId": "zone-01",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n03",
+          "zoneId": "zone-01",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n04",
+          "zoneId": "zone-01",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n05a",
+          "zoneId": "zone-01",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n06a",
+          "zoneId": "zone-01",
+          "proposedPoints": 100,
+          "note": "只有这格本身确为完整路线最终落点才领奖；正常运输/穿越按实际最终目标格结算，不在中转点叠加。"
+        },
+        {
+          "nodeId": "n07a",
+          "zoneId": "zone-01",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n05b",
+          "zoneId": "zone-01",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "n06b",
+          "zoneId": "zone-01",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n07b",
+          "zoneId": "zone-01",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n08",
+          "zoneId": "zone-01",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n09",
+          "zoneId": "zone-01",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n10",
+          "zoneId": "zone-01",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n11a",
+          "zoneId": "zone-01",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n12a",
+          "zoneId": "zone-01",
+          "proposedPoints": 500
+        },
+        {
+          "nodeId": "n13a",
+          "zoneId": "zone-01",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n11b",
+          "zoneId": "zone-01",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n12b",
+          "zoneId": "zone-01",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "n13b",
+          "zoneId": "zone-01",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n14",
+          "zoneId": "zone-01",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n15",
+          "zoneId": "zone-01",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n16",
+          "zoneId": "zone-01",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n17",
+          "zoneId": "zone-01",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n18",
+          "zoneId": "zone-01",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "n19",
+          "zoneId": "zone-02",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n20",
+          "zoneId": "zone-02",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n21",
+          "zoneId": "zone-02",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n22a",
+          "zoneId": "zone-02",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n23a",
+          "zoneId": "zone-02",
+          "proposedPoints": 500
+        },
+        {
+          "nodeId": "n24a",
+          "zoneId": "zone-02",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "n22b",
+          "zoneId": "zone-02",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n23b",
+          "zoneId": "zone-02",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n24b",
+          "zoneId": "zone-02",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n25",
+          "zoneId": "zone-02",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n26",
+          "zoneId": "zone-02",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n27",
+          "zoneId": "zone-02",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n28",
+          "zoneId": "zone-02",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "n29",
+          "zoneId": "zone-02",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n30a",
+          "zoneId": "zone-03",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n31a",
+          "zoneId": "zone-03",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "n32a",
+          "zoneId": "zone-03",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n30b",
+          "zoneId": "zone-03",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n31b",
+          "zoneId": "zone-03",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n32b",
+          "zoneId": "zone-03",
+          "proposedPoints": 500
+        },
+        {
+          "nodeId": "n33",
+          "zoneId": "zone-03",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n34",
+          "zoneId": "zone-03",
+          "proposedPoints": 100,
+          "note": "只有这格本身确为完整路线最终落点才领奖；正常运输/穿越按实际最终目标格结算，不在中转点叠加。"
+        },
+        {
+          "nodeId": "n35",
+          "zoneId": "zone-03",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n36",
+          "zoneId": "zone-03",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n37",
+          "zoneId": "zone-03",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "n38",
+          "zoneId": "zone-03",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n39",
+          "zoneId": "zone-03",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n40",
+          "zoneId": "zone-03",
+          "proposedPoints": 1000
+        },
+        {
+          "nodeId": "n41",
+          "zoneId": "zone-04",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n42",
+          "zoneId": "zone-04",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n43",
+          "zoneId": "zone-04",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "n44",
+          "zoneId": "zone-04",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "n45",
+          "zoneId": "zone-04",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "n46",
+          "zoneId": "zone-04",
+          "proposedPoints": 500
+        },
+        {
+          "nodeId": "n47",
+          "zoneId": "zone-04",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "n48",
+          "zoneId": "zone-04",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "n49",
+          "zoneId": "zone-04",
+          "proposedPoints": 100,
+          "note": "只有这格本身确为完整路线最终落点才领奖；正常运输/穿越按实际最终目标格结算，不在中转点叠加。"
+        }
+      ]
+    },
+    {
+      "worldRef": "world.ximitu.beyond-cloud@1.0.0",
+      "boardRef": "ximitu-card-hunt-world-02.v1@1.0.0",
+      "levelRef": "ximitu-card-hunt.world-02@1.0.0",
+      "nodes": [
+        {
+          "nodeId": "w2n01",
+          "zoneId": "zone-05",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n02",
+          "zoneId": "zone-05",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n03",
+          "zoneId": "zone-05",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "w2n04",
+          "zoneId": "zone-05",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n05a",
+          "zoneId": "zone-05",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n06a",
+          "zoneId": "zone-05",
+          "proposedPoints": 100,
+          "note": "只有这格本身确为完整路线最终落点才领奖；正常运输/穿越按实际最终目标格结算，不在中转点叠加。"
+        },
+        {
+          "nodeId": "w2n05b",
+          "zoneId": "zone-05",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "w2n06b",
+          "zoneId": "zone-05",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n07",
+          "zoneId": "zone-05",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n08",
+          "zoneId": "zone-05",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n09",
+          "zoneId": "zone-05",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n10",
+          "zoneId": "zone-05",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "w2n11",
+          "zoneId": "zone-05",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n12",
+          "zoneId": "zone-05",
+          "proposedPoints": 500
+        },
+        {
+          "nodeId": "w2n13",
+          "zoneId": "zone-05",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n14",
+          "zoneId": "zone-05",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n15",
+          "zoneId": "zone-06",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n16",
+          "zoneId": "zone-06",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n17",
+          "zoneId": "zone-06",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "w2n18",
+          "zoneId": "zone-06",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n19a",
+          "zoneId": "zone-06",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n20a",
+          "zoneId": "zone-06",
+          "proposedPoints": 100,
+          "note": "只有这格本身确为完整路线最终落点才领奖；正常运输/穿越按实际最终目标格结算，不在中转点叠加。"
+        },
+        {
+          "nodeId": "w2n21a",
+          "zoneId": "zone-06",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n19b",
+          "zoneId": "zone-06",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "w2n20b",
+          "zoneId": "zone-06",
+          "proposedPoints": 500
+        },
+        {
+          "nodeId": "w2n21b",
+          "zoneId": "zone-06",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n22",
+          "zoneId": "zone-06",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n23",
+          "zoneId": "zone-06",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n24",
+          "zoneId": "zone-06",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n25",
+          "zoneId": "zone-06",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "w2n26",
+          "zoneId": "zone-06",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n27",
+          "zoneId": "zone-06",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n28",
+          "zoneId": "zone-06",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n29",
+          "zoneId": "zone-07",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n30",
+          "zoneId": "zone-07",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n31",
+          "zoneId": "zone-07",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "w2n32",
+          "zoneId": "zone-07",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n33a",
+          "zoneId": "zone-07",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n34a",
+          "zoneId": "zone-07",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n35a",
+          "zoneId": "zone-07",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n33b",
+          "zoneId": "zone-07",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n34b",
+          "zoneId": "zone-07",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n35b",
+          "zoneId": "zone-07",
+          "proposedPoints": 500
+        },
+        {
+          "nodeId": "w2n36",
+          "zoneId": "zone-07",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n37",
+          "zoneId": "zone-07",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n38",
+          "zoneId": "zone-07",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n39",
+          "zoneId": "zone-07",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "w2n40",
+          "zoneId": "zone-07",
+          "proposedPoints": 1000
+        },
+        {
+          "nodeId": "w2n41",
+          "zoneId": "zone-07",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n42",
+          "zoneId": "zone-08",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n43",
+          "zoneId": "zone-08",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n44",
+          "zoneId": "zone-08",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "w2n45",
+          "zoneId": "zone-08",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n46a",
+          "zoneId": "zone-08",
+          "proposedPoints": 500
+        },
+        {
+          "nodeId": "w2n47a",
+          "zoneId": "zone-08",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n46b",
+          "zoneId": "zone-08",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n47b",
+          "zoneId": "zone-08",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n48",
+          "zoneId": "zone-08",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n49",
+          "zoneId": "zone-08",
+          "proposedPoints": 200
+        },
+        {
+          "nodeId": "w2n50",
+          "zoneId": "zone-08",
+          "proposedPoints": 100
+        },
+        {
+          "nodeId": "w2n51",
+          "zoneId": "zone-08",
+          "proposedPoints": 300
+        },
+        {
+          "nodeId": "w2n52",
+          "zoneId": "zone-08",
+          "proposedPoints": 100,
+          "note": "只有这格本身确为完整路线最终落点才领奖；正常运输/穿越按实际最终目标格结算，不在中转点叠加。"
+        }
+      ]
+    }
+  ],
+  "supersededBy": "monopoly-final-landing-v1"
+}
